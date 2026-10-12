@@ -34,7 +34,7 @@ The Atkinson Hyperlegible font (OFL license) is in `fonts/` and loads automatica
 1. Check `pdfinfo poster.pdf`: one page, 3168 x 3168 pt (44 x 44 in).
 2. Look at the whole page and zoom into every section for overflow.
 3. Scan the QR code on a phone.
-4. The logo is the vector DataSquad hexagon mark (`assets/datasquad-mark-white.svg`). The network mark with the globe only exists as a 215 px image, so it is not used.
+4. The logo and watermark are vector traces of the 215 px DataSquad International PNG (`assets/data-squad-int.png`). Ask Paula for the original vector file and swap it in if one exists; the trace is good but not the source.
 5. Print a small paper proof.
 
 ## Layout

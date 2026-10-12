@@ -308,6 +308,7 @@
   authors: none,
   affiliations: none,
   logo: none,
+  watermark: none,
   footer-text: none,
   footer-url: none,
   size: "44x44",
@@ -324,9 +325,14 @@
     height: int(dims.at(1)) * 1in,
     margin: (top: 1in, bottom: 1.7in, left: 1.25in, right: 1.25in),
     fill: canvas,
-    background: if draft {
-      place(center + horizon, rotate(-35deg, text(size: 430pt, weight: "bold", fill: rgb("#1D355724"), tracking: 20pt, "DRAFT")))
-    } else { none },
+    background: {
+      if watermark != none {
+        place(center + horizon, image(watermark, width: 34in))
+      }
+      if draft {
+        place(center + horizon, rotate(-35deg, text(size: 430pt, weight: "bold", fill: rgb("#1D355724"), tracking: 20pt, "DRAFT")))
+      }
+    },
     footer: block(
       width: 100%,
       fill: navy,
@@ -394,7 +400,8 @@
    authors: [Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan], 
    affiliations: [Carleton College DataSquad | UCLA Library Data Science Center DataSquad], 
    size: "44x44", 
-   logo: "assets/datasquad-mark-white.svg", 
+   logo: "assets/datasquad-international-mark-white.svg", 
+   watermark: "assets/datasquad-international-watermark.svg", 
    footer-text: [US-RSE '26 · San Jose · Poster reception, Monday Oct 19], 
    footer-url: [datasquad.info], 
    draft: true, 
