@@ -30,6 +30,7 @@ The Atkinson Hyperlegible font (OFL license) is in `fonts/` and loads automatica
 
 ## Before it goes to print or Zenodo
 
+0. Set `poster-draft: false` at the top of `poster.qmd` to remove the DRAFT watermark, then re-render.
 1. Check `pdfinfo poster.pdf`: one page, 3168 x 3168 pt (44 x 44 in).
 2. Look at the whole page and zoom into every section for overflow.
 3. Scan the QR code on a phone.

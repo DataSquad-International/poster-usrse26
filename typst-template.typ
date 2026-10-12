@@ -102,6 +102,7 @@
   footer-url: none,
   size: "44x44",
   num-columns: 1,
+  draft: false,
   body,
 ) = {
   let dims = size.split("x")
@@ -113,6 +114,9 @@
     height: int(dims.at(1)) * 1in,
     margin: (top: 1in, bottom: 1.7in, left: 1.25in, right: 1.25in),
     fill: canvas,
+    background: if draft {
+      place(center + horizon, rotate(-35deg, text(size: 430pt, weight: "bold", fill: rgb("#1D355724"), tracking: 20pt, "DRAFT")))
+    } else { none },
     footer: block(
       width: 100%,
       fill: navy,

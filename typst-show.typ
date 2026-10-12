@@ -6,6 +6,7 @@
   $if(poster-logo)$ logo: "$poster-logo$", $endif$
   $if(footer-text)$ footer-text: [$footer-text$], $endif$
   $if(footer-url)$ footer-url: [$footer-url$], $endif$
+  $if(poster-draft)$ draft: $poster-draft$, $endif$
   $if(num-columns)$ num-columns: $num-columns$, $endif$
   doc,
 )
