@@ -131,11 +131,11 @@ Header text (above the columns): eyebrow "US-RSE '26 poster, DataSquad Internati
 6. **Abstract.** Here is the suggested abstract (about 230 words) for the proceedings. Is it adequate as a standalone description? What would you cut or sharpen?
 
 ```
-> A DataSquad is a team of paid undergraduates who provide data and research software support and learn the work by doing it. The model began at Carleton College and now runs at UCLA, and a network, DataSquad International, supports other institutions that want to adopt it. It answers two problems at once. Campuses have limited capacity for data and software support, and students, especially those from underrepresented backgrounds, have few ways to gain practical experience in research software engineering (RSE) and data work, partly because the work is so little known.
->
-> The idea that matters most is a change in mindset: developing skilled students is itself a primary service, not only a means of delivering one. Students who move on to labs and offices carry good practice with them. This poster describes the shared model (roles, services, and the limits we keep), what two programs have built, and where student alumni go. The tradeoffs are real: student turnover and learning time slow delivery, and more students means more varied projects and more oversight.
->
-> We hope to meet supervisors of student workers who want to compare obstacles and solutions. We will share job descriptions, confidentiality agreements, and project management frameworks that help others start a DataSquad in their own setting, without a dedicated budget or full-time oversight.
+A DataSquad is a team of paid undergraduates who provide data and research software support and learn the work by doing it. The model began at Carleton College and now runs at UCLA, and a network, DataSquad International, supports other institutions that want to adopt it. It answers two problems at once. Campuses have limited capacity for data and software support, and students, especially those from underrepresented backgrounds, have few ways to gain practical experience in research software engineering (RSE) and data work, partly because the work is so little known.
+
+The idea that matters most is a change in mindset: developing skilled students is itself a primary service, not only a means of delivering one. Students who move on to labs and offices carry good practice with them. This poster describes the shared model (roles, services, and the limits we keep), what two programs have built, and where student alumni go. The tradeoffs are real: student turnover and learning time slow delivery, and more students means more varied projects and more oversight.
+
+We hope to meet supervisors of student workers who want to compare obstacles and solutions. We will share job descriptions, confidentiality agreements, and project management frameworks that help others start a DataSquad in their own setting, without a dedicated budget or full-time oversight.
 ```
 
 ### B. Style and design: Tim wants this NOT to look AI-generated or templated
