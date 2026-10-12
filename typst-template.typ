@@ -119,9 +119,6 @@
       if watermark != none {
         place(center + horizon, image(watermark, width: 34in))
       }
-      if draft {
-        place(center + horizon, rotate(-35deg, text(size: 430pt, weight: "bold", fill: rgb("#1D355724"), tracking: 20pt, "DRAFT")))
-      }
     },
     footer: block(
       width: 100%,
@@ -129,7 +126,9 @@
       inset: (x: 40pt, y: 22pt),
       radius: 6pt,
       text(fill: white, size: 34pt)[
-        #footer-text #h(1fr) #text(fill: orange, weight: "bold", footer-url)
+        #footer-text #h(1fr)
+        #if draft { box(fill: orange, inset: (x: 22pt, y: 8pt), radius: 4pt, text(fill: navy, weight: "bold", tracking: 3pt, "DRAFT")) }
+        #h(1fr) #text(fill: orange, weight: "bold", footer-url)
       ],
     ),
   )
