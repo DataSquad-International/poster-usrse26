@@ -76,7 +76,7 @@ Student availability, the academic calendar, onboarding, review, and graduation 
 Examples sit on a spectrum. Not every client needs a public repository.
 
 ::: {.carleton}
-**Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. The tool outlasted the students who began it.
+**Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. **The tool outlasted the students who began it.**
 :::
 
 ::: {.ucla}
@@ -91,17 +91,23 @@ Examples sit on a spectrum. Not every client needs a public repository.
 **UC OSPO education site.** Two students built the lesson pages and search for a catalog of 55 open source lessons.
 :::
 
+```{=typst}
+#v(30pt)
+```
+
 Where a project calls for it, students add run instructions, a dependency list, one test, or a citation file. We plan to track whether clients keep them.
 :::
 
 ::: {.cell}
 # What we know
 
+We located 19 UCLA former student employees. By current job category (public profiles, 2026):
+
 ```{=typst}
-#outcomes-bar("data/outcomes.csv")
+#outcomes-list("data/outcomes.csv")
 ```
 
-19 UCLA former student employees we located, by current job category (public profiles, 2026). Descriptive, not a placement rate. Carleton tracing is in progress.
+Descriptive, not a placement rate. Carleton tracing is in progress.
 
 ## What adopting takes
 
@@ -110,23 +116,29 @@ Where a project calls for it, students add run instructions, a dependency list, 
 - Onboarding, and somewhere to keep documentation
 - A plan for turnover
 
+```{=typst}
+#v(44pt)
+```
+
 # Start one
 
-::: {.cells columns="1fr 3.4in" gutter="36pt"}
+The starter kit covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+
+::: {.cells columns="3.6in 1fr" gutter="36pt"}
 
 ::: {.cell}
-The starter kit at **datasquad.info/join** covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+::: {.block fill="white" inset="0pt" radius="4pt"}
+![](assets/qr-datasquad-info.svg){width=3.6in}
+:::
 :::
 
 ::: {.cell}
-::: {.block fill="white" inset="16pt" radius="6pt"}
-![](assets/qr-datasquad-info.svg){width=3in}
+::: {.url}
+[datasquad.info/join](https://datasquad.info/join)
 :::
 :::
 
 :::
-:::
-
 :::
 
 <!-- TODO Paula: confirm we can offer sample job descriptions (Start one promises them).

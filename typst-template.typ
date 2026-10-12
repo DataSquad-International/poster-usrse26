@@ -24,31 +24,27 @@
 #let carleton(body) = school("Carleton", rgb("#003069"), body)
 #let ucla(body) = school("UCLA", rgb("#2774AE"), body)
 
+#let urltext(body) = text(size: 50pt, weight: "bold", body)
 #let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 
-// Horizontal stacked bar of counts from a two-column CSV (category,count) plus a legend.
-#let outcomes-bar(path) = {
+// Directly labelled counts from a two-column CSV (category,count). Works in grayscale.
+#let outcomes-list(path) = {
   let rows = csv(path).slice(1)
-  let counts = rows.map(r => int(r.at(1)))
-  let total = counts.sum()
-  let fills = (navy, steel, orange, rgb("#8FB8D0"), rgb("#E07A5F"), rgb("#6B6B6B"))
-  let ink = (white, white, navy, navy, navy, white)
   block(width: 100%, breakable: false)[
-    #grid(
-      columns: counts.map(c => c * 1fr),
-      gutter: 4pt,
-      ..counts.enumerate().map(((i, c)) => rect(
-        width: 100%,
-        height: 1.7in,
-        fill: fills.at(calc.rem(i, fills.len())),
-        radius: 4pt,
-        align(center + horizon, text(fill: ink.at(calc.rem(i, ink.len())), size: 72pt, weight: "bold", str(c))),
-      )),
-    )
-    #v(18pt)
     #for (i, r) in rows.enumerate() [
-      #box(width: 30pt, height: 30pt, baseline: 4pt, fill: fills.at(calc.rem(i, fills.len())), radius: 3pt)
-      #h(10pt) #r.at(0) (#r.at(1) of #total) #linebreak()
+      #block(
+        width: 100%,
+        above: 0pt,
+        below: 0pt,
+        inset: (y: 14pt),
+        stroke: (bottom: 1.5pt + rgb("#C9D3DC")),
+        grid(
+          columns: (1fr, auto),
+          align: horizon,
+          text(size: 42pt, r.at(0)),
+          text(size: 68pt, weight: "bold", fill: navy, r.at(1)),
+        ),
+      )
     ]
   ]
 }
@@ -62,8 +58,9 @@
   place(top + center, line(angle: 90deg, length: len - 26pt, stroke: 7pt + col))
   place(bottom + center, polygon(fill: col, (0pt, 0pt), (48pt, 0pt), (24pt, 28pt)))
 })
-#let node(body, fill: white, ink: navy, stroke: 5pt + navy, size: 48pt) = block(
+#let node(body, fill: white, ink: navy, stroke: 5pt + navy, size: 48pt, height: auto) = block(
   width: 100%,
+  height: height,
   fill: fill,
   stroke: stroke,
   radius: 6pt,
@@ -75,7 +72,7 @@
 #let model-diagram(
   requests: "Research requests",
   supervision: "Staff supervision",
-  work: "Paid student project work",
+  work: [Paid student #linebreak() project work],
   service: "Useful research support",
   students: "Skilled students",
   spread: "Good practice travels to labs and offices across campus",
@@ -90,8 +87,8 @@
   arrow-right(),
   grid.cell(rowspan: 2, node(work, fill: navy, ink: white, size: 60pt)),
   arrow-right(),
-  node(service, size: 50pt, stroke: 5pt + steel),
-  [], [], arrow-right(), node(students, fill: orange, ink: navy, size: 58pt, stroke: 5pt + orange),
+  node(service, size: 56pt, stroke: 5pt + steel, height: 2in),
+  [], [], arrow-right(), node(students, fill: orange, ink: navy, size: 56pt, stroke: 5pt + orange, height: 2in),
   [], [], [], [], arrow-down(len: 0.7in),
   [], [], [], [], text(size: 42pt, fill: navy, weight: "bold", spread),
 )
@@ -142,26 +139,26 @@
     text(fill: navy, size: 58pt, weight: "bold", it.body),
   )
   show heading.where(level: 2): it => {
-    v(44pt, weak: false)
-    block(below: 16pt, text(fill: navy, size: 46pt, weight: "bold", it.body))
+    v(34pt, weak: false)
+    block(below: 0pt, text(fill: navy, size: 46pt, weight: "bold", it.body))
+    v(20pt, weak: false)
   }
 
   // Header: title and people only. Mark in white on navy.
-  block(width: 100%, fill: navy, inset: (x: 56pt, y: 40pt), radius: 6pt, below: 36pt)[
+  block(width: 100%, fill: navy, inset: (x: 56pt, y: 38pt), radius: 6pt, below: 44pt)[
     #grid(
       columns: (1fr, auto),
       column-gutter: 50pt,
       align: horizon,
       [
-        #text(fill: white, size: 150pt, weight: "bold", title)
-        #v(18pt)
-        #text(fill: white, size: 46pt, weight: "bold", authors)
+        #block(below: 0pt, text(fill: white, size: 150pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
+        #v(58pt)
+        #block(below: 14pt, text(fill: white, size: 46pt, weight: "bold", authors))
         #if affiliations != none [
-          #linebreak()
-          #text(fill: muted, size: 38pt, affiliations)
+          #block(text(fill: muted, size: 38pt, affiliations))
         ]
       ],
-      if logo != none { image(logo, height: 3.8in) },
+      if logo != none { image(logo, height: 3.2in) },
     )
   ]
 

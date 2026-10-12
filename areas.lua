@@ -5,6 +5,12 @@
 local function raw(s) return pandoc.RawBlock('typst', s) end
 
 function Div(el)
+  if el.classes:includes('url') then
+    local out = pandoc.List{raw('#urltext[')}
+    out:extend(el.content)
+    out:insert(raw(']'))
+    return out
+  end
   if el.classes:includes('lede') then
     local out = pandoc.List{raw('#lede[')}
     out:extend(el.content)
