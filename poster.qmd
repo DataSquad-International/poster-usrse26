@@ -34,7 +34,7 @@ EDITING GUIDE (for coauthors)
 
 ::: {.cell}
 ::: {.lede}
-Students are not just . They are a beneficial product of the service.
+Students are not just the tool. They are a beneficial product of the service.
 :::
 
 Campuses need more data and software support than they have staff to give, and students have few ways to gain real experience. The work is little known, especially to students from underrepresented backgrounds. Students who want that experience can close the gap, and perhaps widen who thrives in this work.
