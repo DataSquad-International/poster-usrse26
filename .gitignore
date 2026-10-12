@@ -1,0 +1,5 @@
+.quarto/
+_site/
+data/raw/
+.DS_Store
+.preview/

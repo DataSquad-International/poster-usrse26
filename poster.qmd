@@ -1,0 +1,102 @@
+---
+title: "Is the DataSquad Model For You?"
+format:
+  typst:
+    keep-typ: true
+    font-paths: ["fonts"]
+    template-partials:
+      - typst-template.typ
+      - typst-show.typ
+    # Poster settings (layout lives in typst-template.typ)
+    size: "44x44"
+    num-columns: 3
+    poster-eyebrow: "US-RSE '26 poster  ·  DataSquad International"
+    poster-subtitle: "Student-staffed data and research software support that trains the people who deliver it"
+    poster-authors: "Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan"
+    poster-affiliations: "Carleton College DataSquad  |  UCLA Library Data Science Center DataSquad"
+    poster-logo: "assets/dsi-logo.png"
+    footer-text: "US-RSE '26  ·  San Jose  ·  Poster reception, Monday Oct 19"
+    footer-url: "datasquad.info"
+---
+
+<!--
+EDITING GUIDE (for coauthors)
+- Change words anywhere below. "# Heading" makes a navy section bar, "## Heading" a sub-heading.
+- Student outcome numbers live in data/outcomes.csv (category,count). The chart redraws itself.
+- Do not edit typst-template.typ unless you want to change the layout.
+- Build:  quarto render poster.qmd   (writes poster.pdf)
+- Open a PR for changes; Tim or Paula merges.
+-->
+
+# The gap
+
+Campuses need more data and software support than they have staff to give, and students have few ways to get real experience doing it. The work is hard to see from the outside, so students from underrepresented backgrounds are the least likely to find it.
+
+Students who want that experience can close the gap. They add support capacity, more kinds of people thrive in research software and data work, and the problem-solving is fun.
+
+::: {.block fill="rgb(255, 244, 221)" inset="28pt" radius="10pt"}
+Training students is part of the service. A student is the tool and also a **product** of the service. Those who move on to labs and offices take good practice with them.
+:::
+
+# What a DataSquad is
+
+A team of paid undergraduate analysts who help researchers work with data. The network defines what a DataSquad is and how squads coordinate. Each institution runs the day-to-day its own way.
+
+## What squads do
+
+- Data wrangling and transformation
+- Data management and the data lifecycle
+- Visualization and storytelling
+- Reproducibility and open science
+- Statistical and analytical support
+- Emerging methods, such as geospatial and 3D data
+
+## What squads do not do
+
+- Change the substance of a researcher's data or research questions
+- Tutor or help with homework
+- Break confidentiality. Consultations stay in confidence.
+
+# Who is on a squad
+
+- Student **data analysts** do the hands-on work with researchers.
+- Student **technical writers** document projects and write guides.
+- A student **project manager** triages requests and keeps work moving.
+- Library or department **program staff** supervise, fund, and sustain the squad.
+
+## The tradeoff
+
+Student turnover and learning time make the service slower than a professional team's. More students can take on more varied projects, but they need more oversight.
+
+# What squads have built
+
+- Two UCLA students designed **wbcheck**, a Carpentries lesson checker, in 2023. Extended in 2026 with AI assistance, it now has tests, a license, release notes, and a citation file crediting the original authors.
+- In the **helicopter flight data** project, a UCLA researcher took our base functions and adapted them to her own questions.
+- Carleton's **Google Analytics with Python** write-up gives steps anyone can repeat.
+
+<!-- TODO Paula: confirm the Carleton Google Analytics example and a public link.
+     TODO Paula: confirm we can offer sample job descriptions (start-one section promises them).
+     TODO Tim: UC OSPO education site (ucospo.net/education) is a candidate third example once details are checked. -->
+
+# Where students go
+
+::: {.block fill="white" inset="28pt" radius="10pt"}
+```{=typst}
+#outcomes-bar("data/outcomes.csv")
+```
+
+19 UCLA DataSquad alumni we have tracked, by current job category. Carleton alumni to be added.
+:::
+
+<!-- TODO: add Carleton alumni counts to data/outcomes.csv, or split into two charts. -->
+
+# Start one
+
+Borrow the shared pieces and choose the local ones yourself. The starter kit on the site covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+
+```{=typst}
+#grid(columns: (1fr, auto), column-gutter: 30pt, align: horizon,
+  [Join the network and find the starter kit at #link("https://datasquad.info/join")[datasquad.info/join]],
+  image("assets/qr-datasquad-info.svg", width: 5in),
+)
+```
