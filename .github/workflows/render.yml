@@ -17,6 +17,9 @@ jobs:
       - name: Render poster.qmd
         run: quarto render poster.qmd
 
+      - name: Install PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
       - name: Check page count and size
         run: |
           pdfinfo poster.pdf | tee info.txt
