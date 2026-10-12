@@ -45,9 +45,16 @@ The Atkinson Hyperlegible font (OFL license) is in `fonts/` and loads automatica
 | `typst-template.typ`, `typst-show.typ`, `areas.lua` | Layout, colors, header, diagram, chart |
 | `data/outcomes.csv` | Alumni outcome counts (aggregates only) |
 | `data/README.md`, `scripts/` | Data dictionary and the script that builds the local alumni dataset |
+| `design/` | Prompts used for outside design and content review |
 | `submission/` | Title, abstract, presenters, keywords for EasyChair |
 | `assets/`, `fonts/` | Logo, QR code, font |
 
 Alumni names, emails, and positions are never committed. Only category counts are. Everything else in `data/` is git-ignored.
 
 Style follows datasquad.info: navy `#1D3557`, steel `#457B9D`, orange `#F9AE1A`, Atkinson Hyperlegible.
+
+## Cite and license
+
+Citation details are in [CITATION.cff](./CITATION.cff); GitHub shows a "Cite this repository" button from it. Code is BSD-3-Clause ([LICENSE](./LICENSE)). The poster text, diagram, and PDF are CC-BY-4.0 ([LICENSE-CONTENT.md](./LICENSE-CONTENT.md)). The font license is in `fonts/OFL.txt`.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to suggest changes and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for how we work together.

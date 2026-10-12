@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use or adapt this poster, please cite it as below."
+title: "Is the DataSquad Model For You? (US-RSE '26 poster)"
+type: software
+abstract: >-
+  Poster for the US Research Software Engineer Association 2026 conference
+  (US-RSE '26, San Jose). It describes the DataSquad model, in which paid
+  undergraduate analysts support researchers with data and learn the work by
+  doing it, using examples from the Carleton College and UCLA programs. This
+  repository holds the poster source (Quarto and Typst), not the alumni data.
+authors:
+  - family-names: Lackie
+    given-names: Paula
+    affiliation: "Carleton College"
+    orcid: "https://orcid.org/0000-0002-0819-2858"
+  - family-names: Phan
+    given-names: Leigh
+    affiliation: "UCLA Library Data Science Center"
+    orcid: "https://orcid.org/0000-0002-8605-1444"
+  - family-names: Dennis
+    given-names: Tim
+    affiliation: "UCLA Library Data Science Center"
+    orcid: "https://orcid.org/0000-0001-6632-3812"
+repository-code: "https://github.com/DataSquad-International/poster-usrse26"
+url: "https://datasquad.info"
+license: BSD-3-Clause
+keywords:
+  - DataSquad
+  - research software engineering education
+  - student workforce development
+  - data services
+  - research support
