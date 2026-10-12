@@ -1,0 +1,34 @@
+name: Render poster
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render poster.qmd
+        run: quarto render poster.qmd
+
+      - name: Check page count and size
+        run: |
+          pdfinfo poster.pdf | tee info.txt
+          grep -qE '^Pages:\s+1$' info.txt || { echo "::error::poster.pdf is not exactly one page (text overflowed?)"; exit 1; }
+          grep -qE 'Page size:\s+3168 x 3168 pts' info.txt || { echo "::error::poster.pdf is not 44 x 44 in (3168 x 3168 pt)"; exit 1; }
+
+      - name: Check fonts are embedded
+        run: |
+          pdffonts poster.pdf | tee fonts.txt
+          ! tail -n +3 fonts.txt | awk '{print $(NF-4)}' | grep -qx 'no'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: poster-pdf
+          path: poster.pdf
