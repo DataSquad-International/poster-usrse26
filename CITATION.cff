@@ -21,6 +21,9 @@ authors:
     given-names: Tim
     affiliation: "UCLA Library Data Science Center"
     orcid: "https://orcid.org/0000-0001-6632-3812"
+  - family-names: Nakahata
+    given-names: Darren
+    affiliation: "UCLA Library Data Science Center"
 repository-code: "https://github.com/DataSquad-International/poster-usrse26"
 url: "https://datasquad.info"
 license: BSD-3-Clause
