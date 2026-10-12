@@ -1,5 +1,7 @@
 ---
 title: "Is the DataSquad Model For You?"
+filters:
+  - areas.lua
 format:
   typst:
     keep-typ: true
@@ -9,94 +11,128 @@ format:
       - typst-show.typ
     # Poster settings (layout lives in typst-template.typ)
     size: "44x44"
-    num-columns: 3
-    poster-eyebrow: "US-RSE '26 poster  ·  DataSquad International"
-    poster-subtitle: "Student-staffed data and research software support that trains the people who deliver it"
     poster-authors: "Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan"
     poster-affiliations: "Carleton College DataSquad  |  UCLA Library Data Science Center DataSquad"
-    poster-logo: "assets/dsi-logo.png"
+    poster-logo: "assets/datasquad-mark-white.svg"
     footer-text: "US-RSE '26  ·  San Jose  ·  Poster reception, Monday Oct 19"
     footer-url: "datasquad.info"
 ---
 
 <!--
 EDITING GUIDE (for coauthors)
-- Change words anywhere below. "# Heading" makes a navy section bar, "## Heading" a sub-heading.
+- Change words anywhere below. Keep the ::: lines; they place each block on the page.
+- "# Heading" is a panel title. "## Heading" is a sub-heading inside a panel.
+- ::: {.carleton} and ::: {.ucla} tag an example with its school.
 - Student outcome numbers live in data/outcomes.csv (category,count). The chart redraws itself.
 - Do not edit typst-template.typ unless you want to change the layout.
 - Build:  quarto render poster.qmd   (writes poster.pdf)
 - Open a PR for changes; Tim or Paula merges.
 -->
 
-# The gap
+::: {.cells columns="1fr 2fr" gutter="70pt"}
 
-Campuses need more data and software support than they have staff to give, and students have few ways to get real experience doing it. The work is hard to see from the outside, so students from underrepresented backgrounds are the least likely to find it.
-
-Students who want that experience can close the gap. They add support capacity, more kinds of people thrive in research software and data work, and the problem-solving is fun.
-
-::: {.block fill="rgb(255, 244, 221)" inset="28pt" radius="10pt"}
-Training students is part of the service. A student is the tool and also a **product** of the service. Those who move on to labs and offices take good practice with them.
+::: {.cell}
+::: {.lede}
+Students are not just the tool. They are a beneficial product of the service.
 :::
 
-# What a DataSquad is
+Campuses need more data and software support than they have staff to give, and students have few ways to gain real experience. The work is little known, especially to students from underrepresented backgrounds. Students who want that experience can close the gap, and perhaps widen who thrives in this work.
+:::
 
-A team of paid undergraduate analysts who help researchers work with data. The network defines what a DataSquad is and how squads coordinate. Each institution runs the day-to-day its own way.
+::: {.cell}
+```{=typst}
+#model-diagram()
+```
+:::
 
-## What squads do
+:::
 
-- Data wrangling and transformation
-- Data management and the data lifecycle
-- Visualization and storytelling
-- Reproducibility and open science
-- Statistical and analytical support
-- Emerging methods, such as geospatial and 3D data
+::: {.cells columns="1.15fr 1.2fr 1fr" gutter="70pt"}
 
-## What squads do not do
+::: {.cell}
+# Paid learning, useful service
 
-- Change the substance of a researcher's data or research questions
-- Tutor or help with homework
-- Break confidentiality. Consultations stay in confidence.
+Students are paid employees, supervised by library or department staff. They help researchers with data from wrangling to reproducibility.
 
-# Who is on a squad
+## Who is on a squad
 
-- Student **data analysts** do the hands-on work with researchers.
-- Student **technical writers** document projects and write guides.
-- A student **project manager** triages requests and keeps work moving.
-- Library or department **program staff** supervise, fund, and sustain the squad.
+- Student **data analysts** do the hands-on work.
+- A student **project manager** triages requests.
+- Student **technical writers** document projects.
+- **Staff** supervise, fund, and sustain the squad.
 
-## The tradeoff
+## Limits we keep
 
-Student turnover and learning time make the service slower than a professional team's. More students can take on more varied projects, but they need more oversight.
+Squads help with a researcher's data. They do not change the research questions, tutor, or break confidentiality.
 
-# What squads have built
+## What it costs in pace
 
-- Two UCLA students designed **wbcheck**, a Carpentries lesson checker, in 2023. Extended in 2026 with AI assistance, it now has tests, a license, release notes, and a citation file crediting the original authors.
-- In the **helicopter flight data** project, a UCLA researcher took our base functions and adapted them to her own questions.
-- Carleton's **Google Analytics with Python** write-up gives steps anyone can repeat.
+Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff carry continuity.
+:::
 
-<!-- TODO Paula: confirm the Carleton Google Analytics example and a public link.
-     TODO Paula: confirm we can offer sample job descriptions (start-one section promises them).
-     TODO Tim: UC OSPO education site (ucospo.net/education) is a candidate third example once details are checked. -->
+::: {.cell}
+# Practices as projects need them
 
-# Where students go
+Examples sit on a spectrum. Not every client needs a public repository.
 
-::: {.block fill="white" inset="28pt" radius="10pt"}
+::: {.carleton}
+**Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. The tool outlasted the students who began it.
+:::
+
+::: {.ucla}
+**wbcheck.** Two students began this Carpentries lesson checker in 2023. Staff rebuilt it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting the original authors.
+:::
+
+::: {.carleton}
+**Language placement dashboard.** The project ran longer than any student would stay, so the squad sketched the database and chose heatmaps for the development team to build.
+:::
+
+::: {.ucla}
+**UC OSPO education site.** Two students built the lesson pages and search for a catalog of 55 open source lessons.
+:::
+
+Where a project calls for it, students add run instructions, a dependency list, one test, or a citation file. We plan to track whether clients keep them.
+:::
+
+::: {.cell}
+# What we know
+
 ```{=typst}
 #outcomes-bar("data/outcomes.csv")
 ```
 
-19 UCLA DataSquad alumni we have tracked, by current job category. Carleton alumni to be added.
-:::
+19 UCLA former student employees we located, by current job category (public profiles, 2026). Descriptive, not a placement rate. Carleton tracing is in progress.
 
-<!-- TODO: add Carleton alumni counts to data/outcomes.csv, or split into two charts. -->
+## What adopting takes
+
+- Paid student positions and a wage budget
+- A supervisor with time to review
+- Onboarding, and somewhere to keep documentation
+- A plan for turnover
 
 # Start one
 
-Borrow the shared pieces and choose the local ones yourself. The starter kit on the site covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+::: {.cells columns="1fr 3.4in" gutter="36pt"}
 
-```{=typst}
-#grid(columns: (1fr, auto), column-gutter: 30pt, align: horizon,
-  [Join the network and find the starter kit at #link("https://datasquad.info/join")[datasquad.info/join]],
-  image("assets/qr-datasquad-info.svg", width: 5in),
-)
-```
+::: {.cell}
+The starter kit at **datasquad.info/join** covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+:::
+
+::: {.cell}
+::: {.block fill="white" inset="16pt" radius="6pt"}
+![](assets/qr-datasquad-info.svg){width=3in}
+:::
+:::
+
+:::
+:::
+
+:::
+
+<!-- TODO Paula: confirm we can offer sample job descriptions (Start one promises them).
+     TODO Paula: pick the two Carleton examples; both have public sources on datasquad.info/projects.
+     TODO Tim: UC OSPO example is blocked until the student credit fix lands (education site CITATION.cff, order agreed with the students and UC OSPO).
+     TODO Tim: helicopter flight data example left out until details are confirmed with the people involved.
+     TODO: confirm UCLA cohort size and weekly hours before adding them to panel 1.
+     TODO: add Carleton alumni counts to data/outcomes.csv, or keep the chart UCLA only. Freeze decision: Oct 14.
+     TODO: student quote and photo slot, only with written consent for print and the public Zenodo PDF. Ask by Oct 14. -->

@@ -6,6 +6,25 @@
 #let orange = rgb("#F9AE1A")
 #let canvas = rgb("#F8F9FA")
 #let slate = rgb("#2D2D2D")
+#let muted = rgb("#CDD6E3")
+
+// Example tagged with its school: thin local accent only (UCLA and Carleton official blues).
+#let school(name, accent, body) = block(
+  width: 100%,
+  breakable: false,
+  above: 30pt,
+  below: 14pt,
+  inset: (left: 28pt),
+  stroke: (left: 10pt + accent),
+)[
+  #text(size: 34pt, weight: "bold", fill: accent, tracking: 3pt, upper(name))
+  #v(2pt)
+  #body
+]
+#let carleton(body) = school("Carleton", rgb("#003069"), body)
+#let ucla(body) = school("UCLA", rgb("#2774AE"), body)
+
+#let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 
 // Horizontal stacked bar of counts from a two-column CSV (category,count) plus a legend.
 #let outcomes-bar(path) = {
@@ -20,39 +39,78 @@
       gutter: 4pt,
       ..counts.enumerate().map(((i, c)) => rect(
         width: 100%,
-        height: 2.4in,
+        height: 1.7in,
         fill: fills.at(calc.rem(i, fills.len())),
-        radius: 6pt,
+        radius: 4pt,
         align(center + horizon, text(fill: ink.at(calc.rem(i, ink.len())), size: 72pt, weight: "bold", str(c))),
       )),
     )
     #v(18pt)
     #for (i, r) in rows.enumerate() [
-      #box(width: 30pt, height: 30pt, baseline: 4pt, fill: fills.at(calc.rem(i, fills.len())), radius: 4pt)
+      #box(width: 30pt, height: 30pt, baseline: 4pt, fill: fills.at(calc.rem(i, fills.len())), radius: 3pt)
       #h(10pt) #r.at(0) (#r.at(1) of #total) #linebreak()
     ]
   ]
 }
 
+// Arrows drawn as shapes so they do not depend on font glyphs.
+#let arrow-right(len: 1.3in, col: navy) = box(width: len, height: 48pt, {
+  place(left + horizon, line(length: len - 26pt, stroke: 7pt + col))
+  place(right + horizon, polygon(fill: col, (0pt, 0pt), (28pt, 24pt), (0pt, 48pt)))
+})
+#let arrow-down(len: 0.9in, col: navy) = box(width: 48pt, height: len, {
+  place(top + center, line(angle: 90deg, length: len - 26pt, stroke: 7pt + col))
+  place(bottom + center, polygon(fill: col, (0pt, 0pt), (48pt, 0pt), (24pt, 28pt)))
+})
+#let node(body, fill: white, ink: navy, stroke: 5pt + navy, size: 48pt) = block(
+  width: 100%,
+  fill: fill,
+  stroke: stroke,
+  radius: 6pt,
+  inset: 22pt,
+  align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
+)
+
+// The central idea: requests and supervision go into paid student work; two things come out.
+#let model-diagram(
+  requests: "Research requests",
+  supervision: "Staff supervision",
+  work: "Paid student project work",
+  service: "Useful research support",
+  students: "Skilled students",
+  spread: "Good practice travels to labs and offices across campus",
+) = grid(
+  columns: (1fr, auto, 1.25fr, auto, 1.15fr),
+  align: center + horizon,
+  column-gutter: 18pt,
+  row-gutter: 24pt,
+  [], [], node(supervision, size: 46pt, stroke: 4pt + steel), [], [],
+  [], [], arrow-down(len: 0.7in), [], [],
+  node(requests, size: 50pt, stroke: 5pt + steel),
+  arrow-right(),
+  grid.cell(rowspan: 2, node(work, fill: navy, ink: white, size: 60pt)),
+  arrow-right(),
+  node(service, size: 50pt, stroke: 5pt + steel),
+  [], [], arrow-right(), node(students, fill: orange, ink: navy, size: 58pt, stroke: 5pt + orange),
+  [], [], [], [], arrow-down(len: 0.7in),
+  [], [], [], [], text(size: 42pt, fill: navy, weight: "bold", spread),
+)
+
 #let poster(
   title: "Poster title",
-  eyebrow: none,
-  subtitle: none,
   authors: none,
   affiliations: none,
   logo: none,
-  qr: none,
-  qr-caption: none,
   footer-text: none,
   footer-url: none,
   size: "44x44",
-  num-columns: 3,
+  num-columns: 1,
   body,
 ) = {
   let dims = size.split("x")
   let columns-n = int(str(num-columns))
 
-  set text(font: ("Atkinson Hyperlegible", "Helvetica Neue", "Arial"), size: 44pt, fill: slate)
+  set text(font: ("Atkinson Hyperlegible", "Helvetica Neue", "Arial"), size: 42pt, fill: slate)
   set page(
     width: int(dims.at(0)) * 1in,
     height: int(dims.at(1)) * 1in,
@@ -62,64 +120,50 @@
       width: 100%,
       fill: navy,
       inset: (x: 40pt, y: 22pt),
-      radius: 10pt,
+      radius: 6pt,
       text(fill: white, size: 34pt)[
         #footer-text #h(1fr) #text(fill: orange, weight: "bold", footer-url)
       ],
     ),
   )
-  set par(justify: false, leading: 0.8em, spacing: 1.1em)
-  set list(indent: 8pt, body-indent: 16pt, spacing: 0.9em, marker: text(fill: orange)[■])
-  set enum(indent: 8pt, body-indent: 16pt, spacing: 0.9em)
+  set par(justify: false, leading: 0.8em, spacing: 1.05em)
+  set list(indent: 6pt, body-indent: 18pt, spacing: 0.85em, marker: box(width: 15pt, height: 15pt, fill: navy, baseline: 1pt))
+  set enum(indent: 6pt, body-indent: 16pt, spacing: 0.85em)
   show link: set text(fill: steel, weight: "bold")
   show strong: set text(fill: navy)
 
-  show heading.where(level: 1): it => {
-    v(40pt, weak: true)
-    block(
-      width: 100%,
-      fill: white,
-      stroke: (top: 10pt + steel, rest: 1.5pt + rgb("#E3E6EA")),
-      inset: (x: 28pt, y: 22pt),
-      radius: (top: 0pt, bottom: 12pt),
-      below: 22pt,
-      text(fill: navy, size: 60pt, weight: "bold", it.body),
-    )
-  }
+  // Panel titles: plain navy type over a single steel rule. No boxes.
+  show heading.where(level: 1): it => block(
+    width: 100%,
+    above: 48pt,
+    below: 22pt,
+    stroke: (bottom: 6pt + steel),
+    inset: (bottom: 14pt),
+    text(fill: navy, size: 58pt, weight: "bold", it.body),
+  )
   show heading.where(level: 2): it => {
-    v(50pt)
-    block(below: 16pt, text(fill: navy, size: 50pt, weight: "bold", it.body))
+    v(44pt, weak: false)
+    block(below: 16pt, text(fill: navy, size: 46pt, weight: "bold", it.body))
   }
 
-  // Header band, styled like the site hero
-  block(width: 100%, fill: navy, inset: 56pt, radius: 14pt, below: 0pt)[
+  // Header: title and people only. Mark in white on navy.
+  block(width: 100%, fill: navy, inset: (x: 56pt, y: 40pt), radius: 6pt, below: 36pt)[
     #grid(
       columns: (1fr, auto),
-      column-gutter: 60pt,
+      column-gutter: 50pt,
       align: horizon,
       [
-        #if eyebrow != none [
-          #text(fill: orange, size: 38pt, weight: "bold", tracking: 5pt, upper(eyebrow))
-          #v(4pt)
-        ]
-        #text(fill: white, size: 140pt, weight: "bold", title)
-        #if subtitle != none [
-          #v(10pt)
-          #text(fill: rgb("#CDD6E3"), size: 52pt, subtitle)
-        ]
-        #v(34pt)
+        #text(fill: white, size: 150pt, weight: "bold", title)
+        #v(18pt)
         #text(fill: white, size: 46pt, weight: "bold", authors)
         #if affiliations != none [
           #linebreak()
-          #text(fill: orange, size: 38pt, affiliations)
+          #text(fill: muted, size: 38pt, affiliations)
         ]
       ],
-      if logo != none {
-        block(fill: white, inset: 36pt, radius: 24pt, image(logo, height: 3.6in))
-      },
+      if logo != none { image(logo, height: 3.8in) },
     )
   ]
-  block(width: 100%, height: 14pt, fill: orange, radius: 4pt, above: 0pt, below: 10pt)
 
   columns(columns-n, gutter: 60pt, body)
 }

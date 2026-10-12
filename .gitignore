@@ -3,3 +3,6 @@ _site/
 data/raw/
 .DS_Store
 .preview/
+data/*
+!data/outcomes.csv
+!data/README.md
