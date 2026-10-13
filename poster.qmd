@@ -1,6 +1,6 @@
 ---
-title: "Is the DataSquad Model For You?"
-subtitle: |
+title: "Developing RSE skills at the novice level"
+subtitle: | Student RSE model for research support, experiential learning, and technical workforce development
   A DataSquad is a team of paid undergraduates who learn data and software work by doing it,\
   and show researchers how to do theirs better.
 filters:
@@ -41,7 +41,7 @@ EDITING GUIDE (for coauthors)
 Students are not just the tool. They are a beneficial product of the service.
 :::
 
-Campuses need more data and software help than staff can give. Courses leave gaps, and so does the code researchers write. Squads are the glue. Many students never hear of this work, especially those from underrepresented groups.
+Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
 :::
 
 ::: {.cell}
@@ -64,7 +64,7 @@ Students are paid employees, supervised by library or department staff. They hel
 - Student **data analysts and developers** do the hands-on work with data and code.
 - A student **project manager** triages requests.
 - Student **technical writers** document projects.
-- **Staff** supervise and mentor, fund, and sustain the squad.
+- **Staff** supervise, mentor, fund, and sustain the squad.
 
 ## Limits we keep
 
@@ -72,7 +72,7 @@ We help with a researcher's data and code. We don't change their research questi
 
 ## What slows us down
 
-Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
+Student availability, the academic calendar, onboarding, review, and graduation handoffs all factor into the cycle and pace of work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
 :::
 
 ::: {.cell}
@@ -85,7 +85,7 @@ Some projects end as public code, others as a dashboard or a sketch. Not every c
 :::
 
 ::: {.ucla}
-**wbcheck.** Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
+**wbcheck.** Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026, staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
 :::
 
 ::: {.carleton}
@@ -93,7 +93,7 @@ Some projects end as public code, others as a dashboard or a sketch. Not every c
 :::
 
 ::: {.ucla}
-**UC OSPO education site.** Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) crediting its developers.
+**UC OSPO Education site.** Students built the lesson pages and search for a catalog of 55 open source lessons on open science and research software development. It has a citation file and a DOI ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) crediting its developers.
 :::
 
 ```{=typst}
@@ -121,7 +121,7 @@ Descriptive, not a placement rate.
 - Onboarding and a home for documentation
 - A plan for turnover
 
-# Start one
+# How to start a DataSquad
 
 The starter kit covers roles, confidentiality, onboarding, and request tracking. Students learn software sharing and curation from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise students? Tell us your hardest obstacle.
 
