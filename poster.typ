@@ -454,7 +454,7 @@ Examples sit on a spectrum. Not every client needs a public repository.
 
 ]
 #ucla[
-#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors.
+#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors. DOI 10.5281/zenodo.23329531.
 
 ]
 #carleton[
