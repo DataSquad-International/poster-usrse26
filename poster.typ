@@ -421,7 +421,7 @@
 Students are not just the tool. They are a beneficial product of the service.
 
 ]
-Campuses need more data and software help than staff can give. Students want real experience, and many don't know this work exists, especially students from underrepresented backgrounds. A squad does both jobs at once.
+Campuses need more data and software help than staff can give. Courses leave gaps, and so does the code researchers write. Squads are the glue. Many students never hear of this work, especially those from underrepresented groups.
 
 ],
 [
@@ -487,21 +487,21 @@ Descriptive, not a placement rate.
 <what-adopting-takes>
 - Paid student positions and a wage budget
 - Supervisors and mentors with time to review work and coach students
-- Onboarding, and somewhere to keep documentation
+- Onboarding and a home for documentation
 - A plan for turnover
 
 = Start one
 <start-one>
-The starter kit covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions. Supervise students? Tell us your hardest obstacle.
+The starter kit covers roles, confidentiality, onboarding, and request tracking. Students learn software sharing and curation from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise students? Tell us your hardest obstacle.
 
-#grid(columns: (3.6in, 1fr,), column-gutter: 36pt, row-gutter: 40pt,
+#grid(columns: (3.2in, 1fr,), column-gutter: 30pt, row-gutter: 40pt,
 [
 #block(
 fill:white,
 inset:0pt,
 radius:4pt,
 [
-#box(image("assets/qr-datasquad-info.svg", width: 3.6in))
+#box(image("assets/qr-datasquad-info.svg", width: 3.2in))
 
 ])
 
