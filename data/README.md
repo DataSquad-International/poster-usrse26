@@ -28,6 +28,7 @@ python3 -I scripts/build_unified.py --counts   # program, category, count (aggre
 | `public_bio` | Bio from the alumni directory | empty | yes |
 | `record_created` | First `CreationDate` in the Carleton export | empty | yes |
 | `qa_flags` | Semicolon-separated data-quality notes | | |
+| `major`, `level1_group`, `also_group`, `soc_code`, `soc_title` | Proposed six-group, O*NET-SOC classification (SOC codes unverified) | filled as checked | empty |
 
 Email and phone are not copied. They stay in the original Carleton export.
 

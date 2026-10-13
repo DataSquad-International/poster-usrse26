@@ -21,6 +21,7 @@ COLUMNS = [
     "category", "also_category", "outcome_source", "outcome_notes",
     "on_website", "photo_on_site", "assessment_2025_response", "web_update_2025",
     "public_bio", "record_created", "qa_flags",
+    "major", "level1_group", "also_group", "soc_code", "soc_title",
 ]
 
 def clean(s):
@@ -47,7 +48,9 @@ def load_ucla():
                 also_category=clean(r["also_category"]), outcome_source=clean(r["source"]),
                 outcome_notes=clean(r["notes"]), on_website="", photo_on_site="",
                 assessment_2025_response="", web_update_2025="", public_bio="", record_created="",
-                qa_flags="",
+                qa_flags="", major=clean(r.get("major", "")), level1_group=clean(r.get("level1_group", "")),
+                also_group=clean(r.get("also_group", "")), soc_code=clean(r.get("soc_code", "")),
+                soc_title=clean(r.get("soc_title", "")),
             ))
     return out
 
