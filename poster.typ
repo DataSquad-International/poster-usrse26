@@ -366,7 +366,7 @@
   }
 
   // Header: title and people only. Mark in white on navy.
-  block(width: 100%, fill: navy, inset: (x: 56pt, y: 38pt), radius: 6pt, below: 44pt)[
+  block(width: 100%, fill: navy, inset: (x: 56pt, y: 48pt), radius: 6pt, below: 44pt)[
     #grid(
       columns: (1fr, auto),
       column-gutter: 50pt,
@@ -374,10 +374,10 @@
       [
         #block(below: 0pt, text(fill: white, size: 150pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
         #if subtitle != none [
-          #v(26pt)
-          #block(below: 0pt, text(fill: muted, size: 46pt, subtitle))
+          #v(44pt)
+          #block(below: 0pt, par(leading: 0.55em, text(fill: muted, size: 46pt, subtitle)))
         ]
-        #v(34pt)
+        #v(60pt)
         #block(below: 14pt, text(fill: white, size: 46pt, weight: "bold", authors))
         #if affiliations != none [
           #block(text(fill: muted, size: 38pt, affiliations))
