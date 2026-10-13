@@ -1,4 +1,4 @@
-# Job classification v1 (approved by Tim 2026-10-13; shared with Carleton for coding)
+# Job classification v1 (proposed by UCLA 2026-10-13; open to changes from Carleton)
 
 One scheme for both schools, so UCLA and Carleton alumni are coded the same way. It builds on O*NET-SOC and keeps four questions separate, because mixing them was the main fault the outside reviewer found in our first six-group draft.
 
