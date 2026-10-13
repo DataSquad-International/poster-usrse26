@@ -121,7 +121,7 @@ Descriptive, not a placement rate.
 - Onboarding and a home for documentation
 - A plan for turnover
 
-# How to start a DataSquad
+# Start a DataSquad
 
 The starter kit covers roles, confidentiality, onboarding, and request tracking. Students learn software sharing and curation from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise students? Tell us your hardest obstacle.
 
