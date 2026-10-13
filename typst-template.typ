@@ -71,7 +71,7 @@
 // The central idea: requests and supervision go into paid student work; two things come out.
 #let model-diagram(
   requests: "Research requests",
-  supervision: "Staff supervision",
+  supervision: [Staff supervision #linebreak() and mentoring],
   work: [Paid student #linebreak() project work],
   service: "Useful research support",
   students: "Skilled students",
@@ -81,7 +81,7 @@
   align: center + horizon,
   column-gutter: 22pt,
   row-gutter: 24pt,
-  [], [], node(supervision, size: 46pt, stroke: 4pt + steel), [], [],
+  [], [], node(supervision, size: 44pt, stroke: 4pt + steel), [], [],
   [], [], arrow-down(len: 0.6in), [], [],
   grid.cell(rowspan: 2, node(requests, size: 50pt, stroke: 5pt + steel)),
   grid.cell(rowspan: 2, arrow-right()),

@@ -281,7 +281,7 @@
 // The central idea: requests and supervision go into paid student work; two things come out.
 #let model-diagram(
   requests: "Research requests",
-  supervision: "Staff supervision",
+  supervision: [Staff supervision #linebreak() and mentoring],
   work: [Paid student #linebreak() project work],
   service: "Useful research support",
   students: "Skilled students",
@@ -291,7 +291,7 @@
   align: center + horizon,
   column-gutter: 22pt,
   row-gutter: 24pt,
-  [], [], node(supervision, size: 46pt, stroke: 4pt + steel), [], [],
+  [], [], node(supervision, size: 44pt, stroke: 4pt + steel), [], [],
   [], [], arrow-down(len: 0.6in), [], [],
   grid.cell(rowspan: 2, node(requests, size: 50pt, stroke: 5pt + steel)),
   grid.cell(rowspan: 2, arrow-right()),
@@ -433,7 +433,7 @@ Students are paid employees, supervised by library or department staff. They hel
 - Student #strong[data analysts] do the hands-on work.
 - A student #strong[project manager] triages requests.
 - Student #strong[technical writers] document projects.
-- #strong[Staff] supervise, fund, and sustain the squad.
+- #strong[Staff] supervise and mentor, fund, and sustain the squad.
 
 == Limits we keep
 <limits-we-keep>
@@ -480,7 +480,7 @@ Descriptive, not a placement rate. Carleton tracing is in progress.
 == What adopting takes
 <what-adopting-takes>
 - Paid student positions and a wage budget
-- A supervisor with time to review
+- A supervisor with time to review and mentor
 - Onboarding, and somewhere to keep documentation
 - A plan for turnover
 

@@ -61,7 +61,7 @@ Students are paid employees, supervised by library or department staff. They hel
 - Student **data analysts** do the hands-on work.
 - A student **project manager** triages requests.
 - Student **technical writers** document projects.
-- **Staff** supervise, fund, and sustain the squad.
+- **Staff** supervise and mentor, fund, and sustain the squad.
 
 ## Limits we keep
 
@@ -114,7 +114,7 @@ Descriptive, not a placement rate. Carleton tracing is in progress.
 ## What adopting takes
 
 - Paid student positions and a wage budget
-- A supervisor with time to review
+- A supervisor with time to review and mentor
 - Onboarding, and somewhere to keep documentation
 - A plan for turnover
 
