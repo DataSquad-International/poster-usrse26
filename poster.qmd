@@ -82,7 +82,7 @@ Examples sit on a spectrum. Not every client needs a public repository.
 :::
 
 ::: {.ucla}
-**wbcheck.** Two students designed this Carpentries lesson checker in 2023 and wrote down what it should check. In 2026 staff filled in the code between those lines, with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting the students who designed it.
+**wbcheck.** Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors.
 :::
 
 ::: {.carleton}
