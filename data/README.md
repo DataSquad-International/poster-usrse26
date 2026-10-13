@@ -28,11 +28,13 @@ python3 -I scripts/build_unified.py --counts   # program, category, count (aggre
 | `public_bio` | Bio from the alumni directory | empty | yes |
 | `record_created` | First `CreationDate` in the Carleton export | empty | yes |
 | `qa_flags` | Semicolon-separated data-quality notes | | |
-| `major`, `level1_group`, `also_group`, `soc_code`, `soc_title` | Proposed six-group, O*NET-SOC classification (SOC codes unverified) | filled as checked | empty |
+| `major`, `occupation_group` (A to E or `unknown`), `study_status`, `sector`, `data_work`, `confidence`, `soc_code`, `soc_title` | Job classification v1, see `taxonomy/job-classification-v1.md` (SOC codes checked against O*NET) | all 19 alumni coded | empty, to fill |
 
 Email and phone are not copied. They stay in the original Carleton export.
 
-## Category list (use for both schools)
+## Category list (old, replaced by job classification v1)
+
+The five categories below are the ones on the poster draft so far. `data/outcomes.csv` still holds those counts. Replace them with v1 poster categories once both schools are coded.
 
 Data / analytics / consulting; Software / engineering / IT; Research / graduate school; Nonprofit / public sector; Still a student.
 Category is the person's **current** position, as of the check date in `outcome_source`.
