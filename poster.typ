@@ -436,7 +436,7 @@ Students are paid employees, supervised by library or department staff. They hel
 
 == Who is on a squad
 <who-is-on-a-squad>
-- Student #strong[data analysts] do the hands-on work.
+- Student #strong[data analysts and developers] do the hands-on work with data and code.
 - A student #strong[project manager] triages requests.
 - Student #strong[technical writers] document projects.
 - #strong[Staff] supervise and mentor, fund, and sustain the squad.
