@@ -14,7 +14,7 @@ Prompt: `2026-10-13-validation-prompt-poster-layout-and-outcomes-viz.md`. Review
 | # | Claim | Verdict | Where it lands |
 |---|---|---|---|
 | 1 | Keep the count list, no chart; Sankey rejected (no first job, Carleton blank, one-person ribbons, implies a pathway) | ADOPT | poster stays a list; no Sankey |
-| 2 | UCLA-only snapshot if Carleton is blank, with a plain "not assessed" line | ADOPT | poster copy; Tim decides at the Oct 14 freeze |
+| 2 | UCLA-only snapshot if Carleton is blank, with a plain "not assessed" line | FALLBACK ONLY | Tim: Carleton's lookup is under way, so design for both schools (mock stands in); use this only if the data is not in by the freeze |
 | 3 | Separate occupation, study status, employer sector, and a data-function tag; further study is not an occupation | ADOPT in principle | taxonomy redesign, Tim to pick the poster display |
 | 4 | Coarse poster display (data, software/IT, other, insufficient info) | DEFER | Tim: too coarse for 19 people? |
 | 5 | Each SOC code gets one documented default rollup; overrides recorded | ADOPT | rollup table in `taxonomy/`; fixes the 13-1111 split |
