@@ -486,7 +486,7 @@ Descriptive, not a placement rate.
 = What adopting takes
 <what-adopting-takes>
 - Paid student positions and a wage budget
-- A supervisor with time to review and mentor
+- Supervisors and mentors with time to review work and coach students
 - Onboarding, and somewhere to keep documentation
 - A plan for turnover
 
