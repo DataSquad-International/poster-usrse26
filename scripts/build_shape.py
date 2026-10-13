@@ -33,9 +33,18 @@ def ucla_year(r):
             return y["grad_year"]
     return ""
 
+NAMES = {"A": "Data, statistics and actuarial", "B": "Software and IT", "C": "Business, finance and consulting",
+         "D": "Research, science and teaching", "E": "Public service, community and other", "unknown": "Not enough information"}
+
+def poster_category(r):
+    """v1 rule: full-time grad students without an outside full-time job show as study; else occupation group."""
+    if r["study_status"] == "grad_full_time" and not r["soc_code"]:
+        return "Graduate or professional study"
+    return NAMES.get(r["occupation_group"], "")
+
 cols = ["FirstName", "LastName", "Email", "GraduationYear", "LinkedIn", "JobClassification", "Major",
         "Program", "Group", "CurrentPosition", "Organization", "AlsoClassification",
-        "Level1Group", "AlsoGroup", "SOCCode", "SOCTitle"]
+        "OccupationGroup", "StudyStatus", "Sector", "DataWork", "Confidence", "SOCCode", "SOCTitle", "PosterCategory"]
 with open(IN, encoding="utf-8", newline="") as f, open(OUT, "w", encoding="utf-8", newline="") as g:
     w = csv.DictWriter(g, cols)
     w.writeheader()
@@ -48,7 +57,8 @@ with open(IN, encoding="utf-8", newline="") as f, open(OUT, "w", encoding="utf-8
             "Program": r["program"], "Group": r["group"],
             "CurrentPosition": r["current_position"], "Organization": r["organization"],
             "AlsoClassification": r["also_category"],
-            "Level1Group": r["level1_group"], "AlsoGroup": r["also_group"],
+            "OccupationGroup": r["occupation_group"], "StudyStatus": r["study_status"], "Sector": r["sector"],
+            "DataWork": r["data_work"], "Confidence": r["confidence"], "PosterCategory": poster_category(r),
             "SOCCode": r["soc_code"], "SOCTitle": r["soc_title"],
         })
 print("wrote", OUT)

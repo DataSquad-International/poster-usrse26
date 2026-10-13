@@ -1,4 +1,4 @@
-# Job classification v1 (DRAFT for Tim and Paula to approve)
+# Job classification v1 (approved by Tim 2026-10-13; shared with Carleton for coding)
 
 One scheme for both schools, so UCLA and Carleton alumni are coded the same way. It builds on O*NET-SOC and keeps four questions separate, because mixing them was the main fault the outside reviewer found in our first six-group draft.
 
@@ -31,6 +31,10 @@ One scheme for both schools, so UCLA and Carleton alumni are coded the same way.
 2. Otherwise the person's **occupation group** A to E, or unknown.
 
 Each person counts once. `data_work` and `sector` are extra detail for the data file and are never added to the poster counts.
+
+## One main code, no secondary group
+
+Each person gets exactly one occupation code and group. There is no "also" group. What used to be a second group is recorded in two other fields instead: `sector` (where they work) and `data_work` (whether the job documents regular analysis or programming). If a second code is plausible, name it in `notes` and set `confidence` to `low`.
 
 ## How to choose the code when a job mixes work
 
