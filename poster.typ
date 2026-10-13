@@ -462,7 +462,7 @@ Examples sit on a spectrum. Not every client needs a public repository.
 
 ]
 #ucla[
-#strong[UC OSPO education site.] Two students built the lesson pages and search for a catalog of 55 open source lessons.
+#strong[UC OSPO education site.] Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI (10.5281/zenodo.23330022) crediting its developers.
 
 ]
 #v(30pt)

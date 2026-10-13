@@ -90,7 +90,7 @@ Examples sit on a spectrum. Not every client needs a public repository.
 :::
 
 ::: {.ucla}
-**UC OSPO education site.** Two students built the lesson pages and search for a catalog of 55 open source lessons.
+**UC OSPO education site.** Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI (10.5281/zenodo.23330022) crediting its developers.
 :::
 
 ```{=typst}
@@ -145,7 +145,6 @@ The starter kit covers roles, a confidentiality agreement, onboarding, and reque
 
 <!-- TODO Paula: confirm we can offer sample job descriptions (Start one promises them).
      TODO Paula: pick the two Carleton examples; both have public sources on datasquad.info/projects.
-     TODO Tim: UC OSPO example is blocked until the student credit fix lands (education site CITATION.cff, order agreed with the students and UC OSPO).
      TODO Tim: helicopter flight data example left out until details are confirmed with the people involved.
      TODO: confirm UCLA cohort size and weekly hours before adding them to panel 1.
      TODO: add Carleton alumni counts to data/outcomes.csv, or keep the chart UCLA only. Freeze decision: Oct 14.
