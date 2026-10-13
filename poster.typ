@@ -306,6 +306,7 @@
 
 #let poster(
   title: "Poster title",
+  subtitle: none,
   authors: none,
   affiliations: none,
   logo: none,
@@ -372,7 +373,11 @@
       align: horizon,
       [
         #block(below: 0pt, text(fill: white, size: 150pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
-        #v(58pt)
+        #if subtitle != none [
+          #v(26pt)
+          #block(below: 0pt, text(fill: muted, size: 46pt, subtitle))
+        ]
+        #v(34pt)
         #block(below: 14pt, text(fill: white, size: 46pt, weight: "bold", authors))
         #if affiliations != none [
           #block(text(fill: muted, size: 38pt, affiliations))
@@ -397,6 +402,7 @@
 
 #show: doc => poster(
    title: [Is the DataSquad Model For You?], 
+   subtitle: [A DataSquad is a team of paid undergraduates who learn data and software work by doing it, \ and show researchers how to do theirs better.], 
    authors: [Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan], 
    affiliations: [Carleton College DataSquad | UCLA Library Data Science Center DataSquad], 
    size: "44x44", 
@@ -415,14 +421,14 @@
 Students are not just the tool. They are a beneficial product of the service.
 
 ]
-Campuses need more data and software support than they have staff to give, and students have few ways to gain real experience. The work is little known, especially to students from underrepresented backgrounds. Students who want that experience can close the gap, and perhaps widen who thrives in this work.
+Campuses need more data and software help than staff can give. Students want real experience, and many don't know this work exists, especially students from underrepresented backgrounds. A squad does both jobs at once.
 
 ],
 [
 #model-diagram()
 ],
 )
-#grid(columns: (1.15fr, 1.2fr, 1fr,), column-gutter: 70pt, row-gutter: 40pt,
+#grid(columns: (1fr, 1.3fr, 1fr,), column-gutter: 70pt, row-gutter: 40pt,
 [
 = A paid job that teaches
 <a-paid-job-that-teaches>
@@ -437,24 +443,24 @@ Students are paid employees, supervised by library or department staff. They hel
 
 == Limits we keep
 <limits-we-keep>
-Squads help with a researcher's data. They do not change the research questions, tutor, or break confidentiality.
+We help with a researcher's data and code. We don't change their research questions, tutor their students, or share what we learn in confidence.
 
-== What it costs in pace
-<what-it-costs-in-pace>
-Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff carry continuity.
+== What slows us down
+<what-slows-us-down>
+Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
 
 ],
 [
 = What the work looks like
 <what-the-work-looks-like>
-Examples sit on a spectrum. Not every client needs a public repository.
+Some projects end as public code, others as a dashboard or a sketch. Not every client needs a public repository.
 
 #carleton[
 #strong[Election-news scraper.] Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. #strong[The tool outlasted the students who began it.]
 
 ]
 #ucla[
-#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors. DOI 10.5281/zenodo.23329531.
+#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
 
 ]
 #carleton[
@@ -462,11 +468,11 @@ Examples sit on a spectrum. Not every client needs a public repository.
 
 ]
 #ucla[
-#strong[UC OSPO education site.] Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI (10.5281/zenodo.23330022) crediting its developers.
+#strong[UC OSPO education site.] Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) crediting its developers.
 
 ]
 #v(30pt)
-Where a project calls for it, students add run instructions, a dependency list, one test, or a citation file. We plan to track whether clients keep them.
+#strong[Research software habits, when the project needs them.] Run instructions, a dependency list, one test, a citation file. We don't treat them as a checklist, and we plan to track whether clients keep them.
 
 ],
 [
@@ -475,19 +481,18 @@ Where a project calls for it, students add run instructions, a dependency list, 
 We located 19 UCLA former student employees. By current job category (public profiles, 2026):
 
 #outcomes-list("data/outcomes.csv")
-Descriptive, not a placement rate. Carleton tracing is in progress.
+Descriptive, not a placement rate.
 
-== What adopting takes
+= What adopting takes
 <what-adopting-takes>
 - Paid student positions and a wage budget
 - A supervisor with time to review and mentor
 - Onboarding, and somewhere to keep documentation
 - A plan for turnover
 
-#v(44pt)
 = Start one
 <start-one>
-The starter kit covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+The starter kit covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions. Supervise students? Tell us your hardest obstacle.
 
 #grid(columns: (3.6in, 1fr,), column-gutter: 36pt, row-gutter: 40pt,
 [

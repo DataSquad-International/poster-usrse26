@@ -96,6 +96,7 @@
 
 #let poster(
   title: "Poster title",
+  subtitle: none,
   authors: none,
   affiliations: none,
   logo: none,
@@ -162,7 +163,11 @@
       align: horizon,
       [
         #block(below: 0pt, text(fill: white, size: 150pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
-        #v(58pt)
+        #if subtitle != none [
+          #v(26pt)
+          #block(below: 0pt, text(fill: muted, size: 46pt, subtitle))
+        ]
+        #v(34pt)
         #block(below: 14pt, text(fill: white, size: 46pt, weight: "bold", authors))
         #if affiliations != none [
           #block(text(fill: muted, size: 38pt, affiliations))

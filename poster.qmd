@@ -1,5 +1,8 @@
 ---
 title: "Is the DataSquad Model For You?"
+subtitle: |
+  A DataSquad is a team of paid undergraduates who learn data and software work by doing it,\
+  and show researchers how to do theirs better.
 filters:
   - areas.lua
 format:
@@ -38,7 +41,7 @@ EDITING GUIDE (for coauthors)
 Students are not just the tool. They are a beneficial product of the service.
 :::
 
-Campuses need more data and software support than they have staff to give, and students have few ways to gain real experience. The work is little known, especially to students from underrepresented backgrounds. Students who want that experience can close the gap, and perhaps widen who thrives in this work.
+Campuses need more data and software help than staff can give. Students want real experience, and many don't know this work exists, especially students from underrepresented backgrounds. A squad does both jobs at once.
 :::
 
 ::: {.cell}
@@ -49,7 +52,7 @@ Campuses need more data and software support than they have staff to give, and s
 
 :::
 
-::: {.cells columns="1.15fr 1.2fr 1fr" gutter="70pt"}
+::: {.cells columns="1fr 1.3fr 1fr" gutter="70pt"}
 
 ::: {.cell}
 # A paid job that teaches
@@ -65,24 +68,24 @@ Students are paid employees, supervised by library or department staff. They hel
 
 ## Limits we keep
 
-Squads help with a researcher's data. They do not change the research questions, tutor, or break confidentiality.
+We help with a researcher's data and code. We don't change their research questions, tutor their students, or share what we learn in confidence.
 
-## What it costs in pace
+## What slows us down
 
-Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff carry continuity.
+Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
 :::
 
 ::: {.cell}
 # What the work looks like
 
-Examples sit on a spectrum. Not every client needs a public repository.
+Some projects end as public code, others as a dashboard or a sketch. Not every client needs a public repository.
 
 ::: {.carleton}
 **Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. **The tool outlasted the students who began it.**
 :::
 
 ::: {.ucla}
-**wbcheck.** Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors. DOI 10.5281/zenodo.23329531.
+**wbcheck.** Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
 :::
 
 ::: {.carleton}
@@ -90,14 +93,14 @@ Examples sit on a spectrum. Not every client needs a public repository.
 :::
 
 ::: {.ucla}
-**UC OSPO education site.** Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI (10.5281/zenodo.23330022) crediting its developers.
+**UC OSPO education site.** Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) crediting its developers.
 :::
 
 ```{=typst}
 #v(30pt)
 ```
 
-Where a project calls for it, students add run instructions, a dependency list, one test, or a citation file. We plan to track whether clients keep them.
+**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, a citation file. We don't treat them as a checklist, and we plan to track whether clients keep them.
 :::
 
 ::: {.cell}
@@ -109,22 +112,18 @@ We located 19 UCLA former student employees. By current job category (public pro
 #outcomes-list("data/outcomes.csv")
 ```
 
-Descriptive, not a placement rate. Carleton tracing is in progress.
+Descriptive, not a placement rate.
 
-## What adopting takes
+# What adopting takes
 
 - Paid student positions and a wage budget
 - A supervisor with time to review and mentor
 - Onboarding, and somewhere to keep documentation
 - A plan for turnover
 
-```{=typst}
-#v(44pt)
-```
-
 # Start one
 
-The starter kit covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions.
+The starter kit covers roles, a confidentiality agreement, onboarding, and request tracking. Ask us for sample job descriptions. Supervise students? Tell us your hardest obstacle.
 
 ::: {.cells columns="3.6in 1fr" gutter="36pt"}
 

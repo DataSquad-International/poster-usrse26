@@ -1,5 +1,6 @@
 #show: doc => poster(
   $if(title)$ title: [$title$], $endif$
+  $if(subtitle)$ subtitle: [$subtitle$], $endif$
   $if(poster-authors)$ authors: [$poster-authors$], $endif$
   $if(poster-affiliations)$ affiliations: [$poster-affiliations$], $endif$
   $if(size)$ size: "$size$", $endif$
