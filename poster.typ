@@ -424,8 +424,8 @@ Campuses need more data and software support than they have staff to give, and s
 )
 #grid(columns: (1.15fr, 1.2fr, 1fr,), column-gutter: 70pt, row-gutter: 40pt,
 [
-= Paid learning, useful service
-<paid-learning-useful-service>
+= A paid job that teaches
+<a-paid-job-that-teaches>
 Students are paid employees, supervised by library or department staff. They help researchers with data from wrangling to reproducibility.
 
 == Who is on a squad
@@ -445,8 +445,8 @@ Student availability, the academic calendar, onboarding, review, and graduation 
 
 ],
 [
-= Practices as projects need them
-<practices-as-projects-need-them>
+= What the work looks like
+<what-the-work-looks-like>
 Examples sit on a spectrum. Not every client needs a public repository.
 
 #carleton[
@@ -470,8 +470,8 @@ Where a project calls for it, students add run instructions, a dependency list, 
 
 ],
 [
-= What we know
-<what-we-know>
+= Where students go next
+<where-students-go-next>
 We located 19 UCLA former student employees. By current job category (public profiles, 2026):
 
 #outcomes-list("data/outcomes.csv")
