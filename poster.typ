@@ -286,6 +286,47 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
+// Nine student developers across two cohorts: seven built it, two extended it.
+#let relay() = {
+  let dots(n, fill) = for _ in range(n) { box(width: 52pt, height: 52pt, radius: 26pt, fill: fill, baseline: 10pt); h(14pt) }
+  block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
+    grid(
+      columns: (auto, 1fr),
+      column-gutter: 18pt,
+      row-gutter: 12pt,
+      align: horizon,
+      text(size: 40pt, weight: "bold", fill: navy, [2022]), dots(7, steel),
+      text(size: 40pt, weight: "bold", fill: navy, [2023-24]), dots(2, orange),
+    )
+  })
+}
+
+// Illustrative photo of an LAPD helicopter, cropped to a banner. CC BY 2.0, so the credit line is required.
+#let heli-photo() = block(width: 100%, breakable: false, above: 10pt, below: 8pt, {
+  image("assets/lapd-as350b2-chris-yarzab.jpg", width: 100%, height: 230pt, fit: "cover", alt: "An LAPD Eurocopter AS350B2 helicopter in flight")
+  v(4pt)
+  text(size: 28pt, fill: rgb("#4A5560"))[LAPD helicopter, for illustration. Photo: Chris Yarzab, CC BY 2.0, via Wikimedia Commons. Cropped and resized.]
+})
+
+// Before and after loading time, drawn to scale (318 minutes against 2).
+#let speedup(before: 318, after: 2, unit: "min") = {
+  let bar(label, value, fill) = grid(
+    columns: (auto, 1fr),
+    column-gutter: 18pt,
+    align: horizon,
+    text(size: 40pt, weight: "bold", fill: navy, label),
+    stack(dir: ltr, spacing: 12pt,
+      rect(width: value / before * 72%, height: 58pt, fill: fill, stroke: none, radius: 3pt),
+      text(size: 44pt, weight: "bold", fill: navy, [~#value #unit]),
+    ),
+  )
+  block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
+    bar("Before", before, steel)
+    v(10pt)
+    bar("After", after, orange)
+  })
+}
+
 // Who is on a DataSquad: students in a short flow (request, work, documentation), staff supervising all of it.
 #let roles() = {
   let pill(role, desc, fill: white, stroke-col: steel) = grid(
@@ -489,23 +530,18 @@ Student schedules, the academic calendar, onboarding, review, and graduation han
 = What the work looks like
 <what-the-work-looks-like>
 #carleton[
-#strong[Election-news scraper.] Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. #strong[The scraper outlasted the students who began it.]
+#strong[Election-news scraper.] Seven students built it in 2022. Two more extended it from 2023 to 2024 for a political science project that involved over 500,000 transcripts.
 
+#relay()
 ]
 #ucla[
-#strong[wbcheck.] Students built the first version of this Carpentries lesson checker in 2023. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file that credits its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
+#strong[Police helicopter flight data.] Two students brought software skills to a research lab's R code. They refactored it with staff, and the code went through code review. Loading the data fell from about 318 minutes to about 2.
 
-]
-#carleton[
-#strong[Language placement dashboard.] The project was longer than any student would stay. The DataSquad sketched the database and chose heatmaps for the development team.
-
-]
-#ucla[
-#strong[UC OSPO Education site.] Students built the lesson pages and search for a catalog of 55 open source lessons about open science and research software. The site has a citation file and a DOI (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) that credit its developers.
-
+#heli-photo()
+#speedup()
 ]
 #v(30pt)
-#strong[Research software habits, when the project needs them.] Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them.
+#strong[Research software habits, when the project needs them.] Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them. wbcheck (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]) and the UC OSPO Education site (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) have citation files that credit their student developers.
 
 ],
 [
