@@ -301,7 +301,7 @@
   arrow-right(),
   node(students, fill: orange, ink: navy, size: 54pt, stroke: 5pt + orange, height: 1.35in),
   [], [], [], [], arrow-down(len: 0.6in),
-  [], [], [], [], text(size: 42pt, fill: navy, weight: "bold", spread),
+  [], [], [], [], node(spread,  size: 54pt, stroke: 5pt + steel, height: 1.35in),
 )
 
 #let poster(
@@ -372,7 +372,7 @@
       column-gutter: 50pt,
       align: horizon,
       [
-        #block(below: 0pt, text(fill: white, size: 150pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
+        #block(below: 0pt, text(fill: white, size: 130pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
         #if subtitle != none [
           #v(44pt)
           #block(below: 0pt, par(leading: 0.55em, text(fill: muted, size: 46pt, subtitle)))
@@ -401,8 +401,8 @@
 )
 
 #show: doc => poster(
-   title: [Is the DataSquad Model For You?], 
-   subtitle: [A DataSquad is a team of paid undergraduates who learn data and software work by doing it, \ and show researchers how to do theirs better.], 
+   title: [Developing RSE skills at the novice level], 
+   subtitle: [Student RSE model for research support, experiential learning, and technical workforce development], 
    authors: [Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan], 
    affiliations: [Carleton College DataSquad | UCLA Library Data Science Center DataSquad], 
    size: "44x44", 
@@ -421,7 +421,7 @@
 Students are not just the tool. They are a beneficial product of the service.
 
 ]
-Campuses need more data and software help than staff can give. Courses leave gaps, and so does the code researchers write. Squads are the glue. Many students never hear of this work, especially those from underrepresented groups.
+Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
 
 ],
 [
@@ -439,7 +439,7 @@ Students are paid employees, supervised by library or department staff. They hel
 - Student #strong[data analysts and developers] do the hands-on work with data and code.
 - A student #strong[project manager] triages requests.
 - Student #strong[technical writers] document projects.
-- #strong[Staff] supervise and mentor, fund, and sustain the squad.
+- #strong[Staff] supervise, mentor, fund, and sustain the squad.
 
 == Limits we keep
 <limits-we-keep>
@@ -447,7 +447,7 @@ We help with a researcher's data and code. We don't change their research questi
 
 == What slows us down
 <what-slows-us-down>
-Student availability, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
+Student availability, the academic calendar, onboarding, review, and graduation handoffs all factor into the cycle and pace of work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
 
 ],
 [
@@ -460,7 +460,7 @@ Some projects end as public code, others as a dashboard or a sketch. Not every c
 
 ]
 #ucla[
-#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026 staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
+#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026, staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
 
 ]
 #carleton[
@@ -468,7 +468,7 @@ Some projects end as public code, others as a dashboard or a sketch. Not every c
 
 ]
 #ucla[
-#strong[UC OSPO education site.] Students built the lesson pages and search for a catalog of 55 open source lessons. It has a citation file and a DOI (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) crediting its developers.
+#strong[UC OSPO Education site.] Students built the lesson pages and search for a catalog of 55 open source lessons on open science and research software development. It has a citation file and a DOI (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) crediting its developers.
 
 ]
 #v(30pt)
@@ -490,8 +490,8 @@ Descriptive, not a placement rate.
 - Onboarding and a home for documentation
 - A plan for turnover
 
-= Start one
-<start-one>
+= Start a DataSquad
+<start-a-datasquad>
 The starter kit covers roles, confidentiality, onboarding, and request tracking. Students learn software sharing and curation from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise students? Tell us your hardest obstacle.
 
 #grid(columns: (3.2in, 1fr,), column-gutter: 30pt, row-gutter: 40pt,
