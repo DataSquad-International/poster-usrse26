@@ -76,6 +76,29 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
+// Who is on a DataSquad: students in a short flow (request, work, documentation), staff supervising all of it.
+#let roles() = {
+  let pill(role, desc, fill: white, stroke-col: steel) = grid(
+    columns: (0.44fr, 0.56fr),
+    column-gutter: 22pt,
+    align: horizon,
+    block(
+      width: 100%, fill: fill, stroke: 4pt + stroke-col, radius: 6pt, inset: 16pt, breakable: false,
+      align(center, text(size: 40pt, weight: "bold", fill: navy, role)),
+    ),
+    text(size: 38pt, desc),
+  )
+  block(width: 100%, breakable: false, {
+    pill("Project manager", "triages requests")
+    v(10pt)
+    pill("Data analysts and developers", "do the hands-on work with data and code")
+    v(10pt)
+    pill("Technical writers", "document projects")
+    v(22pt)
+    pill("Staff", "supervise, mentor, fund, and sustain the DataSquad", fill: muted, stroke-col: navy)
+  })
+}
+
 // The central idea: requests go into paid student work, with staff teaching and review built in; two things come out.
 // One row, drawn with fletcher so boxes size to their text and arrows route themselves.
 #let model-diagram(

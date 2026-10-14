@@ -39,7 +39,7 @@ EDITING GUIDE (for coauthors)
 Paid students contribute to research and build RSE skills while they do it.
 :::
 
-Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
+Campuses need more data and software help than staff can provide. Courses leave gaps. So does the code researchers write. DataSquads fill those gaps. Many students never hear of this work, especially students from underrepresented groups.
 :::
 
 ::: {.cell}
@@ -55,54 +55,53 @@ Campuses need more data and software help than staff can provide. Courses leave 
 ::: {.cell}
 # A paid job that teaches
 
-Students are paid employees, supervised by library or department staff. They help researchers with data from wrangling to reproducibility.
+Students are paid employees. Library or department staff supervise them. Students help researchers with their data, from cleaning to reproducibility.
 
-## Who is on a squad
+## Who is on a DataSquad
 
-- Student **data analysts and developers** do the hands-on work with data and code.
-- A student **project manager** triages requests.
-- Student **technical writers** document projects.
-- **Staff** supervise, mentor, fund, and sustain the squad.
+```{=typst}
+#roles()
+```
 
 ## Limits we keep
 
-We help with a researcher's data and code. We don't change their research questions, tutor their students, or share what we learn in confidence.
+We help with a researcher's data and code. We don't change their research questions, tutor their students, or share anything a researcher tells us in confidence.
 
 ## What slows us down
 
-Student availability, the academic calendar, onboarding, review, and graduation handoffs all factor into the cycle and pace of work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
+Student schedules, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students can take more varied projects, but they need more oversight. Handbooks, templates, and staff stay when students graduate.
 :::
 
 ::: {.cell}
 # What the work looks like
 
 ::: {.carleton}
-**Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. **The tool outlasted the students who began it.**
+**Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. **The scraper outlasted the students who began it.**
 :::
 
 ::: {.ucla}
-**wbcheck.** Students built the first version of this Carpentries lesson checker in 2023, and it grew as we learned what collaborative lesson development takes. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
+**wbcheck.** Students built the first version of this Carpentries lesson checker in 2023. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file that credits its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
 :::
 
 ::: {.carleton}
-**Language placement dashboard.** The project ran longer than any student would stay, so the squad sketched the database and chose heatmaps for the development team to build.
+**Language placement dashboard.** The project was longer than any student would stay. The DataSquad sketched the database and chose heatmaps for the development team.
 :::
 
 ::: {.ucla}
-**UC OSPO Education site.** Students built the lesson pages and search for a catalog of 55 open source lessons on open science and research software development. It has a citation file and a DOI ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) crediting its developers.
+**UC OSPO Education site.** Students built the lesson pages and search for a catalog of 55 open source lessons about open science and research software. The site has a citation file and a DOI ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) that credit its developers.
 :::
 
 ```{=typst}
 #v(30pt)
 ```
 
-**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, a citation file. We don't treat them as a checklist, and we plan to track whether clients keep them.
+**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them.
 :::
 
 ::: {.cell}
 # Where students go next
 
-We located 19 UCLA former student employees. By current job category (public profiles, 2026):
+We located 19 former UCLA student employees. Their current job categories, from public profiles in 2026:
 
 ```{=typst}
 #outcomes-list("data/outcomes.csv")
@@ -123,7 +122,7 @@ Descriptive, not a placement rate.
 ::: {.cells columns="1fr 2.2in" gutter="30pt"}
 
 ::: {.cell}
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise student workers? Compare onboarding, review, and graduation handoffs.
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise students? Compare onboarding, review, and graduation handoffs with us.
 
 ::: {.url}
 [datasquad.info/join](https://datasquad.info/join)
