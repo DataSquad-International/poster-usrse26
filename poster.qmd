@@ -1,7 +1,6 @@
 ---
 title: "Developing RSE skills at the novice level"
-subtitle:
-  Student RSE model for research support, experiential learning, and technical workforce development
+subtitle: "Student RSE model for research support, experiential learning, and technical workforce development"
 filters:
   - areas.lua
 format:
