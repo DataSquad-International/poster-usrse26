@@ -59,7 +59,7 @@
         ))
     ]
     #v(8pt)
-    #text(size: 28pt, fill: rgb("#4A5560"))[#coded of #total alumni coded so far: UCLA #meta.at("_ucla_coded") of #meta.at("_ucla_alumni"), Carleton #meta.at("_carleton_coded") of #meta.at("_carleton_alumni"). Carleton is only partly coded, so this is not a sample. Descriptive, not a placement rate.]
+    #text(size: 28pt, fill: rgb("#4A5560"))[#coded of #total alumni coded so far: UCLA #meta.at("_ucla_coded") of #meta.at("_ucla_alumni"), Carleton #meta.at("_carleton_coded") of #meta.at("_carleton_alumni"), #meta.at("_carleton_from_title") of them coded from the job title alone. Carleton is only partly coded, so this is not a sample. Descriptive, not a placement rate.]
   ]
 }
 
