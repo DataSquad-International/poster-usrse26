@@ -113,28 +113,31 @@ Descriptive, not a placement rate.
 # What adopting takes
 
 - Paid student positions and a wage budget
-- Supervisors and mentors with time to review work and coach students
+- Supervisors and mentors with time to review and coach
 - Onboarding and a home for documentation
 - A plan for turnover
 
+::: {.startbox}
 # Start a DataSquad
 
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing and curation from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise student workers? Compare how you handle onboarding, review, and graduation handoffs.
-
-::: {.cells columns="3.2in 1fr" gutter="30pt"}
+::: {.cells columns="1fr 2.2in" gutter="30pt"}
 
 ::: {.cell}
-::: {.block fill="white" inset="0pt" radius="4pt"}
-![](assets/qr-datasquad-info.svg){width=3.2in}
-:::
-:::
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise student workers? Compare onboarding, review, and graduation handoffs.
 
-::: {.cell}
 ::: {.url}
 [datasquad.info/join](https://datasquad.info/join)
 :::
 :::
 
+::: {.cell}
+::: {.block fill="white" inset="0pt" radius="4pt"}
+![](assets/qr-datasquad-info.svg){width=2.2in}
+:::
+:::
+
+:::
+:::
 :::
 :::
 
