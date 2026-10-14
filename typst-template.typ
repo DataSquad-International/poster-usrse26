@@ -88,6 +88,8 @@
       text(size: 40pt, weight: "bold", fill: navy, [2022]), dots(7, steel),
       text(size: 40pt, weight: "bold", fill: navy, [2023-24]), dots(2, orange),
     )
+    v(4pt)
+    text(size: 32pt, fill: rgb("#4A5560"))[Each dot is one student. Blue built it, orange extended it.]
   })
 }
 
@@ -100,7 +102,7 @@
 
 // Before and after loading time, drawn to scale (318 minutes against 2).
 #let speedup(before: 318, after: 2, unit: "min") = {
-  let bar(label, value, fill) = grid(
+  let bar(label, value, fill) = block(height: 66pt, grid(
     columns: (auto, 1fr),
     column-gutter: 18pt,
     align: horizon,
@@ -109,10 +111,12 @@
       rect(width: value / before * 72%, height: 58pt, fill: fill, stroke: none, radius: 3pt),
       text(size: 44pt, weight: "bold", fill: navy, [~#value #unit]),
     ),
-  )
+  ))
   block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
+    v(14pt)
+    text(size: 32pt, fill: rgb("#4A5560"))[Time to load the data, drawn to scale]
+    v(6pt)
     bar("Before", before, steel)
-    v(10pt)
     bar("After", after, orange)
   })
 }
