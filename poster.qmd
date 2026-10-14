@@ -101,10 +101,10 @@ Schedules, the academic calendar, onboarding, review, and graduation handoffs se
 ::: {.cell}
 # Where students go next
 
-Current job category of former student employees, from public profiles in 2026.
+Where former student employees work now, in the words of their job titles.
 
 ```{=typst}
-#outcomes-list("data/outcomes.csv")
+#word-cloud("data/title-words.csv", height: 400pt)
 ```
 
 # What adopting takes

@@ -63,6 +63,66 @@
   ]
 }
 
+// Word cloud of job-title words (UCLA and Carleton combined) from data/title-words.csv (word,count). The last row
+// (_people_with_a_title) is the number of people. Titles only, never employers. Real text, laid out by a spiral
+// search that measures each word, so nothing overlaps and the result is the same every build. Horizontal only,
+// for legibility. Size shows how many people; color groups the kind of work (navy tech, steel data and research,
+// amber everything else) and is redundant with the words themselves, so it works in grayscale.
+#let word-cloud(path, height: 600pt, min-count: 2) = layout(size => {
+  let w = size.width
+  let max-size = 0.115 * w
+  let min-size = 0.040 * w
+  let all = csv(path).slice(1)
+  let people = all.last().at(1)
+  let words = all.filter(r => not r.at(0).starts-with("_") and int(r.at(1)) >= min-count)
+  let peak = int(words.first().at(1))
+  let tech = ("software", "engineer", "developer", "systems", "technical", "it", "development", "specialist")
+  let rsch = ("data", "analyst", "science", "scientist", "research", "actuarial", "clinical", "teaching", "graduate", "fellow")
+  let shout = ("it", "ceo")
+  let label-of(word, n) = {
+    let sz = min-size + calc.pow(n / peak, 0.42) * (max-size - min-size)
+    let col = if word in tech { navy } else if word in rsch { steel } else { rgb("#A8590A") }
+    let shown = if word in shout { upper(word) } else { upper(word.first()) + word.slice(1) }
+    text(size: sz, weight: "bold", fill: col, top-edge: "cap-height", bottom-edge: "baseline", shown)
+  }
+  let placed = ()
+  let out = ()
+  let pad = 7pt
+  for r in words {
+    let label = label-of(r.at(0), int(r.at(1)))
+    let m = measure(label)
+    let bw = m.width + 2 * pad
+    let bh = m.height + 2 * pad + 6pt
+    let found = false
+    let i = 0
+    while not found and i < 6000 {
+      let a = i * 0.12
+      let rad = 0.9pt * i * 0.12 * 3
+      let cx = w / 2 + rad * calc.cos(a * 1rad) * 1.9
+      let cy = height / 2 + rad * calc.sin(a * 1rad)
+      let x0 = cx - bw / 2
+      let y0 = cy - bh / 2
+      if x0 >= 0pt and y0 >= 0pt and x0 + bw <= w and y0 + bh <= height {
+        let ok = true
+        for p in placed {
+          if x0 < p.x + p.w and x0 + bw > p.x and y0 < p.y + p.h and y0 + bh > p.y { ok = false; break }
+        }
+        if ok {
+          placed.push((x: x0, y: y0, w: bw, h: bh))
+          out.push((x: x0 + pad, y: y0 + pad + 3pt, label: label))
+          found = true
+        }
+      }
+      i += 1
+    }
+  }
+  block(width: w, breakable: false)[
+    #block(width: w, height: height, for o in out { place(top + left, dx: o.x, dy: o.y, o.label) })
+    #v(10pt)
+    #text(size: 30pt, fill: rgb("#4A5560"))[Words in the current job titles of #people alumni of UCLA and Carleton, from public profiles in 2026. Larger means more people. Words used by fewer than #min-count people are not shown. Descriptive, not a placement rate.]
+  ]
+})
+
 // Arrows drawn as shapes so they do not depend on font glyphs.
 #let arrow-right(len: 1.3in, col: navy) = box(width: len, height: 48pt, {
   place(left + horizon, line(length: len - 26pt, stroke: 7pt + col))
