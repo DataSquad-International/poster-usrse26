@@ -233,6 +233,15 @@
 #let carleton(body) = school("Carleton", rgb("#003069"), body)
 #let ucla(body) = school("UCLA", rgb("#2774AE"), body)
 
+// Call-to-action panel: navy border, orange heading strip. Border keeps it prominent in grayscale.
+#let startbox(body) = block(width: 100%, stroke: 6pt + navy, radius: 8pt, inset: 28pt, breakable: false)[
+  #show heading.where(level: 1): it => pad(x: -28pt, top: -28pt, bottom: 10pt, block(
+    width: 100%, fill: orange, inset: (x: 28pt, y: 18pt), above: 0pt, below: 0pt,
+    text(fill: navy, size: 58pt, weight: "bold", it.body),
+  ))
+  #body
+]
+
 #let urltext(body) = text(size: 50pt, weight: "bold", body)
 #let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 
@@ -495,33 +504,35 @@ Descriptive, not a placement rate.
 = What adopting takes
 <what-adopting-takes>
 - Paid student positions and a wage budget
-- Supervisors and mentors with time to review work and coach students
+- Supervisors and mentors with time to review and coach
 - Onboarding and a home for documentation
 - A plan for turnover
 
+#startbox[
 = Start a DataSquad
 <start-a-datasquad>
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing and curation from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise student workers? Compare how you handle onboarding, review, and graduation handoffs.
+#grid(columns: (1fr, 2.2in,), column-gutter: 30pt, row-gutter: 40pt,
+[
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise student workers? Compare onboarding, review, and graduation handoffs.
 
-#grid(columns: (3.2in, 1fr,), column-gutter: 30pt, row-gutter: 40pt,
+#urltext[
+#link("https://datasquad.info/join")[datasquad.info/join]
+
+]
+],
 [
 #block(
 fill:white,
 inset:0pt,
 radius:4pt,
 [
-#box(image("assets/qr-datasquad-info.svg", width: 3.2in))
+#box(image("assets/qr-datasquad-info.svg", width: 2.2in))
 
 ])
 
 ],
-[
-#urltext[
-#link("https://datasquad.info/join")[datasquad.info/join]
-
-]
-],
 )
+]
 ],
 )
 
