@@ -36,7 +36,7 @@ EDITING GUIDE (for coauthors)
 
 ::: {.cell}
 ::: {.lede}
-Paid students contribute to research and learn to be RSEs while they do it.
+Paid students contribute to research and build RSE skills while they do it.
 :::
 
 Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
@@ -76,14 +76,12 @@ Student availability, the academic calendar, onboarding, review, and graduation 
 ::: {.cell}
 # What the work looks like
 
-Some projects end as public code, others as a dashboard or a sketch. Not every client needs a public repository.
-
 ::: {.carleton}
 **Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. **The tool outlasted the students who began it.**
 :::
 
 ::: {.ucla}
-**wbcheck.** Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026, staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
+**wbcheck.** Students built the first version of this Carpentries lesson checker in 2023, and it grew as we learned what collaborative lesson development takes. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
 :::
 
 ::: {.carleton}
@@ -121,7 +119,7 @@ Descriptive, not a placement rate.
 
 # Start a DataSquad
 
-The starter kit covers roles, confidentiality, onboarding, and request tracking. Students learn software sharing and curation from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise students? Tell us your hardest obstacle.
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing and curation from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). Supervise student workers? Compare how you handle onboarding, review, and graduation handoffs.
 
 ::: {.cells columns="3.2in 1fr" gutter="30pt"}
 
