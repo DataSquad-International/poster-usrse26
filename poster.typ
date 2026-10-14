@@ -246,25 +246,30 @@
 #let urltext(body) = text(size: 50pt, weight: "bold", body)
 #let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 
-// Directly labelled counts from a two-column CSV (category,count). Works in grayscale.
+// Ranked frequency bars, both schools combined, from data/outcomes.csv (category,count). Rows starting with "_" hold
+// the coverage numbers for the caption. Directly labelled, so it works in grayscale.
 #let outcomes-list(path) = {
-  let rows = csv(path).slice(1)
+  let all = csv(path).slice(1)
+  let meta = (:)
+  for r in all.filter(r => r.at(0).starts-with("_")) { meta.insert(r.at(0), int(r.at(1))) }
+  let cats = all.filter(r => not r.at(0).starts-with("_"))
+  let top = int(cats.first().at(1))
+  let coded = meta.at("_ucla_coded") + meta.at("_carleton_coded")
+  let total = meta.at("_ucla_alumni") + meta.at("_carleton_alumni")
   block(width: 100%, breakable: false)[
-    #for (i, r) in rows.enumerate() [
-      #block(
-        width: 100%,
-        above: 0pt,
-        below: 0pt,
-        inset: (y: 14pt),
-        stroke: (bottom: 1.5pt + rgb("#C9D3DC")),
+    #for r in cats [
+      #block(width: 100%, above: 0pt, below: 0pt, inset: (y: 5pt), stroke: (bottom: 1.5pt + rgb("#C9D3DC")),
         grid(
-          columns: (1fr, auto),
+          columns: (430pt, 1fr, 60pt),
+          column-gutter: 12pt,
           align: horizon,
-          text(size: 42pt, r.at(0)),
-          text(size: 68pt, weight: "bold", fill: navy, r.at(1)),
-        ),
-      )
+          text(size: 30pt, fill: slate, r.at(0)),
+          rect(width: int(r.at(1)) / top * 100%, height: 30pt, fill: steel, stroke: none, radius: 3pt),
+          align(right, text(size: 42pt, weight: "bold", fill: navy, r.at(1))),
+        ))
     ]
+    #v(8pt)
+    #text(size: 28pt, fill: rgb("#4A5560"))[#coded of #total alumni coded so far: UCLA #meta.at("_ucla_coded") of #meta.at("_ucla_alumni"), Carleton #meta.at("_carleton_coded") of #meta.at("_carleton_alumni"). Carleton is only partly coded, so this is not a sample. Descriptive, not a placement rate.]
   ]
 }
 
@@ -509,7 +514,7 @@
 Paid students contribute to research and build RSE skills while they do it.
 
 ]
-Campuses need more data and software help than staff can provide. Courses leave gaps. So does the code researchers write. DataSquads fill those gaps. Many students never hear of these opportunities, especially students from underrepresented groups.
+Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads fill those gaps.
 
 ],
 [
@@ -520,7 +525,7 @@ Campuses need more data and software help than staff can provide. Courses leave 
 [
 = A paid job that teaches
 <a-paid-job-that-teaches>
-Students work for the library or a department, and staff supervise them. Students help researchers with their data, from cleaning to reproducibility.
+Many students never hear of these opportunities, especially students from underrepresented groups. Library or department staff supervise students. Students help researchers with their data, from cleaning to reproducibility.
 
 == Who is on a DataSquad
 <who-is-on-a-datasquad>
@@ -531,7 +536,7 @@ We help with a researcher's data and code. We don't change their research questi
 
 == Pace of work
 <pace-of-work>
-Student schedules, the academic calendar, onboarding, review, and graduation handoffs contribute to the cycles and pace of work. More students can take more varied projects, but need more oversight. Handbooks, templates, and staff stay when students graduate.
+Schedules, the academic calendar, onboarding, review, and graduation handoffs set the pace of work. More students can take more varied projects but need more oversight. Handbooks, templates, and staff stay when students graduate.
 
 ],
 [
@@ -550,15 +555,13 @@ Student schedules, the academic calendar, onboarding, review, and graduation han
 [
 = Where students go next
 <where-students-go-next>
-We located 19 former UCLA student employees. Their current job categories, from public profiles in 2026:
+Current job category of former student employees, from public profiles in 2026.
 
 #outcomes-list("data/outcomes.csv")
-Descriptive, not a placement rate.
-
 = What adopting takes
 <what-adopting-takes>
 - Student positions and a wage budget
-- Supervisors and mentors with time to review and coach
+- Supervisors with time to review and coach
 - Onboarding and a home for documentation
 - A plan for turnover
 
