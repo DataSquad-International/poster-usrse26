@@ -494,7 +494,7 @@
 )
 
 #show: doc => poster(
-   title: [Developing RSE skills at the novice level], 
+   title: [DataSquad: An Entrypoint for RSE], 
    subtitle: [Student RSE model for research support, experiential learning, and technical workforce development], 
    authors: [Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan], 
    affiliations: [Carleton College DataSquad | UCLA Library Data Science Center DataSquad], 
