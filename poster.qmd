@@ -63,9 +63,6 @@ Many students never hear of these opportunities, especially students from underr
 #roles()
 ```
 
-## Limits we keep
-
-We help with a researcher's data and code. We don't change their research questions, tutor their students, or share anything a researcher tells us in confidence.
 
 ## Pace of work
 
