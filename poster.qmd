@@ -87,6 +87,7 @@ Student schedules, the academic calendar, onboarding, review, and graduation han
 **Police helicopter flight data.** Two students brought software skills to a research lab's R code. They refactored it with staff, and the code went through code review. Loading the data fell from about 318 minutes to about 2.
 
 ```{=typst}
+#heli-photo()
 #speedup()
 ```
 :::

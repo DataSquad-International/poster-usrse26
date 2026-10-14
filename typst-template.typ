@@ -91,6 +91,13 @@
   })
 }
 
+// Illustrative photo of an LAPD helicopter, cropped to a banner. CC BY 2.0, so the credit line is required.
+#let heli-photo() = block(width: 100%, breakable: false, above: 10pt, below: 8pt, {
+  image("assets/lapd-as350b2-chris-yarzab.jpg", width: 100%, height: 230pt, fit: "cover", alt: "An LAPD Eurocopter AS350B2 helicopter in flight")
+  v(4pt)
+  text(size: 28pt, fill: rgb("#4A5560"))[LAPD helicopter, for illustration. Photo: Chris Yarzab, CC BY 2.0, via Wikimedia Commons. Cropped and resized.]
+})
+
 // Before and after loading time, drawn to scale (318 minutes against 2).
 #let speedup(before: 318, after: 2, unit: "min") = {
   let bar(label, value, fill) = grid(
