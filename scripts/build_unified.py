@@ -11,6 +11,7 @@ unified file; they stay in the original Carleton export.
 import csv, re, sys, collections, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from xlsx_read import read as read_xlsx
+from propose_title_codes import code as propose_code, is_confident
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
@@ -163,10 +164,22 @@ def merge_xlsx(rows):
             rows.append(row)
     return rows
 
+def apply_title_codes(rows):
+    """Carleton alumni with a raw title and no category: apply the CONFIDENT rules from scripts/propose_title_codes.py
+    (category and SOC code from the title alone, confidence high or medium). Low-confidence titles stay uncoded.
+    Flagged in qa_flags so every title-based code can be listed and reviewed by a coder."""
+    for r in rows:
+        if r["program"] != "Carleton" or r["group"] != "alumni" or r.get("poster_category") or not r.get("title_raw"): continue
+        cat, soc, st, conf, why = propose_code(r["title_raw"])
+        if is_confident(cat, soc, conf):
+            r["poster_category"], r["soc_code"], r["soc_title"], r["confidence"] = cat, soc, st, conf
+            r["qa_flags"] = ";".join(filter(None, [r.get("qa_flags", ""), "category_from_title_pending_review"]))
+    return rows
+
 def poster_counts(rows):
     """Combined UCLA + Carleton frequencies for the poster: category,count (alumni only, each person once), then
     meta rows starting with "_" for the coverage line. Counts only people with a v1 category; raw titles are not guessed."""
-    comb = combined_rows(rows)
+    comb = combined_rows(apply_title_codes(rows))
     al = [r for r in comb if r["status"] == "alumni"]
     c = collections.Counter(r["job_category"] for r in al if r["job_category"])
     table = [["category", "count"]] + [[k, n] for k, n in c.most_common()]
@@ -174,6 +187,7 @@ def poster_counts(rows):
         pa = [r for r in al if r["program"] == p]
         table.append([f"_{p.lower()}_coded", sum(1 for r in pa if r["job_category"])])
         table.append([f"_{p.lower()}_alumni", len(pa)])
+    table.append(["_carleton_from_title", sum(1 for r in al if "category from title alone" in r["notes"])])
     return table
 
 # ---- Combined, normalized table (UCLA + Carleton in one sheet, no emails, phones, IDs, or payroll data) ----
@@ -223,6 +237,7 @@ def combined_rows(rows):
         else: jstatus = "no title found"
         if "two_poster_categories_pick_one" in r.get("qa_flags", ""): notes.append("sheet lists two categories, pick one")
         if "added_from_xlsx" in r.get("qa_flags", ""): notes.append("added from the 2026-10-14 sheet")
+        if "category_from_title_pending_review" in r.get("qa_flags", ""): notes.append("category from title alone, pending coder review")
         out.append({
             "person_id": r.get("person_id", ""), "program": r.get("program", ""), "first_name": first, "last_name": last,
             "status": r.get("group", ""), "grad_year": r.get("grad_year", ""),

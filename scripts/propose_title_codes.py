@@ -68,6 +68,10 @@ def code(title):
             return cat, soc, st, conf, why
     return None, "", "", "", "No rule yet for this title"
 
+def is_confident(cat, soc, conf):
+    """A proposal the build may apply without review: a category, a SOC code from the rollup, and not low confidence."""
+    return bool(cat) and bool(soc) and not soc.startswith("none") and conf in ("high", "medium")
+
 def main():
     rows = list(csv.DictReader(open(ROOT / "data" / "alumni-combined.csv", encoding="utf-8")))
     todo = [r for r in rows if r["program"] == "Carleton" and r["status"] == "alumni"
@@ -78,7 +82,7 @@ def main():
         out.append({
             "person_id": r["person_id"], "grad_year": r["grad_year"], "job_title": r["job_title"],
             "proposed_category": cat or "", "soc_code": soc, "soc_title_or_note": st, "confidence": conf,
-            "needs_review": "yes" if (not cat or conf in ("low", "") or not soc or soc.startswith("none")) else "no",
+            "needs_review": "no" if is_confident(cat, soc, conf) else "yes",
             "rationale": why,
         })
     out.sort(key=lambda d: (d["proposed_category"] == "", d["proposed_category"], d["job_title"]))
@@ -91,4 +95,5 @@ def main():
     print("  needs review:", sum(1 for d in out if d["needs_review"] == "yes"))
     print("  confident and in the rollup:", sum(1 for d in out if d["needs_review"] == "no"))
 
-main()
+if __name__ == "__main__":
+    main()
