@@ -199,24 +199,40 @@
     place(top + center, circle(radius: r, stroke: stroke))
     place(bottom + left, circle(radius: r, stroke: stroke))
     place(bottom + right, circle(radius: r, stroke: stroke))
-    place(top + center, dy: size * 0.13, text(size: 34pt, fill: navy)[Knowledge])
-    place(left + bottom, dx: size * 0.055, dy: -size * 0.15, text(size: 32pt, fill: navy)[Behavior])
-    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 32pt, fill: navy)[Skills])
-    place(center + horizon, dy: -size * 0.05, text(size: 22pt, weight: "bold", fill: navy)[Professionalization])
+    place(top + center, dy: size * 0.13, text(size: 29pt, fill: navy)[Knowledge])
+    place(left + bottom, dx: size * 0.055, dy: -size * 0.15, text(size: 27pt, fill: navy)[Behavior])
+    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 27pt, fill: navy)[Skills])
+    place(center + horizon, dy: -size * 0.05, text(size: 19pt, weight: "bold", fill: navy)[Professionalization])
   })
 }
 #let pathways() = {
   let card(icon, label) = block(
-    width: 100%, height: 400pt, stroke: 5pt + navy, radius: 34pt, inset: 28pt, breakable: false,
-    grid(columns: (0.46fr, 0.54fr), column-gutter: 20pt, align: horizon,
-      align(center + horizon, icon),
-      text(size: 62pt, weight: "bold", fill: navy, label)),
+    width: 100%, height: 455pt, stroke: 5pt + navy, radius: 34pt, inset: 22pt, breakable: false,
+    align(center + horizon, stack(dir: ttb, spacing: 18pt, icon, text(size: 44pt, weight: "bold", fill: navy, label))),
   )
-  stack(dir: ttb, spacing: 28pt,
-    card(image("assets/pathways-experience.svg", height: 320pt, alt: "A laptop surrounded by gears and sparkles"), [Experience]),
-    card(image("assets/pathways-mentorship.svg", height: 320pt, alt: "Three people on rising steps, each helping the next one up"), [Mentorship]),
-    card(venn(size: 350pt), [Professional Growth]),
-    card(image("assets/pathways-applied.svg", height: 320pt, alt: "A lightbulb over an open book with a hammer and wrench"), [Applied Curricular Skills]),
+  grid(columns: (1fr, 1fr), column-gutter: 24pt, row-gutter: 24pt,
+    card(image("assets/pathways-experience.svg", height: 250pt, alt: "A laptop surrounded by gears and sparkles"), [Experience]),
+    card(image("assets/pathways-mentorship.svg", height: 250pt, alt: "Three people on rising steps, each helping the next one up"), [Mentorship]),
+    card(venn(size: 290pt), [Professional Growth]),
+    card(image("assets/pathways-applied.svg", height: 250pt, alt: "A lightbulb over an open book with a hammer and wrench"), [Applied Curricular Skills]),
+  )
+}
+
+// DataSquad roles: four rows, icon plus role and what it does. Icons are traced to vector (assets/role-*.svg);
+// all text is live type.
+#let role-cards() = {
+  let row(icon, alt, name, desc) = block(
+    width: 100%, stroke: 4pt + navy, radius: 26pt, inset: (x: 24pt, y: 16pt), breakable: false,
+    grid(columns: (110pt, 1fr), column-gutter: 24pt, align: horizon,
+      align(center, image(icon, height: 92pt, alt: alt)),
+      [#text(size: 40pt, weight: "bold", fill: navy, name) \
+       #text(size: 34pt, fill: slate, desc)]),
+  )
+  stack(dir: ttb, spacing: 12pt,
+    row("assets/role-project-management.svg", "A clipboard with gears and a checklist", [Project Management Intern], [Triages requests, helps manage and mentor their peers, advises the staff]),
+    row("assets/role-analyst-developer.svg", "A laptop showing code and a bar chart", [Data Analysts and Developers], [Do the hands-on work with data and code]),
+    row("assets/role-technical-writer.svg", "A document with a pen", [Technical Writers], [Document projects and assure clear communications.]),
+    row("assets/role-staff.svg", "A columned building beside a person", [Staff], [Supervise, mentor, and situate the DataSquad in their institution]),
   )
 }
 

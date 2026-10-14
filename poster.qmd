@@ -60,6 +60,12 @@ DataSquads fill those gaps.
 ```{=typst}
 #pathways()
 ```
+
+# DataSquad roles
+
+```{=typst}
+#role-cards()
+```
 :::
 
 ::: {.cell}
