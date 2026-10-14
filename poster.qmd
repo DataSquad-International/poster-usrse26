@@ -15,7 +15,7 @@ format:
     poster-authors: "Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan"
     poster-affiliations: "Carleton College DataSquad  |  UCLA Library Data Science Center DataSquad"
     poster-draft: false  # true shows a DRAFT tag in the footer
-    # poster-doi: "10.5281/zenodo.NNNNNNN"   # the reserved Zenodo DOI; shown in the footer when set
+    poster-doi: "10.5281/zenodo.23381638"   # reserved Zenodo DOI (draft record); shown in the footer
     poster-logo: "assets/datasquad-international-mark-white.svg"
     poster-watermark: "assets/datasquad-international-watermark.svg"
     footer-text: "US-RSE '26  ·  San Jose  ·  Poster reception, Monday Oct 19"

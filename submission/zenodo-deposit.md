@@ -1,5 +1,7 @@
 # Zenodo deposit for the poster PDF (draft, DOI reserved, not published)
 
+**Reserved DOI: 10.5281/zenodo.23381638** (draft record, not published yet). It is in the poster footer (`poster-doi` in `poster.qmd`) and in `CITATION.cff`. It resolves only after the record is published.
+
 Goal: one Zenodo record that holds only `poster.pdf`, with a DOI we can print on the poster, kept as a draft until camera-ready (Wed Oct 21, 2026).
 
 ## Why not the GitHub release route
