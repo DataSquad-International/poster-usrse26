@@ -8,6 +8,7 @@ Rebuild the unified file:
 ```bash
 python3 -I scripts/build_unified.py            # writes data/alumni-unified.csv
 python3 -I scripts/build_unified.py --counts   # program, category, count (aggregates only)
+python3 -I scripts/build_unified.py --poster   # category, UCLA, Carleton counts for data/outcomes.csv (alumni only, each person once)
 ```
 
 ## `alumni-unified.csv` columns
@@ -28,13 +29,16 @@ python3 -I scripts/build_unified.py --counts   # program, category, count (aggre
 | `public_bio` | Bio from the alumni directory | empty | yes |
 | `record_created` | First `CreationDate` in the Carleton export | empty | yes |
 | `qa_flags` | Semicolon-separated data-quality notes | | |
+| `poster_category`, `title_raw` | Poster category label from the sheet, or the raw title still to code | yes | yes |
 | `major`, `occupation_group` (A to E or `unknown`), `study_status`, `sector`, `data_work`, `confidence`, `soc_code`, `soc_title` | Job classification v1, see `taxonomy/job-classification-v1.md` (SOC codes checked against O*NET) | all 19 alumni coded | empty, to fill |
 
 Email and phone are not copied. They stay in the original Carleton export.
 
 ## Poster categories
 
-`outcomes.csv` holds the UCLA counts by job classification v1 poster category (see `taxonomy/job-classification-v1.md`): Data, statistics and actuarial; Software and IT; Business, finance and consulting; Graduate or professional study; Public service, community and other. Each person counts once, from the 19 former student employees in the shared sheet (current students are left out). Coded by one person so far; the two-coder agreement check is still pending. Carleton is not coded yet, so the panel is UCLA only.
+`outcomes.csv` is written by `python3 -I scripts/build_unified.py --poster`: ranked frequencies of job classification v1 categories, UCLA and Carleton alumni combined, each person once (see `taxonomy/job-classification-v1.md`). Rows starting with `_` hold the coverage numbers that the poster caption prints. Source: `data/SU26DistributionList-DSAlumni.xlsx` (tab 1 Carleton, tab `ds-alumni-shared` UCLA), merged by name.
+A sheet value counts only if it is exactly one of the six v1 labels. Raw job titles typed into the classification column (for example "Software Engineer") are NOT counted until someone codes them. Current students are left out.
+Coverage: UCLA 19 of 19 alumni coded; Carleton 42 of 113 (about 53 more have a raw title waiting). Carleton is a partial, non-random subset. Coded by one person so far; the two-coder agreement check is still pending.
 The old five categories (Data / analytics / consulting; Software / engineering / IT; Research / graduate school; Nonprofit / public sector; Still a student) are retired.
 Category is the person's **current** position, as of the check date in `outcome_source`.
 
@@ -45,3 +49,20 @@ Category is the person's **current** position, as of the check date in `outcome_
 - `no_linkedin_url`: no usable profile link. The sheet also has `#N/A` formula results.
 - The Carleton sheet has two `CreationDate` columns; the first non-empty value is kept.
 - Carleton outcomes are not in the sheet. Someone has to check positions, as was done for UCLA, then fill the empty columns.
+
+## `alumni-combined.csv` (one normalized sheet, UCLA + Carleton)
+
+Written by `python3 -I scripts/build_unified.py --combined` (local only, ignored by git: it has names). One row per person, 149 rows. No emails, phones, UIDs, FAUs, or payroll names.
+
+| Column | Rule |
+|---|---|
+| `person_id`, `program` | `UCL-001` style ID; `UCLA` or `Carleton` |
+| `first_name`, `last_name` | Parentheses removed; the removed name goes in `notes` ("also known as") |
+| `status` | `alumni` or `current student` (current if the sheet says so, or the class year is after 2026) |
+| `grad_year` | Four digits. Carleton two-digit years are read as 20xx (confirm 2005 and 2009 with Paula). Blank for most UCLA alumni: the source has no year |
+| `major_1`, `major_2`, `minors` | Split from the sheet: `A/B` and `A; B` become two majors, `(minor: X)` moves to `minors`. `Sociology/Anthropology` and `Political Science/IR` (shown as Political Science and International Relations) stay one major. `&` becomes `and`. Undecided and `#N/A` become blank |
+| `job_category` | Job classification v1 label, only when the sheet gives exactly one of the six labels (or the person is a full-time grad student). Blank otherwise |
+| `job_category_status` | `coded`, `title only, not yet coded`, `no title found`, or `current student` |
+| `job_title` | Current job title from the sheet or the UCLA file. Never an employer |
+| `study_status`, `sector`, `data_work`, `soc_code`, `confidence` | UCLA coding detail; blank for Carleton until coded |
+| `notes` | Anything the cleaning changed or could not decide |

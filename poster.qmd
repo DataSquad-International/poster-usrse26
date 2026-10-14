@@ -101,18 +101,16 @@ Schedules, the academic calendar, onboarding, review, and graduation handoffs se
 ::: {.cell}
 # Where students go next
 
-We located 19 former UCLA student employees. Their current job categories, from public profiles in 2026:
+Current job category of former student employees, from public profiles in 2026.
 
 ```{=typst}
 #outcomes-list("data/outcomes.csv")
 ```
 
-Descriptive, not a placement rate.
-
 # What adopting takes
 
 - Student positions and a wage budget
-- Supervisors and mentors with time to review and coach
+- Supervisors with time to review and coach
 - Onboarding and a home for documentation
 - A plan for turnover
 
