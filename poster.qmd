@@ -55,7 +55,7 @@ Campuses need more data and software help than staff can provide. Courses leave 
 ::: {.cell}
 # A paid job that teaches
 
-Students work for the library or a department, and staff supervise them. Students help researchers with their data, from cleaning to reproducibility.
+Many students never hear of these opportunities, especially students from underrepresented groups. Students work for the library or a department, and staff supervise them. Students help researchers with their data, from cleaning to reproducibility.
 
 ## Who is on a DataSquad
 
