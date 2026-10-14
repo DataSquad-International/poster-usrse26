@@ -286,41 +286,37 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
-// The central idea: requests and supervision go into paid student work; two things come out.
-// Drawn with fletcher so boxes size to their text and arrows route themselves.
+// The central idea: requests go into paid student work, with staff teaching and review built in; two things come out.
+// One row, drawn with fletcher so boxes size to their text and arrows route themselves.
 #let model-diagram(
   requests: "Research requests",
-  supervision: [Staff supervision #linebreak() and mentoring],
-  work: [Paid student #linebreak() project work],
+  work: "Paid student project work",
+  staff: "Staff teach, review, and mentor",
   service: "Useful research support",
   students: "Skilled students",
-  spread: "Goal: wider use of good practice",
 ) = layout(size => {
   let w = size.width
-  let box(body, fill: white, ink: navy, stroke: 5pt + steel, size: 54pt) = (
-    fill: fill, stroke: stroke, corner-radius: 6pt, inset: 22pt,
-    label: align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
+  let cell(body, fill: white, ink: navy, size: 54pt) = block(
+    width: 100%, fill: fill, inset: 30pt,
+    align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
   )
-  let n(pos, name, spec, width, height) = fnode((pos.at(0), -pos.at(1)), spec.label, name: name, fill: spec.fill, stroke: spec.stroke, corner-radius: spec.corner-radius, inset: spec.inset, width: width, height: height)
-  let x0 = 0.11 * w
-  let x1 = 0.46 * w
-  let x2 = 0.83 * w
-  let ym = 195pt
+  let panel(width, ..parts) = (
+    width: width, fill: none, stroke: 5pt + navy, corner-radius: 6pt, inset: 0pt,
+    label: block(width: 100%, clip: true, radius: 3pt, stack(dir: ttb, ..parts)),
+  )
+  let n(pos, name, spec) = fnode(pos, spec.label, name: name, fill: spec.fill, stroke: spec.stroke, corner-radius: spec.corner-radius, inset: spec.inset, width: spec.width)
+  let req = panel(0.20 * w, cell(requests, size: 64pt))
+  let wrk = panel(0.36 * w, cell(work, fill: navy, ink: white, size: 76pt), cell(staff, fill: muted, size: 52pt))
+  let out = panel(0.28 * w, cell(service, size: 64pt), cell(students, fill: orange, size: 64pt))
   fletcher-diagram(
     edge-stroke: 7pt + navy,
     mark-scale: 120%,
     spacing: 0pt,
-    n((x0, ym), <req>, box(requests, size: 50pt), 0.2 * w, 150pt),
-    n((x1, ym), <work>, box(work, fill: navy, ink: white, size: 60pt, stroke: 5pt + navy), 0.24 * w, 180pt),
-    n((x1, 0pt), <sup>, box(supervision, size: 44pt, stroke: 4pt + steel), 0.24 * w, 120pt),
-    n((x2, ym - 72pt), <svc>, box(service, size: 48pt), 0.30 * w, 120pt),
-    n((x2, ym + 72pt), <stu>, box(students, fill: orange, stroke: 5pt + orange, size: 48pt), 0.30 * w, 120pt),
-    n((x2, ym + 270pt), <spr>, box(spread, size: 44pt, stroke: 4pt + steel), 0.30 * w, 150pt),
+    n((0.10 * w, 0pt), <req>, req),
+    n((0.46 * w, 0pt), <work>, wrk),
+    n((0.84 * w, 0pt), <out>, out),
     edge(<req>, <work>, "-|>"),
-    edge(<sup>, <work>, "-|>"),
-    edge(<work>, <svc>, "-|>"),
-    edge(<work>, <stu>, "-|>"),
-    edge(<stu>, <spr>, "-|>"),
+    edge(<work>, <out>, "-|>"),
   )
 })
 
