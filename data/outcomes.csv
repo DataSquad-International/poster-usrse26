@@ -1,6 +1,8 @@
-category,count
-"Data, statistics and actuarial",8
-Software and IT,5
-"Business, finance and consulting",3
-Graduate or professional study,2
-"Public service, community and other",1
+category,UCLA,Carleton
+Software and IT,5,20
+"Data, statistics and actuarial",8,10
+Graduate or professional study,2,6
+"Business, finance and consulting",3,1
+"Research, science and teaching",0,3
+"Public service, community and other",1,2
+Coded so far,19 of 19,42 of 113

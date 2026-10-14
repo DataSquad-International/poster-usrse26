@@ -9,10 +9,13 @@ Standard library only. Emails and phone numbers are deliberately NOT copied to t
 unified file; they stay in the original Carleton export.
 """
 import csv, re, sys, collections, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from xlsx_read import read as read_xlsx
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "data" / "alumni-unified.csv"
+XLSX = ROOT / "data" / "SU26DistributionList-DSAlumni.xlsx"  # tab 1 = Carleton, tab "ds-alumni-shared" = UCLA
 THIS_YEAR = 2026  # class years after this are current students
 
 COLUMNS = [
@@ -22,6 +25,13 @@ COLUMNS = [
     "on_website", "photo_on_site", "assessment_2025_response", "web_update_2025",
     "public_bio", "record_created", "qa_flags",
     "major", "occupation_group", "study_status", "sector", "data_work", "confidence", "soc_code", "soc_title",
+    "poster_category", "title_raw",
+]
+
+# Poster categories (job classification v1). A sheet value counts only if it is exactly one of these.
+POSTER_CATEGORIES = [
+    "Data, statistics and actuarial", "Software and IT", "Business, finance and consulting",
+    "Research, science and teaching", "Graduate or professional study", "Public service, community and other",
 ]
 
 def clean(s):
@@ -57,6 +67,7 @@ def load_ucla():
 
 def year4(v):
     v = clean(v)
+    if re.fullmatch(r"\d+\.0", v): v = v[:-2]  # xlsx stores years as 2027.0
     if not v.isdigit():
         return "", "grad_year_missing_or_nonnumeric"
     n = int(v)
@@ -92,8 +103,82 @@ def load_carleton():
         ))
     return out
 
+def name_key(first, last):
+    f = re.sub(r"\(.*?\)", "", clean(first)).strip().lower()
+    l = re.sub(r"\(.*?\)", "", clean(last)).strip().lower()
+    return (f.split(" ")[0], l)
+
+def load_sheet(rows, program, major_col, class_col):
+    """Rows from an xlsx tab -> {name key: record} with poster category, raw title, major, status."""
+    h = [clean(c) for c in rows[0]]
+    ix = {}
+    for i, c in enumerate(h):  # the UCLA tab has two GraduationYear columns: use the first one that has a value
+        if c: ix.setdefault(c, []).append(i)
+    g = lambda r, c: next((clean(r[i]) for i in ix.get(c, []) if i < len(r) and clean(r[i])), "")
+    out = {}
+    for r in rows[1:]:
+        if not any(clean(c) for c in r): continue
+        first, last = g(r, "FirstName"), g(r, "LastName")
+        if not first and not last: continue
+        label = g(r, class_col)
+        rec = dict(first=first, last=last, major=g(r, major_col), year=g(r, "GraduationYear"), flags=[])
+        rec["poster_category"] = label if label in POSTER_CATEGORIES else ""
+        rec["current"] = label.lower() == "current student" or g(r, "Status").lower().startswith("current")
+        rec["title_raw"] = "" if (rec["poster_category"] or rec["current"] or label in ("", "#N/A")) else label
+        if "/" in label and all(p in POSTER_CATEGORIES for p in label.split("/")):
+            rec["flags"].append("two_poster_categories_pick_one")
+        out[name_key(first, last)] = rec
+    return out
+
+def merge_xlsx(rows):
+    """Append sheet data to the rows: poster_category, title_raw, major; add people not yet in the file."""
+    if not XLSX.exists(): return rows
+    book = read_xlsx(str(XLSX))
+    carl_tab = next(n for n in book if n.startswith("15Sept25"))
+    sheets = {
+        "Carleton": load_sheet(book[carl_tab], "Carleton", "Majors", "Job Classification"),
+        "UCLA": load_sheet(book["ds-alumni-shared"], "UCLA", "Major", "JobClassification"),
+    }
+    have = {(r["program"],) + name_key(r["first_name"], r["last_name"]) for r in rows}
+    for r in rows:
+        rec = sheets[r["program"]].get(name_key(r["first_name"], r["last_name"]))
+        if not rec: continue
+        r["poster_category"], r["title_raw"] = rec["poster_category"], rec["title_raw"]
+        if rec["major"]: r["major"] = rec["major"]
+        if rec["current"] and r["group"] == "alumni":
+            r["group"] = "current student"
+            r["qa_flags"] = ";".join(filter(None, [r["qa_flags"], "sheet_labels_current_student"]))
+        for f in rec["flags"]: r["qa_flags"] = ";".join(filter(None, [r["qa_flags"], f]))
+    for prog, recs in sheets.items():
+        for k, rec in recs.items():
+            if (prog,) + k in have: continue
+            row = {c: "" for c in COLUMNS}
+            row.update(program=prog, first_name=rec["first"], last_name=rec["last"], major=rec["major"],
+                       group="current student" if (rec["current"] or (year4(rec["year"])[0] and int(year4(rec["year"])[0]) > THIS_YEAR)) else "alumni",
+                       grad_year=year4(rec["year"])[0] if rec["year"] else "",
+                       poster_category=rec["poster_category"], title_raw=rec["title_raw"],
+                       qa_flags=";".join(["added_from_xlsx"] + rec["flags"]))
+            rows.append(row)
+    return rows
+
+def poster_counts(rows):
+    """category,UCLA,Carleton for the poster panel plus a 'Coded so far' row. Each person once; alumni only."""
+    cols = ["UCLA", "Carleton"]
+    out = {}
+    for p in cols:
+        al = [r for r in rows if r["program"] == p and r["group"] == "alumni"]
+        out[p] = (collections.Counter(r["poster_category"] for r in al if r["poster_category"]),
+                  sum(1 for r in al if r["poster_category"]), len(al))
+    order = sorted(POSTER_CATEGORIES, key=lambda c: -(out["UCLA"][0][c] + out["Carleton"][0][c]))
+    table = [["category", "UCLA", "Carleton"]]
+    for c in order:
+        if out["UCLA"][0][c] or out["Carleton"][0][c]:
+            table.append([c, out["UCLA"][0][c], out["Carleton"][0][c]])
+    table.append(["Coded so far"] + [f"{out[p][1]} of {out[p][2]}" for p in cols])
+    return table
+
 def main():
-    rows = load_ucla() + load_carleton()
+    rows = merge_xlsx(load_ucla() + load_carleton())
     seen = collections.Counter((r["program"], r["first_name"].lower(), r["last_name"].lower()) for r in rows)
     for r in rows:
         if seen[(r["program"], r["first_name"].lower(), r["last_name"].lower())] > 1:
@@ -102,6 +187,8 @@ def main():
     for r in rows:
         n[r["program"]] += 1
         r["person_id"] = f'{r["program"][:3].upper()}-{n[r["program"]]:03d}'
+    if "--poster" in sys.argv:
+        csv.writer(sys.stdout, lineterminator="\n").writerows(poster_counts(rows)); return
     if "--counts" in sys.argv:
         c = collections.Counter((r["program"], r["category"]) for r in rows if r["group"] == "alumni" and r["category"])
         w = csv.writer(sys.stdout); w.writerow(["program", "category", "count"])

@@ -8,6 +8,7 @@ Rebuild the unified file:
 ```bash
 python3 -I scripts/build_unified.py            # writes data/alumni-unified.csv
 python3 -I scripts/build_unified.py --counts   # program, category, count (aggregates only)
+python3 -I scripts/build_unified.py --poster   # category, UCLA, Carleton counts for data/outcomes.csv (alumni only, each person once)
 ```
 
 ## `alumni-unified.csv` columns
@@ -28,13 +29,15 @@ python3 -I scripts/build_unified.py --counts   # program, category, count (aggre
 | `public_bio` | Bio from the alumni directory | empty | yes |
 | `record_created` | First `CreationDate` in the Carleton export | empty | yes |
 | `qa_flags` | Semicolon-separated data-quality notes | | |
+| `poster_category`, `title_raw` | Poster category label from the sheet, or the raw title still to code | yes | yes |
 | `major`, `occupation_group` (A to E or `unknown`), `study_status`, `sector`, `data_work`, `confidence`, `soc_code`, `soc_title` | Job classification v1, see `taxonomy/job-classification-v1.md` (SOC codes checked against O*NET) | all 19 alumni coded | empty, to fill |
 
 Email and phone are not copied. They stay in the original Carleton export.
 
 ## Poster categories
 
-`outcomes.csv` holds the UCLA counts by job classification v1 poster category (see `taxonomy/job-classification-v1.md`): Data, statistics and actuarial; Software and IT; Business, finance and consulting; Graduate or professional study; Public service, community and other. Each person counts once, from the 19 former student employees in the shared sheet (current students are left out). Coded by one person so far; the two-coder agreement check is still pending. Carleton is not coded yet, so the panel is UCLA only.
+`outcomes.csv` is written by `build_unified.py --poster` from `data/SU26DistributionList-DSAlumni.xlsx` (tab 1 = Carleton, tab `ds-alumni-shared` = UCLA), merged into the unified file by name. Poster categories are job classification v1 (see `taxonomy/job-classification-v1.md`): Data, statistics and actuarial; Software and IT; Business, finance and consulting; Research, science and teaching; Graduate or professional study; Public service, community and other. A sheet value counts only if it is exactly one of those labels. Raw job titles typed into the classification column (for example "Software Engineer") are kept in `title_raw` and are NOT counted until someone codes them. Current students are left out. Each person counts once.
+UCLA: 19 of 19 alumni coded. Carleton: 42 of 113 alumni coded so far (about 53 more have a raw title waiting to be coded), so Carleton counts are a partial, non-random subset. Coded by one person so far; the two-coder agreement check is still pending.
 The old five categories (Data / analytics / consulting; Software / engineering / IT; Research / graduate school; Nonprofit / public sector; Still a student) are retired.
 Category is the person's **current** position, as of the check date in `outcome_source`.
 

@@ -36,22 +36,31 @@
 #let urltext(body) = text(size: 50pt, weight: "bold", body)
 #let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 
-// Directly labelled counts from a two-column CSV (category,count). Works in grayscale.
+// Directly labelled counts from a CSV (category,UCLA,Carleton). The last row is a text row ("Coded so far").
+// Works in grayscale. Zeros stay visible so a school with none in a category is not read as missing.
 #let outcomes-list(path) = {
-  let rows = csv(path).slice(1)
+  let all = csv(path)
+  let head = all.at(0)
+  let rows = all.slice(1)
+  let num-w = 170pt
   block(width: 100%, breakable: false)[
+    #grid(
+      columns: (1fr, num-w, num-w),
+      align: (left, right, right),
+      inset: (y: 4pt),
+      [], text(size: 30pt, weight: "bold", fill: navy, head.at(1)), text(size: 30pt, weight: "bold", fill: navy, head.at(2)),
+    )
     #for (i, r) in rows.enumerate() [
+      #let last = i == rows.len() - 1
       #block(
-        width: 100%,
-        above: 0pt,
-        below: 0pt,
-        inset: (y: 14pt),
+        width: 100%, above: 0pt, below: 0pt, inset: (y: if last { 8pt } else { 8pt }),
         stroke: (bottom: 1.5pt + rgb("#C9D3DC")),
         grid(
-          columns: (1fr, auto),
-          align: horizon,
-          text(size: 42pt, r.at(0)),
-          text(size: 68pt, weight: "bold", fill: navy, r.at(1)),
+          columns: (1fr, num-w, num-w),
+          align: (left + horizon, right + horizon, right + horizon),
+          text(size: if last { 30pt } else { 36pt }, fill: if last { rgb("#4A5560") } else { slate }, r.at(0)),
+          text(size: if last { 30pt } else { 42pt }, weight: if last { "regular" } else { "bold" }, fill: if r.at(1) == "0" { muted } else if last { rgb("#4A5560") } else { navy }, r.at(1)),
+          text(size: if last { 30pt } else { 42pt }, weight: if last { "regular" } else { "bold" }, fill: if r.at(2) == "0" { muted } else if last { rgb("#4A5560") } else { navy }, r.at(2)),
         ),
       )
     ]
