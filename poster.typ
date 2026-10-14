@@ -286,6 +286,29 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
+// Who is on a DataSquad: students in a short flow (request, work, documentation), staff supervising all of it.
+#let roles() = {
+  let pill(role, desc, fill: white, stroke-col: steel) = grid(
+    columns: (0.44fr, 0.56fr),
+    column-gutter: 22pt,
+    align: horizon,
+    block(
+      width: 100%, fill: fill, stroke: 4pt + stroke-col, radius: 6pt, inset: 16pt, breakable: false,
+      align(center, text(size: 40pt, weight: "bold", fill: navy, role)),
+    ),
+    text(size: 38pt, desc),
+  )
+  block(width: 100%, breakable: false, {
+    pill("Project manager", "triages requests")
+    v(10pt)
+    pill("Data analysts and developers", "do the hands-on work with data and code")
+    v(10pt)
+    pill("Technical writers", "document projects")
+    v(22pt)
+    pill("Staff", "supervise, mentor, fund, and sustain the DataSquad", fill: muted, stroke-col: navy)
+  })
+}
+
 // The central idea: requests go into paid student work, with staff teaching and review built in; two things come out.
 // One row, drawn with fletcher so boxes size to their text and arrows route themselves.
 #let model-diagram(
@@ -437,7 +460,7 @@
 Paid students contribute to research and build RSE skills while they do it.
 
 ]
-Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
+Campuses need more data and software help than staff can provide. Courses leave gaps. So does the code researchers write. DataSquads fill those gaps. Many students never hear of this work, especially students from underrepresented groups.
 
 ],
 [
@@ -448,51 +471,47 @@ Campuses need more data and software help than staff can provide. Courses leave 
 [
 = A paid job that teaches
 <a-paid-job-that-teaches>
-Students are paid employees, supervised by library or department staff. They help researchers with data from wrangling to reproducibility.
+Students are paid employees. Library or department staff supervise them. Students help researchers with their data, from cleaning to reproducibility.
 
-== Who is on a squad
-<who-is-on-a-squad>
-- Student #strong[data analysts and developers] do the hands-on work with data and code.
-- A student #strong[project manager] triages requests.
-- Student #strong[technical writers] document projects.
-- #strong[Staff] supervise, mentor, fund, and sustain the squad.
-
+== Who is on a DataSquad
+<who-is-on-a-datasquad>
+#roles()
 == Limits we keep
 <limits-we-keep>
-We help with a researcher's data and code. We don't change their research questions, tutor their students, or share what we learn in confidence.
+We help with a researcher's data and code. We don't change their research questions, tutor their students, or share anything a researcher tells us in confidence.
 
 == What slows us down
 <what-slows-us-down>
-Student availability, the academic calendar, onboarding, review, and graduation handoffs all factor into the cycle and pace of work. More students take on more varied projects but need more oversight. Handbooks, templates, and staff are what stay when students graduate.
+Student schedules, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students can take more varied projects, but they need more oversight. Handbooks, templates, and staff stay when students graduate.
 
 ],
 [
 = What the work looks like
 <what-the-work-looks-like>
 #carleton[
-#strong[Election-news scraper.] Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. #strong[The tool outlasted the students who began it.]
+#strong[Election-news scraper.] Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. #strong[The scraper outlasted the students who began it.]
 
 ]
 #ucla[
-#strong[wbcheck.] Students built the first version of this Carpentries lesson checker in 2023, and it grew as we learned what collaborative lesson development takes. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
+#strong[wbcheck.] Students built the first version of this Carpentries lesson checker in 2023. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file that credits its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
 
 ]
 #carleton[
-#strong[Language placement dashboard.] The project ran longer than any student would stay, so the squad sketched the database and chose heatmaps for the development team to build.
+#strong[Language placement dashboard.] The project was longer than any student would stay. The DataSquad sketched the database and chose heatmaps for the development team.
 
 ]
 #ucla[
-#strong[UC OSPO Education site.] Students built the lesson pages and search for a catalog of 55 open source lessons on open science and research software development. It has a citation file and a DOI (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) crediting its developers.
+#strong[UC OSPO Education site.] Students built the lesson pages and search for a catalog of 55 open source lessons about open science and research software. The site has a citation file and a DOI (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]) that credit its developers.
 
 ]
 #v(30pt)
-#strong[Research software habits, when the project needs them.] Run instructions, a dependency list, one test, a citation file. We don't treat them as a checklist, and we plan to track whether clients keep them.
+#strong[Research software habits, when the project needs them.] Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them.
 
 ],
 [
 = Where students go next
 <where-students-go-next>
-We located 19 UCLA former student employees. By current job category (public profiles, 2026):
+We located 19 former UCLA student employees. Their current job categories, from public profiles in 2026:
 
 #outcomes-list("data/outcomes.csv")
 Descriptive, not a placement rate.
@@ -509,7 +528,7 @@ Descriptive, not a placement rate.
 <start-a-datasquad>
 #grid(columns: (1fr, 2.2in,), column-gutter: 30pt, row-gutter: 40pt,
 [
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise student workers? Compare onboarding, review, and graduation handoffs.
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise students? Compare onboarding, review, and graduation handoffs with us.
 
 #urltext[
 #link("https://datasquad.info/join")[datasquad.info/join]
