@@ -48,6 +48,7 @@ After a merge to `main`, CI commits the new `poster.pdf` and `poster.typ` back (
 3. Scan the QR code on a phone.
 4. The logo and watermark are vector traces of the 215 px DataSquad International PNG (`assets/data-squad-int.png`). Ask Paula for the original vector file and swap it in if one exists; the trace is good but not the source.
 5. Print a small paper proof.
+6. Zenodo: follow `submission/zenodo-deposit.md` (upload the PDF only, reserve the DOI, keep the record as a draft until the final PDF is ready).
 
 ## Layout
 
