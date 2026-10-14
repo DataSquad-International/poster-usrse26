@@ -59,10 +59,9 @@ Students are paid employees. Library or department staff supervise them. Student
 
 ## Who is on a DataSquad
 
-- Student **data analysts and developers** do the hands-on work with data and code.
-- A student **project manager** triages requests.
-- Student **technical writers** document projects.
-- **Staff** supervise, mentor, fund, and sustain the DataSquad.
+```{=typst}
+#roles()
+```
 
 ## Limits we keep
 
