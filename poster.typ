@@ -340,6 +340,36 @@
   #load-tiles()
 ]
 
+// Four cards: what a student gets from the job. Icons are traced from the source drawing to vector (assets/pathways-*.svg);
+// the Venn diagram and every label are live text and shapes, so they stay sharp at print size.
+#let venn(size: 360pt) = {
+  let r = size * 0.31
+  let stroke = 4pt + navy
+  box(width: size, height: size * 0.93, {
+    place(top + center, circle(radius: r, stroke: stroke))
+    place(bottom + left, circle(radius: r, stroke: stroke))
+    place(bottom + right, circle(radius: r, stroke: stroke))
+    place(top + center, dy: size * 0.13, text(size: 34pt, fill: navy)[Knowledge])
+    place(left + bottom, dx: size * 0.055, dy: -size * 0.15, text(size: 32pt, fill: navy)[Behavior])
+    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 32pt, fill: navy)[Skills])
+    place(center + horizon, dy: -size * 0.05, text(size: 22pt, weight: "bold", fill: navy)[Professionalization])
+  })
+}
+#let pathways() = {
+  let card(icon, label) = block(
+    width: 100%, height: 400pt, stroke: 5pt + navy, radius: 34pt, inset: 28pt, breakable: false,
+    grid(columns: (0.46fr, 0.54fr), column-gutter: 20pt, align: horizon,
+      align(center + horizon, icon),
+      text(size: 62pt, weight: "bold", fill: navy, label)),
+  )
+  stack(dir: ttb, spacing: 28pt,
+    card(image("assets/pathways-experience.svg", height: 320pt, alt: "A laptop surrounded by gears and sparkles"), [Experience]),
+    card(image("assets/pathways-mentorship.svg", height: 320pt, alt: "Three people on rising steps, each helping the next one up"), [Mentorship]),
+    card(venn(size: 350pt), [Professional Growth]),
+    card(image("assets/pathways-applied.svg", height: 320pt, alt: "A lightbulb over an open book with a hammer and wrench"), [Applied Curricular Skills]),
+  )
+}
+
 // Who is on a DataSquad: students in a short flow (request, work, documentation), staff supervising all of it.
 #let roles() = {
   let pill(role, desc, fill: white, stroke-col: steel) = grid(
@@ -523,17 +553,7 @@ Campuses need more data and software help than staff can provide. Courses leave 
 )
 #grid(columns: (1fr, 1.3fr, 1fr,), column-gutter: 70pt, row-gutter: 40pt,
 [
-= A paid job that teaches
-<a-paid-job-that-teaches>
-Many students never hear of these opportunities, especially students from underrepresented groups. Library or department staff supervise students. Students help researchers with their data, from cleaning to reproducibility.
-
-== Who is on a DataSquad
-<who-is-on-a-datasquad>
-#roles()
-== Pace of work
-<pace-of-work>
-Schedules, the academic calendar, onboarding, review, and graduation handoffs set the pace of work. More students can take more varied projects but need more oversight. Handbooks, templates, and staff stay when students graduate.
-
+#pathways()
 ],
 [
 = What the work looks like
