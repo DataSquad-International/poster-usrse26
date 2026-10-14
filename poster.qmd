@@ -36,7 +36,7 @@ EDITING GUIDE (for coauthors)
 
 ::: {.cell}
 ::: {.lede}
-Students' skills can help advance research. 
+Students' skills can help advance research best practices across campus 
 <!-- We're planning to update this header -->
 :::
 
