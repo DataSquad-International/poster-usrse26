@@ -23,6 +23,15 @@
 #let carleton(body) = school("Carleton", rgb("#003069"), body)
 #let ucla(body) = school("UCLA", rgb("#2774AE"), body)
 
+// Call-to-action panel: navy border, orange heading strip. Border keeps it prominent in grayscale.
+#let startbox(body) = block(width: 100%, stroke: 6pt + navy, radius: 8pt, inset: 28pt, breakable: false)[
+  #show heading.where(level: 1): it => pad(x: -28pt, top: -28pt, bottom: 10pt, block(
+    width: 100%, fill: orange, inset: (x: 28pt, y: 18pt), above: 0pt, below: 0pt,
+    text(fill: navy, size: 58pt, weight: "bold", it.body),
+  ))
+  #body
+]
+
 #let urltext(body) = text(size: 50pt, weight: "bold", body)
 #let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 

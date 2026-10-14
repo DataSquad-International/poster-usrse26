@@ -11,6 +11,12 @@ function Div(el)
     out:insert(raw(']'))
     return out
   end
+  if el.classes:includes('startbox') then
+    local out = pandoc.List{raw('#startbox[')}
+    out:extend(el.content)
+    out:insert(raw(']'))
+    return out
+  end
   if el.classes:includes('lede') then
     local out = pandoc.List{raw('#lede[')}
     out:extend(el.content)
