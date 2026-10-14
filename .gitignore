@@ -5,6 +5,5 @@ data/raw/
 .preview/
 data/*
 !data/outcomes.csv
-!data/title-words.csv
 !data/README.md
 __pycache__/
