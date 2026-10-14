@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "upload_type": "poster",
+    "title": "DataSquad: An entry point for RSE",
+    "publication_date": "2026-10-19",
+    "description": "<p>A DataSquad is a team of paid undergraduates who provide data and research software support and learn the work by doing it. The model began at Carleton College and now runs at UCLA, and a network, DataSquad International, supports other institutions that want to adopt it. It answers two problems at once. Campuses have limited capacity for data and software support, and students, especially those from underrepresented backgrounds, have few ways to gain practical experience in research software engineering (RSE) and data work, partly because the work is so little known.</p><p>The idea that matters most is a change in mindset: developing skilled students is itself a primary service, not only a means of delivering one. Students who move on to labs and offices carry good practice with them. This poster describes the shared model (roles, services, and the limits we keep), what two programs have built, and where student alumni go. The tradeoffs are real: student turnover and learning time slow delivery, and more students means more varied projects and more oversight.</p><p>We hope to meet supervisors of student workers who want to compare obstacles and solutions. We will share job descriptions, confidentiality agreements, and project management frameworks that help others start a DataSquad in their own setting, without a dedicated budget or full-time oversight.</p>",
+    "creators": [
+      {
+        "name": "Lackie, Paula",
+        "affiliation": "Carleton College",
+        "orcid": "0000-0002-0819-2858"
+      },
+      {
+        "name": "Hall, Oliver",
+        "affiliation": "Carleton College"
+      },
+      {
+        "name": "Dennis, Tim",
+        "affiliation": "UCLA Library Data Science Center",
+        "orcid": "0000-0001-6632-3812"
+      },
+      {
+        "name": "Phan, Leigh",
+        "affiliation": "UCLA Library Data Science Center",
+        "orcid": "0000-0002-8605-1444"
+      }
+    ],
+    "keywords": [
+      "DataSquad",
+      "research software engineering education",
+      "student workforce development",
+      "data services",
+      "research support"
+    ],
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "language": "eng",
+    "version": "1.0",
+    "conference_title": "US-RSE '26",
+    "conference_acronym": "US-RSE '26",
+    "conference_url": "https://us-rse.org/usrse26/",
+    "conference_dates": "19-21 October 2026",
+    "conference_place": "San Jose, California, USA",
+    "conference_session": "Poster reception",
+    "conference_session_part": "Monday 19 October 2026, 5:30-7:30 pm",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/DataSquad-International/poster-usrse26",
+        "relation": "isSupplementedBy",
+        "resource_type": "software",
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.23329531",
+        "relation": "references",
+        "resource_type": "software",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23330022",
+        "relation": "references",
+        "resource_type": "software",
+        "scheme": "doi"
+      }
+    ],
+    "notes": "Poster presented at the US-RSE '26 poster reception, San Jose Marriott. Source: https://github.com/DataSquad-International/poster-usrse26",
+    "prereserve_doi": {
+      "doi": "10.5281/zenodo.23381638"
+    }
+  }
+}
