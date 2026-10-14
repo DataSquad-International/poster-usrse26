@@ -530,10 +530,6 @@ Many students never hear of these opportunities, especially students from underr
 == Who is on a DataSquad
 <who-is-on-a-datasquad>
 #roles()
-== Limits we keep
-<limits-we-keep>
-We help with a researcher's data and code. We don't change their research questions, tutor their students, or share anything a researcher tells us in confidence.
-
 == Pace of work
 <pace-of-work>
 Schedules, the academic calendar, onboarding, review, and graduation handoffs set the pace of work. More students can take more varied projects but need more oversight. Handbooks, templates, and staff stay when students graduate.
