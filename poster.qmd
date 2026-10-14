@@ -101,13 +101,11 @@ Schedules, the academic calendar, onboarding, review, and graduation handoffs se
 ::: {.cell}
 # Where students go next
 
-Current job category of former student employees, from public profiles in 2026. Carleton is only partly coded so far.
+Current job category of former student employees, from public profiles in 2026.
 
 ```{=typst}
 #outcomes-list("data/outcomes.csv")
 ```
-
-Descriptive, not a placement rate.
 
 # What adopting takes
 

@@ -164,19 +164,16 @@ def merge_xlsx(rows):
     return rows
 
 def poster_counts(rows):
-    """category,UCLA,Carleton for the poster panel plus a 'Coded so far' row. Each person once; alumni only."""
-    cols = ["UCLA", "Carleton"]
-    out = {}
-    for p in cols:
-        al = [r for r in rows if r["program"] == p and r["group"] == "alumni"]
-        out[p] = (collections.Counter(r["poster_category"] for r in al if r["poster_category"]),
-                  sum(1 for r in al if r["poster_category"]), len(al))
-    order = sorted(POSTER_CATEGORIES, key=lambda c: -(out["UCLA"][0][c] + out["Carleton"][0][c]))
-    table = [["category", "UCLA", "Carleton"]]
-    for c in order:
-        if out["UCLA"][0][c] or out["Carleton"][0][c]:
-            table.append([c, out["UCLA"][0][c], out["Carleton"][0][c]])
-    table.append(["Coded so far"] + [f"{out[p][1]} of {out[p][2]}" for p in cols])
+    """Combined UCLA + Carleton frequencies for the poster: category,count (alumni only, each person once), then
+    meta rows starting with "_" for the coverage line. Counts only people with a v1 category; raw titles are not guessed."""
+    comb = combined_rows(rows)
+    al = [r for r in comb if r["status"] == "alumni"]
+    c = collections.Counter(r["job_category"] for r in al if r["job_category"])
+    table = [["category", "count"]] + [[k, n] for k, n in c.most_common()]
+    for p in ("UCLA", "Carleton"):
+        pa = [r for r in al if r["program"] == p]
+        table.append([f"_{p.lower()}_coded", sum(1 for r in pa if r["job_category"])])
+        table.append([f"_{p.lower()}_alumni", len(pa)])
     return table
 
 # ---- Combined, normalized table (UCLA + Carleton in one sheet, no emails, phones, IDs, or payroll data) ----

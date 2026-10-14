@@ -6,3 +6,4 @@ data/raw/
 data/*
 !data/outcomes.csv
 !data/README.md
+__pycache__/

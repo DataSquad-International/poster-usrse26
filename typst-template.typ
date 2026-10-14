@@ -36,34 +36,30 @@
 #let urltext(body) = text(size: 50pt, weight: "bold", body)
 #let lede(body) = text(size: 78pt, weight: "bold", fill: navy, body)
 
-// Directly labelled counts from a CSV (category,UCLA,Carleton). The last row is a text row ("Coded so far").
-// Works in grayscale. Zeros stay visible so a school with none in a category is not read as missing.
+// Ranked frequency bars, both schools combined, from data/outcomes.csv (category,count). Rows starting with "_" hold
+// the coverage numbers for the caption. Directly labelled, so it works in grayscale.
 #let outcomes-list(path) = {
-  let all = csv(path)
-  let head = all.at(0)
-  let rows = all.slice(1)
-  let num-w = 170pt
+  let all = csv(path).slice(1)
+  let meta = (:)
+  for r in all.filter(r => r.at(0).starts-with("_")) { meta.insert(r.at(0), int(r.at(1))) }
+  let cats = all.filter(r => not r.at(0).starts-with("_"))
+  let top = int(cats.first().at(1))
+  let coded = meta.at("_ucla_coded") + meta.at("_carleton_coded")
+  let total = meta.at("_ucla_alumni") + meta.at("_carleton_alumni")
   block(width: 100%, breakable: false)[
-    #grid(
-      columns: (1fr, num-w, num-w),
-      align: (left, right, right),
-      inset: (y: 4pt),
-      [], text(size: 30pt, weight: "bold", fill: navy, head.at(1)), text(size: 30pt, weight: "bold", fill: navy, head.at(2)),
-    )
-    #for (i, r) in rows.enumerate() [
-      #let last = i == rows.len() - 1
-      #block(
-        width: 100%, above: 0pt, below: 0pt, inset: (y: if last { 8pt } else { 8pt }),
-        stroke: (bottom: 1.5pt + rgb("#C9D3DC")),
+    #for r in cats [
+      #block(width: 100%, above: 0pt, below: 0pt, inset: (y: 5pt), stroke: (bottom: 1.5pt + rgb("#C9D3DC")),
         grid(
-          columns: (1fr, num-w, num-w),
-          align: (left + horizon, right + horizon, right + horizon),
-          text(size: if last { 30pt } else { 36pt }, fill: if last { rgb("#4A5560") } else { slate }, r.at(0)),
-          text(size: if last { 30pt } else { 42pt }, weight: if last { "regular" } else { "bold" }, fill: if r.at(1) == "0" { muted } else if last { rgb("#4A5560") } else { navy }, r.at(1)),
-          text(size: if last { 30pt } else { 42pt }, weight: if last { "regular" } else { "bold" }, fill: if r.at(2) == "0" { muted } else if last { rgb("#4A5560") } else { navy }, r.at(2)),
-        ),
-      )
+          columns: (430pt, 1fr, 60pt),
+          column-gutter: 12pt,
+          align: horizon,
+          text(size: 30pt, fill: slate, r.at(0)),
+          rect(width: int(r.at(1)) / top * 100%, height: 30pt, fill: steel, stroke: none, radius: 3pt),
+          align(right, text(size: 42pt, weight: "bold", fill: navy, r.at(1))),
+        ))
     ]
+    #v(8pt)
+    #text(size: 28pt, fill: rgb("#4A5560"))[#coded of #total alumni coded so far: UCLA #meta.at("_ucla_coded") of #meta.at("_ucla_alumni"), Carleton #meta.at("_carleton_coded") of #meta.at("_carleton_alumni"). Carleton is only partly coded, so this is not a sample. Descriptive, not a placement rate.]
   ]
 }
 

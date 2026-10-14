@@ -36,8 +36,9 @@ Email and phone are not copied. They stay in the original Carleton export.
 
 ## Poster categories
 
-`outcomes.csv` is written by `build_unified.py --poster` from `data/SU26DistributionList-DSAlumni.xlsx` (tab 1 = Carleton, tab `ds-alumni-shared` = UCLA), merged into the unified file by name. Poster categories are job classification v1 (see `taxonomy/job-classification-v1.md`): Data, statistics and actuarial; Software and IT; Business, finance and consulting; Research, science and teaching; Graduate or professional study; Public service, community and other. A sheet value counts only if it is exactly one of those labels. Raw job titles typed into the classification column (for example "Software Engineer") are kept in `title_raw` and are NOT counted until someone codes them. Current students are left out. Each person counts once.
-UCLA: 19 of 19 alumni coded. Carleton: 42 of 113 alumni coded so far (about 53 more have a raw title waiting to be coded), so Carleton counts are a partial, non-random subset. Coded by one person so far; the two-coder agreement check is still pending.
+`outcomes.csv` is written by `python3 -I scripts/build_unified.py --poster`: ranked frequencies of job classification v1 categories, UCLA and Carleton alumni combined, each person once (see `taxonomy/job-classification-v1.md`). Rows starting with `_` hold the coverage numbers that the poster caption prints. Source: `data/SU26DistributionList-DSAlumni.xlsx` (tab 1 Carleton, tab `ds-alumni-shared` UCLA), merged by name.
+A sheet value counts only if it is exactly one of the six v1 labels. Raw job titles typed into the classification column (for example "Software Engineer") are NOT counted until someone codes them. Current students are left out.
+Coverage: UCLA 19 of 19 alumni coded; Carleton 42 of 113 (about 53 more have a raw title waiting). Carleton is a partial, non-random subset. Coded by one person so far; the two-coder agreement check is still pending.
 The old five categories (Data / analytics / consulting; Software / engineering / IT; Research / graduate school; Nonprofit / public sector; Still a student) are retired.
 Category is the person's **current** position, as of the check date in `outcome_source`.
 
