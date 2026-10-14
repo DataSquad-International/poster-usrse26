@@ -1,5 +1,5 @@
 ---
-title: "DataSquad: An Entrypoint for RSE"
+title: "DataSquad: An entry point for RSE"
 subtitle: "Student RSE model for research support, experiential learning, and technical workforce development"
 filters:
   - areas.lua
