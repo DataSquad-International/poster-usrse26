@@ -436,6 +436,7 @@
   watermark: none,
   footer-text: none,
   footer-url: none,
+  doi: none,
   size: "44x44",
   num-columns: 1,
   draft: false,
@@ -463,6 +464,7 @@
       text(fill: white, size: 34pt)[
         #footer-text #h(1fr)
         #if draft { box(fill: orange, inset: (x: 22pt, y: 8pt), radius: 4pt, text(fill: navy, weight: "bold", tracking: 3pt, "DRAFT")) }
+        #if not draft and doi != none { link("https://doi.org/" + doi, text(fill: white, weight: "bold", "doi:" + doi)) }
         #h(1fr) #text(fill: orange, weight: "bold", footer-url)
       ],
     ),
@@ -533,7 +535,8 @@
    watermark: "assets/datasquad-international-watermark.svg", 
    footer-text: [US-RSE '26 · San Jose · Poster reception, Monday Oct 19], 
    footer-url: [datasquad.info], 
-   draft: true, 
+  
+  
   
   doc,
 )
