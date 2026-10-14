@@ -1,4 +1,5 @@
 #import "@preview/fletcher:0.5.8": diagram as fletcher-diagram, node as fnode, edge
+#import "@preview/wrap-it:0.1.1": wrap-content
 // DataSquad International poster layout (Quarto + Typst).
 // Words live in poster.qmd, numbers in data/outcomes.csv. Edit this file only for layout.
 
@@ -93,33 +94,36 @@
   })
 }
 
-// Illustrative photo of an LAPD helicopter, cropped to a banner. CC BY 2.0, so the credit line is required.
-#let heli-photo() = block(width: 100%, breakable: false, above: 10pt, below: 8pt, {
-  image("assets/lapd-as350b2-chris-yarzab.jpg", width: 100%, height: 230pt, fit: "cover", alt: "An LAPD Eurocopter AS350B2 helicopter in flight")
-  v(4pt)
-  text(size: 28pt, fill: rgb("#4A5560"))[LAPD helicopter, for illustration. Photo: Chris Yarzab, CC BY 2.0, via Wikimedia Commons. Cropped and resized.]
-})
-
-// Before and after loading time, drawn to scale (318 minutes against 2).
-#let speedup(before: 318, after: 2, unit: "min") = {
-  let bar(label, value, fill) = block(height: 66pt, grid(
-    columns: (auto, 1fr),
-    column-gutter: 18pt,
-    align: horizon,
-    text(size: 40pt, weight: "bold", fill: navy, label),
-    stack(dir: ltr, spacing: 12pt,
-      rect(width: value / before * 72%, height: 58pt, fill: fill, stroke: none, radius: 3pt),
-      text(size: 44pt, weight: "bold", fill: navy, [~#value #unit]),
-    ),
-  ))
-  block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
+// Helicopter example: text flows around a small photo (CC BY 2.0, so the credit line is required),
+// then two big numbers for the load time. Numbers are from the project team and unconfirmed.
+#let load-tiles(before: 318, after: 2) = {
+  let tile(label, value, fill) = block(width: 100%, fill: fill, radius: 6pt, inset: 20pt, breakable: false,
+    align(center)[
+      #text(size: 34pt, weight: "bold", fill: navy, label) \
+      #text(size: 96pt, weight: "bold", fill: navy, str(value)) #text(size: 40pt, weight: "bold", fill: navy)[ min]
+    ])
+  block(width: 100%, breakable: false, above: 16pt, below: 6pt, {
+    text(size: 32pt, fill: rgb("#4A5560"))[Time to load the data]
     v(8pt)
-    text(size: 32pt, fill: rgb("#4A5560"))[Time to load the data, drawn to scale]
-    v(6pt)
-    bar("Before", before, steel)
-    bar("After", after, orange)
+    grid(columns: (1fr, auto, 1fr), column-gutter: 16pt, align: horizon,
+      tile("Before", before, muted), arrow-right(len: 70pt), tile("After", after, orange))
   })
 }
+#let heli-example(body) = block(
+  width: 100%, breakable: false, above: 30pt, below: 14pt, inset: (left: 28pt), stroke: (left: 10pt + rgb("#2774AE")),
+)[
+  #wrap-content(
+    {
+      image("assets/lapd-as350b2-chris-yarzab.jpg", width: 300pt, height: 190pt, fit: "cover", alt: "An LAPD Eurocopter AS350B2 helicopter in flight")
+      v(2pt)
+      block(width: 300pt, text(size: 28pt, fill: rgb("#4A5560"))[LAPD helicopter, for illustration. Photo: Chris Yarzab, CC BY 2.0, via Wikimedia Commons. Cropped and resized.])
+    },
+    [#text(size: 34pt, weight: "bold", fill: rgb("#2774AE"), tracking: 3pt, upper("UCLA")) #h(14pt) #body],
+    align: top + right,
+    column-gutter: 24pt,
+  )
+  #load-tiles()
+]
 
 // Who is on a DataSquad: students in a short flow (request, work, documentation), staff supervising all of it.
 #let roles() = {
