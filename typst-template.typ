@@ -140,11 +140,11 @@
   })
 }
 
-// The central idea: requests go into paid student work, with staff teaching and review built in; two things come out.
+// The central idea: requests go into student work, with staff teaching and review built in; two things come out.
 // One row, drawn with fletcher so boxes size to their text and arrows route themselves.
 #let model-diagram(
   requests: "Research requests",
-  work: "Paid student project work",
+  work: "Student project work",
   staff: "Staff teach, review, and mentor",
   service: "Useful research support",
   students: "Skilled students",
