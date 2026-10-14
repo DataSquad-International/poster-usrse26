@@ -68,10 +68,10 @@
 // search that measures each word, so nothing overlaps and the result is the same every build. Horizontal only,
 // for legibility. Size shows how many people; color groups the kind of work (navy tech, steel data and research,
 // amber everything else) and is redundant with the words themselves, so it works in grayscale.
-#let word-cloud(path, height: 600pt, min-count: 2) = layout(size => {
+#let word-cloud(path, height: 600pt, min-count: 3) = layout(size => {
   let w = size.width
-  let max-size = 0.115 * w
-  let min-size = 0.040 * w
+  let max-size = 0.092 * w
+  let min-size = 0.036 * w
   let all = csv(path).slice(1)
   let people = all.last().at(1)
   let words = all.filter(r => not r.at(0).starts-with("_") and int(r.at(1)) >= min-count)
@@ -87,7 +87,7 @@
   }
   let placed = ()
   let out = ()
-  let pad = 7pt
+  let pad = 6pt
   for r in words {
     let label = label-of(r.at(0), int(r.at(1)))
     let m = measure(label)
@@ -119,7 +119,7 @@
   block(width: w, breakable: false)[
     #block(width: w, height: height, for o in out { place(top + left, dx: o.x, dy: o.y, o.label) })
     #v(10pt)
-    #text(size: 30pt, fill: rgb("#4A5560"))[Words in the current job titles of #people alumni of UCLA and Carleton, from public profiles in 2026. Larger means more people. Words used by fewer than #min-count people are not shown. Descriptive, not a placement rate.]
+    #text(size: 28pt, fill: rgb("#4A5560"))[Words in the job titles of #people alumni (UCLA and Carleton), from public profiles in 2026. Larger means more people; words used by fewer than #min-count people are not shown. Navy is technology, steel is data and research, amber is other. Descriptive, not a placement rate.]
   ]
 })
 

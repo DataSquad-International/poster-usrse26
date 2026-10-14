@@ -91,7 +91,7 @@ Campuses need more data and software help than staff can provide. Courses leave 
 Where former student employees work now, in the words of their job titles.
 
 ```{=typst}
-#word-cloud("data/title-words.csv", height: 400pt)
+#word-cloud("data/title-words.csv", height: 380pt)
 ```
 
 # What adopting takes
