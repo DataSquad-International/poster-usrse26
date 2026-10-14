@@ -529,9 +529,9 @@ Students work for the library or a department, and staff supervise them. Student
 <limits-we-keep>
 We help with a researcher's data and code. We don't change their research questions, tutor their students, or share anything a researcher tells us in confidence.
 
-== What slows us down
-<what-slows-us-down>
-Student schedules, the academic calendar, onboarding, review, and graduation handoffs all slow the work. More students can take more varied projects, but they need more oversight. Handbooks, templates, and staff stay when students graduate.
+== Pace of work
+<pace-of-work>
+Student schedules, the academic calendar, onboarding, review, and graduation handoffs contribute to the cycles and pace of work. More students can take more varied projects, but need more oversight. Handbooks, templates, and staff stay when students graduate.
 
 ],
 [
