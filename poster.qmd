@@ -83,14 +83,9 @@ Student schedules, the academic calendar, onboarding, review, and graduation han
 ```
 :::
 
-::: {.ucla}
-**Police helicopter flight data.** Two students brought software skills to a research lab's R code. They refactored it with staff, and the code went through code review. Loading the data fell from about 318 minutes to about 2.
-
 ```{=typst}
-#heli-photo()
-#speedup()
+#heli-example[*Police helicopter flight data.* Two students brought software skills to a research lab's R code. They refactored it with staff, and the code went through code review. Loading the data fell from about 318 minutes to about 2.]
 ```
-:::
 <!-- TODO Paula: confirm the scraper figures (7 + 2 students, 2022 to 2024, 500,000+ transcripts) against the ITS blog post and pick/approve this as the Carleton example. Dashboard, wbcheck, and UC OSPO paragraphs were cut to make room for two examples with visuals; wbcheck and OSPO credit moved into the habits paragraph.
      TODO confirm before merge (Tim, with Lawrence, Maddie, and the staff involved): the 318 to ~2 minute figure (source: UCLA DSC Sway, 2025), who did the refactor and review, and the lab's OK to include it. The website entry says "over 800%" and names other students; reconcile or pick one. Image: no photo used; rights unknown. UC OSPO Education site paragraph was removed from here; text kept in git history (PR #10 branch). -->
 
@@ -98,7 +93,7 @@ Student schedules, the academic calendar, onboarding, review, and graduation han
 #v(30pt)
 ```
 
-**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them. wbcheck ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)) and the UC OSPO Education site ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) have citation files that credit their student developers.
+**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them. Two student-built projects have citation files and DOIs that credit their developers: wbcheck ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)) and the UC OSPO Education site ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)).
 :::
 
 ::: {.cell}
