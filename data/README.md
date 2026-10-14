@@ -48,3 +48,20 @@ Category is the person's **current** position, as of the check date in `outcome_
 - `no_linkedin_url`: no usable profile link. The sheet also has `#N/A` formula results.
 - The Carleton sheet has two `CreationDate` columns; the first non-empty value is kept.
 - Carleton outcomes are not in the sheet. Someone has to check positions, as was done for UCLA, then fill the empty columns.
+
+## `alumni-combined.csv` (one normalized sheet, UCLA + Carleton)
+
+Written by `python3 -I scripts/build_unified.py --combined` (local only, ignored by git: it has names). One row per person, 149 rows. No emails, phones, UIDs, FAUs, or payroll names.
+
+| Column | Rule |
+|---|---|
+| `person_id`, `program` | `UCL-001` style ID; `UCLA` or `Carleton` |
+| `first_name`, `last_name` | Parentheses removed; the removed name goes in `notes` ("also known as") |
+| `status` | `alumni` or `current student` (current if the sheet says so, or the class year is after 2026) |
+| `grad_year` | Four digits. Carleton two-digit years are read as 20xx (confirm 2005 and 2009 with Paula). Blank for most UCLA alumni: the source has no year |
+| `major_1`, `major_2`, `minors` | Split from the sheet: `A/B` and `A; B` become two majors, `(minor: X)` moves to `minors`. `Sociology/Anthropology` and `Political Science/IR` (shown as Political Science and International Relations) stay one major. `&` becomes `and`. Undecided and `#N/A` become blank |
+| `job_category` | Job classification v1 label, only when the sheet gives exactly one of the six labels (or the person is a full-time grad student). Blank otherwise |
+| `job_category_status` | `coded`, `title only, not yet coded`, `no title found`, or `current student` |
+| `job_title` | Current job title from the sheet or the UCLA file. Never an employer |
+| `study_status`, `sector`, `data_work`, `soc_code`, `confidence` | UCLA coding detail; blank for Carleton until coded |
+| `notes` | Anything the cleaning changed or could not decide |

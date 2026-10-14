@@ -121,7 +121,8 @@ def load_sheet(rows, program, major_col, class_col):
         first, last = g(r, "FirstName"), g(r, "LastName")
         if not first and not last: continue
         label = g(r, class_col)
-        rec = dict(first=first, last=last, major=g(r, major_col), year=g(r, "GraduationYear"), flags=[])
+        rec = dict(first=first, last=last, major=g(r, major_col), year=g(r, "GraduationYear"), flags=[],
+                   title=g(r, "Job Classification (LinkIn Formula)"))
         rec["poster_category"] = label if label in POSTER_CATEGORIES else ""
         rec["current"] = label.lower() == "current student" or g(r, "Status").lower().startswith("current")
         rec["title_raw"] = "" if (rec["poster_category"] or rec["current"] or label in ("", "#N/A")) else label
@@ -144,6 +145,7 @@ def merge_xlsx(rows):
         rec = sheets[r["program"]].get(name_key(r["first_name"], r["last_name"]))
         if not rec: continue
         r["poster_category"], r["title_raw"] = rec["poster_category"], rec["title_raw"]
+        if not r["current_position"] and rec["title"] not in ("", "#N/A", "Current Student"): r["current_position"] = rec["title"]
         if rec["major"]: r["major"] = rec["major"]
         if rec["current"] and r["group"] == "alumni":
             r["group"] = "current student"
@@ -177,6 +179,66 @@ def poster_counts(rows):
     table.append(["Coded so far"] + [f"{out[p][1]} of {out[p][2]}" for p in cols])
     return table
 
+# ---- Combined, normalized table (UCLA + Carleton in one sheet, no emails, phones, IDs, or payroll data) ----
+# Majors that contain a "/" but are one program of study at the school, not a double major.
+ONE_MAJOR = {"Sociology/Anthropology": "Sociology/Anthropology", "Political Science/IR": "Political Science and International Relations"}
+COMBINED_COLUMNS = [
+    "person_id", "program", "first_name", "last_name", "status", "grad_year",
+    "major_1", "major_2", "minors",
+    "job_category", "job_category_status", "job_title",
+    "study_status", "sector", "data_work", "soc_code", "confidence", "notes",
+]
+
+def split_majors(raw):
+    """'Data Theory (minor: GIS)' -> (['Data Theory'], ['GIS']); 'A/B' and 'A; B' -> two majors; blanks for Undecided and #N/A."""
+    s = re.sub(r"\s+", " ", (raw or "").strip().replace("&", "and"))
+    flags = []
+    if s in ("", "#N/A"): return [], [], flags
+    if s.lower() == "undecided": return [], [], ["major_undecided_in_source"]
+    minors = []
+    m = re.search(r"\((?:minors?):\s*([^)]*)\)", s, re.I)
+    if m:
+        minors = [x.strip() for x in m.group(1).split(",") if x.strip()]
+        s = (s[:m.start()] + s[m.end():]).strip()
+    majors = []
+    for part in re.split(r";", s):
+        part = part.strip()
+        if not part: continue
+        if part in ONE_MAJOR: majors.append(ONE_MAJOR[part])
+        elif "/" in part: majors += [x.strip() for x in part.split("/") if x.strip()]
+        else: majors.append(part)
+    if len(majors) > 2: flags.append("more_than_two_majors_kept_first_two")
+    return majors[:2], minors, flags
+
+def combined_rows(rows):
+    out = []
+    for r in rows:
+        majors, minors, mflags = split_majors(r.get("major", ""))
+        first = re.sub(r"\s*\(.*?\)", "", r.get("first_name", "")).strip()
+        notes = [x for x in mflags]
+        pn = re.search(r"\((.*?)\)", r.get("first_name", "") + " " + r.get("last_name", ""))
+        if pn: notes.append(f"also known as {pn.group(1)}")
+        last = re.sub(r"\s*\(.*?\)", "", r.get("last_name", "")).strip()
+        title = clean(r.get("current_position", "")) or clean(r.get("title_raw", ""))
+        if r.get("group", "") != "alumni": jstatus = "current student"
+        elif r.get("poster_category", ""): jstatus = "coded"
+        elif title: jstatus = "title only, not yet coded"
+        else: jstatus = "no title found"
+        if "two_poster_categories_pick_one" in r.get("qa_flags", ""): notes.append("sheet lists two categories, pick one")
+        if "added_from_xlsx" in r.get("qa_flags", ""): notes.append("added from the 2026-10-14 sheet")
+        out.append({
+            "person_id": r.get("person_id", ""), "program": r.get("program", ""), "first_name": first, "last_name": last,
+            "status": r.get("group", ""), "grad_year": r.get("grad_year", ""),
+            "major_1": majors[0] if majors else "", "major_2": majors[1] if len(majors) > 1 else "",
+            "minors": "; ".join(minors),
+            "job_category": r.get("poster_category", "") or ("Graduate or professional study" if r.get("study_status", "") == "grad_full_time" and r.get("group", "") == "alumni" else ""),
+            "job_category_status": jstatus, "job_title": title,
+            "study_status": r.get("study_status", ""), "sector": r.get("sector", ""), "data_work": r.get("data_work", ""),
+            "soc_code": r.get("soc_code", ""), "confidence": r.get("confidence", ""), "notes": "; ".join(notes),
+        })
+    out.sort(key=lambda d: (d["program"], d["last_name"].lower(), d["first_name"].lower()))
+    return out
+
 def main():
     rows = merge_xlsx(load_ucla() + load_carleton())
     seen = collections.Counter((r["program"], r["first_name"].lower(), r["last_name"].lower()) for r in rows)
@@ -187,6 +249,12 @@ def main():
     for r in rows:
         n[r["program"]] += 1
         r["person_id"] = f'{r["program"][:3].upper()}-{n[r["program"]]:03d}'
+    if "--combined" in sys.argv:
+        comb = combined_rows(rows)
+        path = ROOT / "data" / "alumni-combined.csv"
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=COMBINED_COLUMNS); w.writeheader(); w.writerows(comb)
+        print(f"wrote {path.relative_to(ROOT)}: {len(comb)} rows"); return
     if "--poster" in sys.argv:
         csv.writer(sys.stdout, lineterminator="\n").writerows(poster_counts(rows)); return
     if "--counts" in sys.argv:
