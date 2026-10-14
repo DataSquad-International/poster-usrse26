@@ -1,5 +1,5 @@
 ---
-title: "Developing RSE skills at the novice level"
+title: "DataSquad: An Entrypoint for RSE"
 subtitle: "Student RSE model for research support, experiential learning, and technical workforce development"
 filters:
   - areas.lua
