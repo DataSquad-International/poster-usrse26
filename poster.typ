@@ -228,9 +228,7 @@
   inset: (left: 28pt),
   stroke: (left: 10pt + accent),
 )[
-  #text(size: 34pt, weight: "bold", fill: accent, tracking: 3pt, upper(name))
-  #v(2pt)
-  #body
+  #text(size: 34pt, weight: "bold", fill: accent, tracking: 3pt, upper(name)) #h(14pt) #body
 ]
 #let carleton(body) = school("Carleton", rgb("#003069"), body)
 #let ucla(body) = school("UCLA", rgb("#2774AE"), body)
@@ -287,7 +285,7 @@
   work: [Paid student #linebreak() project work],
   service: "Useful research support",
   students: "Skilled students",
-  spread: "Good practice spreads across campus",
+  spread: "Goal: wider use of good practice",
 ) = layout(size => {
   let w = size.width
   let box(body, fill: white, ink: navy, stroke: 5pt + steel, size: 54pt) = (
@@ -431,7 +429,7 @@
 #grid(columns: (1fr, 2fr,), column-gutter: 70pt, row-gutter: 40pt,
 [
 #lede[
-Paid students contribute to research and learn to be RSEs while they do it.
+Paid students contribute to research and build RSE skills while they do it.
 
 ]
 Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
@@ -466,14 +464,12 @@ Student availability, the academic calendar, onboarding, review, and graduation 
 [
 = What the work looks like
 <what-the-work-looks-like>
-Some projects end as public code, others as a dashboard or a sketch. Not every client needs a public repository.
-
 #carleton[
 #strong[Election-news scraper.] Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. #strong[The tool outlasted the students who began it.]
 
 ]
 #ucla[
-#strong[wbcheck.] Students began this Carpentries lesson checker in 2023, and it evolved as we learned what collaborative lesson development takes. In 2026, staff filled in the code with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
+#strong[wbcheck.] Students built the first version of this Carpentries lesson checker in 2023, and it grew as we learned what collaborative lesson development takes. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file crediting its student authors (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]).
 
 ]
 #carleton[
@@ -505,7 +501,7 @@ Descriptive, not a placement rate.
 
 = Start a DataSquad
 <start-a-datasquad>
-The starter kit covers roles, confidentiality, onboarding, and request tracking. Students learn software sharing and curation from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise students? Tell us your hardest obstacle.
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing and curation from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise student workers? Compare how you handle onboarding, review, and graduation handoffs.
 
 #grid(columns: (3.2in, 1fr,), column-gutter: 30pt, row-gutter: 40pt,
 [
