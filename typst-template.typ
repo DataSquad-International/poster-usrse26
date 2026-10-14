@@ -113,7 +113,7 @@
     ),
   ))
   block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
-    v(14pt)
+    v(8pt)
     text(size: 32pt, fill: rgb("#4A5560"))[Time to load the data, drawn to scale]
     v(6pt)
     bar("Before", before, steel)
