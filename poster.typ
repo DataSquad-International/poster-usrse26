@@ -418,7 +418,7 @@
 #grid(columns: (1fr, 2fr,), column-gutter: 70pt, row-gutter: 40pt,
 [
 #lede[
-Students' skills can help advance research best practices across campus
+Paid students contribute to research and learn to be RSEs while they do it.
 
 ]
 Campuses need more data and software help than staff can provide. Courses leave gaps, and so does the code researchers write. DataSquads are the glue. Many students never hear of this work, especially those from underrepresented groups.
