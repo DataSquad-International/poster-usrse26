@@ -24,6 +24,7 @@ authors:
   - family-names: Nakahata
     given-names: Darren
     affiliation: "UCLA Library Data Science Center"
+doi: "10.5281/zenodo.23381638"
 repository-code: "https://github.com/DataSquad-International/poster-usrse26"
 url: "https://datasquad.info"
 license: BSD-3-Clause
