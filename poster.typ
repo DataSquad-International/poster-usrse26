@@ -208,6 +208,7 @@
 
 
 
+#import "@preview/fletcher:0.5.8": diagram as fletcher-diagram, node as fnode, edge
 // DataSquad International poster layout (Quarto + Typst).
 // Words live in poster.qmd, numbers in data/outcomes.csv. Edit this file only for layout.
 
@@ -279,30 +280,42 @@
 )
 
 // The central idea: requests and supervision go into paid student work; two things come out.
+// Drawn with fletcher so boxes size to their text and arrows route themselves.
 #let model-diagram(
   requests: "Research requests",
   supervision: [Staff supervision #linebreak() and mentoring],
   work: [Paid student #linebreak() project work],
   service: "Useful research support",
   students: "Skilled students",
-  spread: "Good practice travels to labs and offices across campus",
-) = grid(
-  columns: (1fr, auto, 1.1fr, auto, 1.5fr),
-  align: center + horizon,
-  column-gutter: 22pt,
-  row-gutter: 24pt,
-  [], [], node(supervision, size: 44pt, stroke: 4pt + steel), [], [],
-  [], [], arrow-down(len: 0.6in), [], [],
-  grid.cell(rowspan: 2, node(requests, size: 50pt, stroke: 5pt + steel)),
-  grid.cell(rowspan: 2, arrow-right()),
-  grid.cell(rowspan: 2, node(work, fill: navy, ink: white, size: 60pt, height: 2.7in + 24pt)),
-  arrow-right(),
-  node(service, size: 54pt, stroke: 5pt + steel, height: 1.35in),
-  arrow-right(),
-  node(students, fill: orange, ink: navy, size: 54pt, stroke: 5pt + orange, height: 1.35in),
-  [], [], [], [], arrow-down(len: 0.6in),
-  [], [], [], [], node(spread,  size: 54pt, stroke: 5pt + steel, height: 1.35in),
-)
+  spread: "Good practice spreads across campus",
+) = layout(size => {
+  let w = size.width
+  let box(body, fill: white, ink: navy, stroke: 5pt + steel, size: 54pt) = (
+    fill: fill, stroke: stroke, corner-radius: 6pt, inset: 22pt,
+    label: align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
+  )
+  let n(pos, name, spec, width, height) = fnode((pos.at(0), -pos.at(1)), spec.label, name: name, fill: spec.fill, stroke: spec.stroke, corner-radius: spec.corner-radius, inset: spec.inset, width: width, height: height)
+  let x0 = 0.11 * w
+  let x1 = 0.46 * w
+  let x2 = 0.83 * w
+  let ym = 195pt
+  fletcher-diagram(
+    edge-stroke: 7pt + navy,
+    mark-scale: 120%,
+    spacing: 0pt,
+    n((x0, ym), <req>, box(requests, size: 50pt), 0.2 * w, 150pt),
+    n((x1, ym), <work>, box(work, fill: navy, ink: white, size: 60pt, stroke: 5pt + navy), 0.24 * w, 180pt),
+    n((x1, 0pt), <sup>, box(supervision, size: 44pt, stroke: 4pt + steel), 0.24 * w, 120pt),
+    n((x2, ym - 72pt), <svc>, box(service, size: 48pt), 0.30 * w, 120pt),
+    n((x2, ym + 72pt), <stu>, box(students, fill: orange, stroke: 5pt + orange, size: 48pt), 0.30 * w, 120pt),
+    n((x2, ym + 270pt), <spr>, box(spread, size: 44pt, stroke: 4pt + steel), 0.30 * w, 150pt),
+    edge(<req>, <work>, "-|>"),
+    edge(<sup>, <work>, "-|>"),
+    edge(<work>, <svc>, "-|>"),
+    edge(<work>, <stu>, "-|>"),
+    edge(<stu>, <spr>, "-|>"),
+  )
+})
 
 #let poster(
   title: "Poster title",
