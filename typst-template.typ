@@ -76,6 +76,40 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
+// Nine student developers across two cohorts: seven built it, two extended it.
+#let relay() = {
+  let dots(n, fill) = for _ in range(n) { box(width: 52pt, height: 52pt, radius: 26pt, fill: fill, baseline: 10pt); h(14pt) }
+  block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
+    grid(
+      columns: (auto, 1fr),
+      column-gutter: 18pt,
+      row-gutter: 12pt,
+      align: horizon,
+      text(size: 40pt, weight: "bold", fill: navy, [2022]), dots(7, steel),
+      text(size: 40pt, weight: "bold", fill: navy, [2023-24]), dots(2, orange),
+    )
+  })
+}
+
+// Before and after loading time, drawn to scale (318 minutes against 2).
+#let speedup(before: 318, after: 2, unit: "min") = {
+  let bar(label, value, fill) = grid(
+    columns: (auto, 1fr),
+    column-gutter: 18pt,
+    align: horizon,
+    text(size: 40pt, weight: "bold", fill: navy, label),
+    stack(dir: ltr, spacing: 12pt,
+      rect(width: value / before * 72%, height: 58pt, fill: fill, stroke: none, radius: 3pt),
+      text(size: 44pt, weight: "bold", fill: navy, [~#value #unit]),
+    ),
+  )
+  block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
+    bar("Before", before, steel)
+    v(10pt)
+    bar("After", after, orange)
+  })
+}
+
 // Who is on a DataSquad: students in a short flow (request, work, documentation), staff supervising all of it.
 #let roles() = {
   let pill(role, desc, fill: white, stroke-col: steel) = grid(

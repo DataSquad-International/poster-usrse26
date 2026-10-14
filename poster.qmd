@@ -76,26 +76,28 @@ Student schedules, the academic calendar, onboarding, review, and graduation han
 # What the work looks like
 
 ::: {.carleton}
-**Election-news scraper.** Nine students started, extended, or used it from 2021 to 2024 to collect broadcast transcripts for a political science project. **The scraper outlasted the students who began it.**
+**Election-news scraper.** Seven students built it in 2022. Two more extended it from 2023 to 2024 for a political science project that involved over 500,000 transcripts.
+
+```{=typst}
+#relay()
+```
 :::
 
 ::: {.ucla}
-**wbcheck.** Students built the first version of this Carpentries lesson checker in 2023. Staff expanded it in 2026 with AI assistance. It has 48 documented rules, tests, a BSD-3 license, and a citation file that credits its student authors ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)).
-:::
+**Police helicopter flight data.** Two students brought software skills to a research lab's R code. They refactored it with staff, and the code went through code review. Loading the data fell from about 318 minutes to about 2.
 
-::: {.carleton}
-**Language placement dashboard.** The project was longer than any student would stay. The DataSquad sketched the database and chose heatmaps for the development team.
+```{=typst}
+#speedup()
+```
 :::
-
-::: {.ucla}
-**UC OSPO Education site.** Students built the lesson pages and search for a catalog of 55 open source lessons about open science and research software. The site has a citation file and a DOI ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) that credit its developers.
-:::
+<!-- TODO Paula: confirm the scraper figures (7 + 2 students, 2022 to 2024, 500,000+ transcripts) against the ITS blog post and pick/approve this as the Carleton example. Dashboard, wbcheck, and UC OSPO paragraphs were cut to make room for two examples with visuals; wbcheck and OSPO credit moved into the habits paragraph.
+     TODO confirm before merge (Tim, with Lawrence, Maddie, and the staff involved): the 318 to ~2 minute figure (source: UCLA DSC Sway, 2025), who did the refactor and review, and the lab's OK to include it. The website entry says "over 800%" and names other students; reconcile or pick one. Image: no photo used; rights unknown. UC OSPO Education site paragraph was removed from here; text kept in git history (PR #10 branch). -->
 
 ```{=typst}
 #v(30pt)
 ```
 
-**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them.
+**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them. wbcheck ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)) and the UC OSPO Education site ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)) have citation files that credit their student developers.
 :::
 
 ::: {.cell}
