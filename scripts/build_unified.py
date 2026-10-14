@@ -176,6 +176,18 @@ def apply_title_codes(rows):
             r["qa_flags"] = ";".join(filter(None, [r.get("qa_flags", ""), "category_from_title_pending_review"]))
     return rows
 
+TITLE_STOP = set("a an and at for in of on or the to with senior sr jr junior staff principal lead associate chief assistant "
+                 "i ii iii iv v member intern interim former co inter undergraduate ms student global".split())
+
+def title_words(rows, min_count=2):
+    """Job-title words across alumni of both schools (titles only, never employers). A word used by fewer than
+    min_count people is dropped so no word points at one person. Each person counts a word once."""
+    people = [r for r in rows if r["group"] == "alumni" and r.get("current_position")]
+    c = collections.Counter()
+    for r in people:
+        c.update({w for w in re.findall(r"[a-z]+", r["current_position"].lower()) if w not in TITLE_STOP and len(w) > 1})
+    return [(w, n) for w, n in c.most_common() if n >= min_count], len(people)
+
 def poster_counts(rows):
     """Combined UCLA + Carleton frequencies for the poster: category,count (alumni only, each person once), then
     meta rows starting with "_" for the coverage line. Counts only people with a v1 category; raw titles are not guessed."""
@@ -267,6 +279,10 @@ def main():
         with open(path, "w", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=COMBINED_COLUMNS); w.writeheader(); w.writerows(comb)
         print(f"wrote {path.relative_to(ROOT)}: {len(comb)} rows"); return
+    if "--title-words" in sys.argv:
+        shown, n = title_words(rows)
+        w = csv.writer(sys.stdout, lineterminator="\n"); w.writerow(["word", "count"])
+        w.writerows(shown); w.writerow(["_people_with_a_title", n]); return
     if "--poster" in sys.argv:
         csv.writer(sys.stdout, lineterminator="\n").writerows(poster_counts(rows)); return
     if "--counts" in sys.argv:
