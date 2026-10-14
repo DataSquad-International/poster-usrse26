@@ -32,11 +32,10 @@ python3 -I scripts/build_unified.py --counts   # program, category, count (aggre
 
 Email and phone are not copied. They stay in the original Carleton export.
 
-## Category list (old, replaced by job classification v1)
+## Poster categories
 
-The five categories below are the ones on the poster draft so far. `data/outcomes.csv` still holds those counts. Replace them with v1 poster categories once both schools are coded.
-
-Data / analytics / consulting; Software / engineering / IT; Research / graduate school; Nonprofit / public sector; Still a student.
+`outcomes.csv` holds the UCLA counts by job classification v1 poster category (see `taxonomy/job-classification-v1.md`): Data, statistics and actuarial; Software and IT; Business, finance and consulting; Graduate or professional study; Public service, community and other. Each person counts once, from the 19 former student employees in the shared sheet (current students are left out). Coded by one person so far; the two-coder agreement check is still pending. Carleton is not coded yet, so the panel is UCLA only.
+The old five categories (Data / analytics / consulting; Software / engineering / IT; Research / graduate school; Nonprofit / public sector; Still a student) are retired.
 Category is the person's **current** position, as of the check date in `outcome_source`.
 
 ## Known QA flags
