@@ -18,9 +18,7 @@
   inset: (left: 28pt),
   stroke: (left: 10pt + accent),
 )[
-  #text(size: 34pt, weight: "bold", fill: accent, tracking: 3pt, upper(name))
-  #v(2pt)
-  #body
+  #text(size: 34pt, weight: "bold", fill: accent, tracking: 3pt, upper(name)) #h(14pt) #body
 ]
 #let carleton(body) = school("Carleton", rgb("#003069"), body)
 #let ucla(body) = school("UCLA", rgb("#2774AE"), body)
@@ -77,7 +75,7 @@
   work: [Paid student #linebreak() project work],
   service: "Useful research support",
   students: "Skilled students",
-  spread: "Good practice spreads across campus",
+  spread: "Goal: wider use of good practice",
 ) = layout(size => {
   let w = size.width
   let box(body, fill: white, ink: navy, stroke: 5pt + steel, size: 54pt) = (
