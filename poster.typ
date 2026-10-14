@@ -596,7 +596,7 @@
    footer-text: [US-RSE '26 · San Jose · Poster reception, Monday Oct 19], 
    footer-url: [datasquad.info], 
   
-  
+   doi: "10.5281/zenodo.23381638", 
   
   doc,
 )
