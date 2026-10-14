@@ -9,6 +9,7 @@
   $if(footer-text)$ footer-text: [$footer-text$], $endif$
   $if(footer-url)$ footer-url: [$footer-url$], $endif$
   $if(poster-draft)$ draft: $poster-draft$, $endif$
+  $if(poster-doi)$ doi: "$poster-doi$", $endif$
   $if(num-columns)$ num-columns: $num-columns$, $endif$
   doc,
 )
