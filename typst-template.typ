@@ -162,7 +162,7 @@
       column-gutter: 50pt,
       align: horizon,
       [
-        #block(below: 0pt, text(fill: white, size: 150pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
+        #block(below: 0pt, text(fill: white, size: 130pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
         #if subtitle != none [
           #v(44pt)
           #block(below: 0pt, par(leading: 0.55em, text(fill: muted, size: 46pt, subtitle)))
