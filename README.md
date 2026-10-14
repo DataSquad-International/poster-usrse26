@@ -65,6 +65,8 @@ After a merge to `main`, CI commits the new `poster.pdf` and `poster.typ` back (
 
 Alumni names, emails, and positions are never committed. Only category counts are. Everything else in `data/` is git-ignored.
 
+The four icons in `assets/pathways-*.svg` (laptop with gears, steps, open book) were traced to vector from an AI-generated drawing (made with Gemini Notebook; its watermark was cropped out and is not in the repo). The Venn diagram and all labels are live text and shapes in `typst-template.typ`.
+
 The helicopter photo in `assets/` is by Chris Yarzab, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LAPD_AS350B2-2.jpg). It was cropped and resized. Keep its credit line on the poster.
 
 Style follows datasquad.info: navy `#1D3557`, steel `#457B9D`, orange `#F9AE1A`, Atkinson Hyperlegible.

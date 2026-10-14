@@ -53,20 +53,9 @@ Campuses need more data and software help than staff can provide. Courses leave 
 ::: {.cells columns="1fr 1.3fr 1fr" gutter="70pt"}
 
 ::: {.cell}
-# A paid job that teaches
-
-Many students never hear of these opportunities, especially students from underrepresented groups. Library or department staff supervise students. Students help researchers with their data, from cleaning to reproducibility.
-
-## Who is on a DataSquad
-
 ```{=typst}
-#roles()
+#pathways()
 ```
-
-
-## Pace of work
-
-Schedules, the academic calendar, onboarding, review, and graduation handoffs set the pace of work. More students can take more varied projects but need more oversight. Handbooks, templates, and staff stay when students graduate.
 :::
 
 ::: {.cell}
