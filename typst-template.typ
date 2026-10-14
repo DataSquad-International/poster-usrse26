@@ -91,7 +91,7 @@
   arrow-right(),
   node(students, fill: orange, ink: navy, size: 54pt, stroke: 5pt + orange, height: 1.35in),
   [], [], [], [], arrow-down(len: 0.6in),
-  [], [], [], [], text(size: 42pt, fill: navy, weight: "bold", spread),
+  [], [], [], [], node(spread,  size: 54pt, stroke: 5pt + steel, height: 1.35in),
 )
 
 #let poster(
