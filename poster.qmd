@@ -1,6 +1,6 @@
 ---
 title: "Developing RSE skills at the novice level"
-subtitle: | Student RSE model for research support, experiential learning, and technical workforce development
+subtitle: "test subtitle"
   A DataSquad is a team of paid undergraduates who learn data and software work by doing it,\
   and show researchers how to do theirs better.
 filters:
