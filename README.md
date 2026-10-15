@@ -1,6 +1,10 @@
-# USRSE26 poster: Developing RSE skills at the novice level
+# The DataSquad: An entry point for RSE
 
-Poster for US-RSE '26 (San Jose). Reception Monday Oct 19, 2026. Camera-ready Wednesday Oct 21. Max size 44 x 44 in. The PDF also goes to Zenodo.
+Poster for US-RSE '26 (San Jose) by Paula Lackie and Oliver Hall (Carleton College DataSquad) and Tim Dennis and Leigh Phan (UCLA Library Data Science Center DataSquad).
+
+A DataSquad is a team of paid undergraduates who provide data and research software support and learn the work by doing it. Campuses have limited capacity for that support, and students, especially those from underrepresented backgrounds, have few ways to gain practical RSE and data experience. The poster shows how the model closes that gap and how to manage a team of novices without a dedicated budget or full-time oversight. Come talk with us about working with novices, and ask for the job descriptions, confidentiality agreements, and project management frameworks that help supervisors start a DataSquad.
+
+Reception Monday Oct 19, 2026. Camera-ready Wednesday Oct 21. Max size 44 x 44 in. The PDF also goes to Zenodo.
 
 Built with Quarto + Typst. Coauthors edit words in plain text and open a pull request. Start a new branch for each change: a push to a branch whose pull request has already merged does not reach `main`.
 
@@ -65,7 +69,7 @@ After a merge to `main`, CI commits the new `poster.pdf` and `poster.typ` back (
 
 Alumni names, emails, and positions are never committed. Only category counts are. Everything else in `data/` is git-ignored.
 
-The four icons in `assets/pathways-*.svg` (laptop with gears, steps, open book) were traced to vector from an AI-generated drawing (made with Google NotebookLM; its watermark was cropped out and is not in the repo). The Venn diagram and all labels are live text and shapes in `typst-template.typ`. `assets/carleton-scraper-improvements.svg` is a vector comparison of the election-news scraper before and after the students' changes, generated outside the repo (text is outlined, so it is not editable text; regenerate it to change the wording). Its content comes from the Carleton ITS blog post "Election News Analysis project" (3 June 2024), which is credited under it on the poster. The four role icons in `assets/role-*.svg` were traced the same way from the DataSquad roles drawing; the role names and descriptions are live text in `typst-template.typ` (`role-cards`).
+The four icons in `assets/pathways-*.svg` (laptop with gears, steps, open book) were traced to vector from an AI-generated drawing (made with Gemini Notebook; its watermark was cropped out and is not in the repo). The Venn diagram and all labels are live text and shapes in `typst-template.typ`. `assets/carleton-scraper-improvements.svg` is a vector comparison of the election-news scraper before and after the students' changes, generated outside the repo (text is outlined, so it is not editable text; regenerate it to change the wording). Its content comes from the Carleton ITS blog post "Election News Analysis project" (3 June 2024), which is credited under it on the poster. The four role icons in `assets/role-*.svg` were traced the same way from the DataSquad roles drawing; the role names and descriptions are live text in `typst-template.typ` (`role-cards`).
 
 The helicopter photo in `assets/` is by Chris Yarzab, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LAPD_AS350B2-2.jpg). It was cropped and resized. Keep its credit line on the poster.
 
@@ -73,7 +77,7 @@ Style follows datasquad.info: navy `#1D3557`, steel `#457B9D`, orange `#F9AE1A`,
 
 ## AI assistance
 
-Claude (Anthropic), used through Claude Code, helped write and revise the layout code (Quarto and Typst), the data scripts, and drafts of some wording. Google NotebookLM was used to generate the drawings that the poster icons were traced from. The authors reviewed the output and are responsible for the content. AI tools are not listed as authors. Where that matters for a file, it is noted next to the file (for example the traced icons above). If you reuse this poster, keep this disclosure or write your own.
+Claude (Anthropic), used through Claude Code, helped write and revise the layout code (Quarto and Typst), the data scripts, and drafts of some wording. Gemini Notebook was used to generate the drawings that the poster icons were traced from. The authors reviewed the output and are responsible for the content. AI tools are not listed as authors. Where that matters for a file, it is noted next to the file (for example the traced icons above). If you reuse this poster, keep this disclosure or write your own.
 
 ## Cite and license
 
