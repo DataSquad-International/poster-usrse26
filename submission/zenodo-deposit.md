@@ -41,7 +41,7 @@ The same record as JSON is in `submission/zenodo-metadata.json` (Zenodo API `met
 | Meeting: session | Poster reception |
 | Meeting: session part | Monday 19 October 2026, 5:30-7:30 pm |
 | Related works | https://github.com/DataSquad-International/poster-usrse26 : is supplemented by (software). 10.5281/zenodo.23329531 (wbcheck) : references. 10.5281/zenodo.23330022 (UC OSPO Education site) : references |
-| Notes | Poster presented at the US-RSE '26 poster reception, San Jose Marriott. Source: https://github.com/DataSquad-International/poster-usrse26. AI assistance: Claude (Anthropic) helped write the layout code and some wording, and Google NotebookLM generated the drawings the icons were traced from. The authors reviewed the output and are responsible for the content. |
+| Notes | Poster presented at the US-RSE '26 poster reception, San Jose Marriott. Source: https://github.com/DataSquad-International/poster-usrse26. AI assistance: Claude (Anthropic) helped write the layout code and some wording, and Gemini Notebook generated the drawings the icons were traced from. The authors reviewed the output and are responsible for the content. |
 | Digital Object Identifier | Already reserved: 10.5281/zenodo.23381638. Leave as is |
 
 Conference details come from https://us-rse.org/usrse26/program/ (Mon Oct 19 to Wed Oct 21, 2026; poster reception Mon Oct 19, 5:30 to 7:30 pm, San Jose Ballroom Salon 3 and 4, San Jose Marriott).
