@@ -18,7 +18,7 @@ format:
     poster-doi: "10.5281/zenodo.23381638"   # reserved Zenodo DOI (draft record); shown in the footer
     poster-logo: "assets/datasquad-international-mark-white.svg"
     poster-watermark: "assets/datasquad-international-watermark.svg"
-    footer-text: "US-RSE '26  ·  San Jose  ·  Poster reception, Monday Oct 19  ·  Layout and graphics made with help from Claude (Anthropic) and Google NotebookLM"
+    footer-text: "US-RSE '26  ·  San Jose  ·  Poster reception, Monday Oct 19  ·  Claude AI & Gemini Notebook were used for formatting and design"
     footer-url: "datasquad.info"
 ---
 
