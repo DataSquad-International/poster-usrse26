@@ -142,6 +142,14 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
+// What the Carleton students changed in the election-news scraper (assets/carleton-scraper-improvements.svg, vector).
+// Every item is stated in the Carleton ITS blog post "Election News Analysis project" (3 June 2024).
+#let scraper-visual() = block(width: 100%, breakable: false, above: 12pt, below: 6pt)[
+  #image("assets/carleton-scraper-improvements.svg", width: 100%, alt: "Two columns. Inherited scraper: a Colab notebook, long query waits, no saved progress. Student improvements: organized Python files, query time halved, skip completed queries.")
+  #v(4pt)
+  #text(size: 28pt, fill: rgb("#4A5560"))[Improvements reported by the project team. Source: Carleton ITS blog, Election News Analysis project, June 2024.]
+]
+
 // Nine student developers across two cohorts: seven built it, two extended it.
 #let relay() = {
   let dots(n, fill) = for _ in range(n) { box(width: 52pt, height: 52pt, radius: 26pt, fill: fill, baseline: 10pt); h(14pt) }

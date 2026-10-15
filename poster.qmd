@@ -69,10 +69,10 @@ Campuses need more data and software help than staff can provide. Students want 
 # What the work looks like
 
 ::: {.carleton}
-**Election-news scraper.** Seven students built it in 2022. Two more extended it from 2023 to 2024 for a political science project that involved over 500,000 transcripts.
+**Election-news scraper.** One student built it, six improved it in 2022, and two more extended it from 2023 to 2024 for a political science project that set out to scrape over 500,000 transcripts. Their changes made long runs faster and easier to resume.
 
 ```{=typst}
-#relay()
+#scraper-visual()
 ```
 :::
 
