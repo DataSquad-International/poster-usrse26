@@ -192,17 +192,16 @@
 
 // Four cards: what a student gets from the job. Icons are traced from the source drawing to vector (assets/pathways-*.svg);
 // the Venn diagram and every label are live text and shapes, so they stay sharp at print size.
-#let venn(size: 360pt) = {
+#let venn(size: 290pt) = {
   let r = size * 0.31
-  let stroke = 4pt + navy
+  let stroke = 4.5pt + navy
   box(width: size, height: size * 0.93, {
     place(top + center, circle(radius: r, stroke: stroke))
     place(bottom + left, circle(radius: r, stroke: stroke))
     place(bottom + right, circle(radius: r, stroke: stroke))
-    place(top + center, dy: size * 0.13, text(size: 29pt, fill: navy)[Knowledge])
-    place(left + bottom, dx: size * 0.055, dy: -size * 0.15, text(size: 27pt, fill: navy)[Behavior])
-    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 27pt, fill: navy)[Skills])
-    place(center + horizon, dy: -size * 0.05, text(size: 19pt, weight: "bold", fill: navy)[Professionalization])
+    place(top + center, dy: size * 0.13, text(size: 30pt, weight: "bold", fill: navy)[Knowledge])
+    place(left + bottom, dx: size * 0.05, dy: -size * 0.15, text(size: 28pt, weight: "bold", fill: navy)[Behavior])
+    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 28pt, weight: "bold", fill: navy)[Skills])
   })
 }
 #let pathways() = {
