@@ -206,7 +206,7 @@
 }
 #let pathways() = {
   let card(icon, label) = block(
-    width: 100%, height: 455pt, stroke: 5pt + navy, radius: 34pt, inset: 22pt, breakable: false,
+    width: 100%, height: 455pt, stroke: 5pt + navy, radius: 80pt, inset: 22pt, breakable: false,
     align(center + horizon, stack(dir: ttb, spacing: 18pt, icon, text(size: 44pt, weight: "bold", fill: navy, label))),
   )
   grid(columns: (1fr, 1fr), column-gutter: 24pt, row-gutter: 24pt,
@@ -221,7 +221,7 @@
 // all text is live type.
 #let role-cards() = {
   let row(icon, alt, name, desc) = block(
-    width: 100%, stroke: 4pt + navy, radius: 26pt, inset: (x: 24pt, y: 16pt), breakable: false,
+    width: 100%, stroke: 4pt + navy, radius: 46pt, inset: (x: 24pt, y: 16pt), breakable: false,
     grid(columns: (110pt, 1fr), column-gutter: 24pt, align: horizon,
       align(center, image(icon, height: 92pt, alt: alt)),
       [#text(size: 40pt, weight: "bold", fill: navy, name) \
