@@ -63,7 +63,7 @@
         "scheme": "doi"
       }
     ],
-    "notes": "Poster presented at the US-RSE '26 poster reception, San Jose Marriott. Source: https://github.com/DataSquad-International/poster-usrse26",
+    "notes": "Poster presented at the US-RSE '26 poster reception, San Jose Marriott. Source: https://github.com/DataSquad-International/poster-usrse26. AI assistance: Claude (Anthropic) helped write the layout code and some wording, and Google NotebookLM generated the drawings the icons were traced from. The authors reviewed the output and are responsible for the content.",
     "prereserve_doi": {
       "doi": "10.5281/zenodo.23381638"
     }
