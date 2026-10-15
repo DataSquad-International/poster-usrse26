@@ -366,9 +366,10 @@
   // Header: title and people only. Mark in white on navy.
   block(width: 100%, fill: navy, inset: (x: 56pt, y: 48pt), radius: 6pt, below: 44pt)[
     #grid(
-      columns: (1fr, auto),
-      column-gutter: 50pt,
+      columns: (auto, 1fr),
+      column-gutter: 60pt,
       align: horizon,
+      if logo != none { image(logo, height: 4.6in) },
       [
         #block(below: 0pt, text(fill: white, size: 130pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
         #if subtitle != none [
@@ -381,7 +382,6 @@
           #block(text(fill: muted, size: 38pt, affiliations))
         ]
       ],
-      if logo != none { image(logo, height: 3.2in) },
     )
   ]
 
