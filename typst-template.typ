@@ -192,22 +192,21 @@
 
 // Four cards: what a student gets from the job. Icons are traced from the source drawing to vector (assets/pathways-*.svg);
 // the Venn diagram and every label are live text and shapes, so they stay sharp at print size.
-#let venn(size: 360pt) = {
+#let venn(size: 290pt) = {
   let r = size * 0.31
-  let stroke = 4pt + navy
+  let stroke = 4.5pt + navy
   box(width: size, height: size * 0.93, {
     place(top + center, circle(radius: r, stroke: stroke))
     place(bottom + left, circle(radius: r, stroke: stroke))
     place(bottom + right, circle(radius: r, stroke: stroke))
-    place(top + center, dy: size * 0.13, text(size: 29pt, fill: navy)[Knowledge])
-    place(left + bottom, dx: size * 0.055, dy: -size * 0.15, text(size: 27pt, fill: navy)[Behavior])
-    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 27pt, fill: navy)[Skills])
-    place(center + horizon, dy: -size * 0.05, text(size: 19pt, weight: "bold", fill: navy)[Professionalization])
+    place(top + center, dy: size * 0.13, text(size: 30pt, weight: "bold", fill: navy)[Knowledge])
+    place(left + bottom, dx: size * 0.05, dy: -size * 0.15, text(size: 28pt, weight: "bold", fill: navy)[Behavior])
+    place(right + bottom, dx: -size * 0.075, dy: -size * 0.15, text(size: 28pt, weight: "bold", fill: navy)[Skills])
   })
 }
 #let pathways() = {
   let card(icon, label) = block(
-    width: 100%, height: 455pt, stroke: 5pt + navy, radius: 34pt, inset: 22pt, breakable: false,
+    width: 100%, height: 455pt, stroke: 5pt + navy, radius: 80pt, inset: 22pt, breakable: false,
     align(center + horizon, stack(dir: ttb, spacing: 18pt, icon, text(size: 44pt, weight: "bold", fill: navy, label))),
   )
   grid(columns: (1fr, 1fr), column-gutter: 24pt, row-gutter: 24pt,
@@ -222,7 +221,7 @@
 // all text is live type.
 #let role-cards() = {
   let row(icon, alt, name, desc) = block(
-    width: 100%, stroke: 4pt + navy, radius: 26pt, inset: (x: 24pt, y: 16pt), breakable: false,
+    width: 100%, stroke: 4pt + navy, radius: 46pt, inset: (x: 24pt, y: 16pt), breakable: false,
     grid(columns: (110pt, 1fr), column-gutter: 24pt, align: horizon,
       align(center, image(icon, height: 92pt, alt: alt)),
       [#text(size: 40pt, weight: "bold", fill: navy, name) \
