@@ -88,7 +88,7 @@ Campuses need more data and software help than staff can provide. Students want 
 
 
 
-**Research software habits, when the project needs them.** Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them. Two student-built projects have citation files and DOIs that credit their developers: wbcheck ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)) and the UC OSPO Education site ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)).
+**Student contributions to research software.** Students started wbcheck ([doi:10.5281/zenodo.23329531](https://doi.org/10.5281/zenodo.23329531)) and contributed to the UC OSPO Education site ([doi:10.5281/zenodo.23330022](https://doi.org/10.5281/zenodo.23330022)). Staff expanded wbcheck in 2026 with AI assistance. Depending on project needs, we add run instructions, dependency documentation, tests, and citation files.
 :::
 
 ::: {.cell}
