@@ -30,6 +30,7 @@
     width: 100%, fill: orange, inset: (x: 28pt, y: 18pt), above: 0pt, below: 0pt,
     text(fill: navy, size: 58pt, weight: "bold", it.body),
   ))
+  #set text(size: 36pt)
   #body
 ]
 
@@ -326,7 +327,7 @@
     fill: canvas,
     background: {
       if watermark != none {
-        place(center + horizon, image(watermark, width: 34in))
+        place(center + horizon, image(watermark, width: 28in))
       }
     },
     footer: block(

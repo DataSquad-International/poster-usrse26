@@ -12,7 +12,7 @@ format:
       - typst-show.typ
     # Poster settings (layout lives in typst-template.typ)
     size: "44x44"
-    poster-authors: "Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan"
+    poster-authors: "Paula Lackie, Oliver Hall  |  Tim Dennis, Leigh Phan"
     poster-affiliations: "Carleton College DataSquad  |  UCLA Library Data Science Center DataSquad"
     poster-draft: false  # true shows a DRAFT tag in the footer
     poster-doi: "10.5281/zenodo.23381638"   # reserved Zenodo DOI (draft record); shown in the footer
@@ -100,21 +100,21 @@ Where former student employees work now, in the words of their job titles.
 #word-cloud("data/title-words.csv", height: 320pt)
 ```
 
-# What adopting takes
+# Adapt this for your environment!
 
-Adapt this for your environment! You'll need:
+You'll need:
 
 - Students and a wage budget
 - To care about developing novices
 - Patience
 
 ::: {.startbox}
-# Start a DataSquad
+# You can Start a DataSquad!
 
-::: {.cells columns="1fr 2.2in" gutter="30pt"}
+::: {.cells columns="1fr 1.6in" gutter="24pt"}
 
 ::: {.cell}
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). We can help with supervising students: onboarding, review, attrition, expectations.
+We work to make our materials available for re-use and offer support on multiple levels. Check our site for contact info, a getting started kit, and our open lesson, [Sharing Research Software](https://ucospo.net/research-software-citable-discoverable/). We can also help with supervising students: onboarding, review, attrition management, expectation setting, and more.
 
 ::: {.url}
 [datasquad.info/join](https://datasquad.info/join)
@@ -123,7 +123,7 @@ Get the starter kit for roles, onboarding, confidentiality, and request tracking
 
 ::: {.cell}
 ::: {.block fill="white" inset="0pt" radius="4pt"}
-![](assets/qr-datasquad-info.svg){width=2.2in}
+![](assets/qr-datasquad-info.svg){width=1.6in}
 :::
 :::
 
