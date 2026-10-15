@@ -616,7 +616,7 @@
    size: "44x44", 
    logo: "assets/datasquad-international-mark-white.svg", 
    watermark: "assets/datasquad-international-watermark.svg", 
-   footer-text: [US-RSE '26 · San Jose · Poster reception, Monday Oct 19], 
+   footer-text: [US-RSE '26 · San Jose · Poster reception, Monday Oct 19 · Claude AI & Gemini Notebook were used for formatting and design], 
    footer-url: [datasquad.info], 
   
    doi: "10.5281/zenodo.23381638", 
