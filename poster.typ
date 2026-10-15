@@ -352,6 +352,14 @@
   align(center + horizon, text(size: size, weight: "bold", fill: ink, body)),
 )
 
+// What the Carleton students changed in the election-news scraper (assets/carleton-scraper-improvements.svg, vector).
+// Every item is stated in the Carleton ITS blog post "Election News Analysis project" (3 June 2024).
+#let scraper-visual() = block(width: 100%, breakable: false, above: 12pt, below: 6pt)[
+  #image("assets/carleton-scraper-improvements.svg", width: 100%, alt: "Two columns. Inherited scraper: a Colab notebook, long query waits, no saved progress. Student improvements: organized Python files, query time halved, skip completed queries.")
+  #v(4pt)
+  #text(size: 28pt, fill: rgb("#4A5560"))[Improvements reported by the project team. Source: Carleton ITS blog, Election News Analysis project, June 2024.]
+]
+
 // Nine student developers across two cohorts: seven built it, two extended it.
 #let relay() = {
   let dots(n, fill) = for _ in range(n) { box(width: 52pt, height: 52pt, radius: 26pt, fill: fill, baseline: 10pt); h(14pt) }
@@ -640,13 +648,13 @@ Campuses need more data and software help than staff can provide. Students want 
 = What the work looks like
 <what-the-work-looks-like>
 #carleton[
-#strong[Election-news scraper.] Seven students built it in 2022. Two more extended it from 2023 to 2024 for a political science project that involved over 500,000 transcripts.
+#strong[Election-news scraper.] One student built it, six improved it in 2022, and two more extended it from 2023 to 2024 for a political science project that set out to scrape over 500,000 transcripts. Their changes made long runs faster and easier to resume.
 
-#relay()
+#scraper-visual()
 ]
 #heli-example[*Police helicopter flight data.* Two students brought software skills to a research lab's R code. They refactored it with staff, and the code went through code review. Loading the data fell from about 318 minutes to about 2.]
 #v(30pt)
-#strong[Research software habits, when the project needs them.] Run instructions, a dependency list, one test, and a citation file. We do not treat them as a checklist. We plan to track whether researchers keep them. Two student-built projects have citation files and DOIs that credit their developers: wbcheck (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]) and the UC OSPO Education site (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]).
+#strong[Student contributions to research software.] Students started wbcheck (#link("https://doi.org/10.5281/zenodo.23329531")[doi:10.5281/zenodo.23329531]) and contributed to the UC OSPO Education site (#link("https://doi.org/10.5281/zenodo.23330022")[doi:10.5281/zenodo.23330022]). Staff expanded wbcheck in 2026 with AI assistance. Depending on project needs, we add run instructions, dependency documentation, tests, and citation files.
 
 ],
 [
