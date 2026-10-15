@@ -576,9 +576,10 @@
   // Header: title and people only. Mark in white on navy.
   block(width: 100%, fill: navy, inset: (x: 56pt, y: 48pt), radius: 6pt, below: 44pt)[
     #grid(
-      columns: (1fr, auto),
-      column-gutter: 50pt,
+      columns: (auto, 1fr),
+      column-gutter: 60pt,
       align: horizon,
+      if logo != none { image(logo, height: 4.6in) },
       [
         #block(below: 0pt, text(fill: white, size: 130pt, weight: "bold", top-edge: "cap-height", bottom-edge: "baseline", title))
         #if subtitle != none [
@@ -591,7 +592,6 @@
           #block(text(fill: muted, size: 38pt, affiliations))
         ]
       ],
-      if logo != none { image(logo, height: 3.2in) },
     )
   ]
 
@@ -662,20 +662,21 @@ Campuses need more data and software help than staff can provide. Students want 
 <where-students-go-next>
 Where former student employees work now, in the words of their job titles.
 
-#word-cloud("data/title-words.csv", height: 380pt)
+#word-cloud("data/title-words.csv", height: 320pt)
 = What adopting takes
 <what-adopting-takes>
-- Student positions and a wage budget
-- Supervisors with time to review and coach
-- Onboarding and a home for documentation
-- A plan for turnover
+Adapt this for your environment! You'll need:
+
+- Students and a wage budget
+- To care about developing novices
+- Patience
 
 #startbox[
 = Start a DataSquad
 <start-a-datasquad>
 #grid(columns: (1fr, 2.2in,), column-gutter: 30pt, row-gutter: 40pt,
 [
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. Supervise students? Compare onboarding, review, and graduation handoffs with us.
+Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. We can help with supervising students: onboarding, review, attrition, expectations.
 
 #urltext[
 #link("https://datasquad.info/join")[datasquad.info/join]
