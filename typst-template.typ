@@ -150,7 +150,7 @@
   #text(size: 28pt, fill: rgb("#4A5560"))[Improvements reported by the project team. Source: Carleton ITS blog, Election News Analysis project, June 2024.]
 ]
 
-// Nine student developers across two cohorts: seven built it, two extended it.
+// Twelve student developers across two cohorts: seven built it, two extended it, three more worked to harmonize it.
 #let relay() = {
   let dots(n, fill) = for _ in range(n) { box(width: 52pt, height: 52pt, radius: 26pt, fill: fill, baseline: 10pt); h(14pt) }
   block(width: 100%, breakable: false, above: 14pt, below: 6pt, {
