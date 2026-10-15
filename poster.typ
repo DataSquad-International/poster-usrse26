@@ -240,6 +240,7 @@
     width: 100%, fill: orange, inset: (x: 28pt, y: 18pt), above: 0pt, below: 0pt,
     text(fill: navy, size: 58pt, weight: "bold", it.body),
   ))
+  #set text(size: 36pt)
   #body
 ]
 
@@ -536,7 +537,7 @@
     fill: canvas,
     background: {
       if watermark != none {
-        place(center + horizon, image(watermark, width: 34in))
+        place(center + horizon, image(watermark, width: 28in))
       }
     },
     footer: block(
@@ -611,7 +612,7 @@
 #show: doc => poster(
    title: [DataSquad: An entry point for RSE], 
    subtitle: [Student RSE model for research support, experiential learning, and technical workforce development], 
-   authors: [Paula Lackie, Oliver Hall, Tim Dennis, Leigh Phan], 
+   authors: [Paula Lackie, Oliver Hall | Tim Dennis, Leigh Phan], 
    affiliations: [Carleton College DataSquad | UCLA Library Data Science Center DataSquad], 
    size: "44x44", 
    logo: "assets/datasquad-international-mark-white.svg", 
@@ -663,20 +664,20 @@ Campuses need more data and software help than staff can provide. Students want 
 Where former student employees work now, in the words of their job titles.
 
 #word-cloud("data/title-words.csv", height: 320pt)
-= What adopting takes
-<what-adopting-takes>
-Adapt this for your environment! You'll need:
+= Adapt this for your environment!
+<adapt-this-for-your-environment>
+You'll need:
 
 - Students and a wage budget
 - To care about developing novices
 - Patience
 
 #startbox[
-= Start a DataSquad
-<start-a-datasquad>
-#grid(columns: (1fr, 2.2in,), column-gutter: 30pt, row-gutter: 40pt,
+= You can Start a DataSquad!
+<you-can-start-a-datasquad>
+#grid(columns: (1fr, 1.6in,), column-gutter: 24pt, row-gutter: 40pt,
 [
-Get the starter kit for roles, onboarding, confidentiality, and request tracking. Students learn software sharing from our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. We can help with supervising students: onboarding, review, attrition, expectations.
+We work to make our materials available for re-use and offer support on multiple levels. Check our site for contact info, a getting started kit, and our open lesson, #link("https://ucospo.net/research-software-citable-discoverable/")[Sharing Research Software]. We can also help with supervising students: onboarding, review, attrition management, expectation setting, and more.
 
 #urltext[
 #link("https://datasquad.info/join")[datasquad.info/join]
@@ -689,7 +690,7 @@ fill:white,
 inset:0pt,
 radius:4pt,
 [
-#box(image("assets/qr-datasquad-info.svg", width: 2.2in))
+#box(image("assets/qr-datasquad-info.svg", width: 1.6in))
 
 ])
 
