@@ -65,11 +65,15 @@ After a merge to `main`, CI commits the new `poster.pdf` and `poster.typ` back (
 
 Alumni names, emails, and positions are never committed. Only category counts are. Everything else in `data/` is git-ignored.
 
-The four icons in `assets/pathways-*.svg` (laptop with gears, steps, open book) were traced to vector from an AI-generated drawing (made with Gemini Notebook; its watermark was cropped out and is not in the repo). The Venn diagram and all labels are live text and shapes in `typst-template.typ`. `assets/carleton-scraper-improvements.svg` is a vector comparison of the election-news scraper before and after the students' changes, generated outside the repo (text is outlined, so it is not editable text; regenerate it to change the wording). Its content comes from the Carleton ITS blog post "Election News Analysis project" (3 June 2024), which is credited under it on the poster. The four role icons in `assets/role-*.svg` were traced the same way from the DataSquad roles drawing; the role names and descriptions are live text in `typst-template.typ` (`role-cards`).
+The four icons in `assets/pathways-*.svg` (laptop with gears, steps, open book) were traced to vector from an AI-generated drawing (made with Google NotebookLM; its watermark was cropped out and is not in the repo). The Venn diagram and all labels are live text and shapes in `typst-template.typ`. `assets/carleton-scraper-improvements.svg` is a vector comparison of the election-news scraper before and after the students' changes, generated outside the repo (text is outlined, so it is not editable text; regenerate it to change the wording). Its content comes from the Carleton ITS blog post "Election News Analysis project" (3 June 2024), which is credited under it on the poster. The four role icons in `assets/role-*.svg` were traced the same way from the DataSquad roles drawing; the role names and descriptions are live text in `typst-template.typ` (`role-cards`).
 
 The helicopter photo in `assets/` is by Chris Yarzab, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LAPD_AS350B2-2.jpg). It was cropped and resized. Keep its credit line on the poster.
 
 Style follows datasquad.info: navy `#1D3557`, steel `#457B9D`, orange `#F9AE1A`, Atkinson Hyperlegible.
+
+## AI assistance
+
+Claude (Anthropic), used through Claude Code, helped write and revise the layout code (Quarto and Typst), the data scripts, and drafts of some wording. Google NotebookLM was used to generate the drawings that the poster icons were traced from. The authors reviewed the output and are responsible for the content. AI tools are not listed as authors. Where that matters for a file, it is noted next to the file (for example the traced icons above). If you reuse this poster, keep this disclosure or write your own.
 
 ## Cite and license
 

@@ -7,7 +7,9 @@ abstract: >-
   (US-RSE '26, San Jose). It describes the DataSquad model, in which paid
   undergraduate analysts support researchers with data and learn the work by
   doing it, using examples from the Carleton College and UCLA programs. This
-  repository holds the poster source (Quarto and Typst), not the alumni data.
+  repository holds the poster source (Quarto and Typst), not the alumni data. AI assistance: Claude (Anthropic) helped write the layout
+  code and some wording, and Google NotebookLM generated the drawings the icons
+  were traced from; the authors reviewed the output and are responsible for it.
 authors:
   - family-names: Lackie
     given-names: Paula
