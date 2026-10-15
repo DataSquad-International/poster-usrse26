@@ -622,7 +622,7 @@
 Paid students contribute to research and build RSE skills while they do it.
 
 ]
-Campuses need more data and software help than staff can provide. Courses don't cover everything, and the code researchers write often goes without support. DataSquads close that gap.
+Campuses need more data and software help than staff can provide. Students want this experience, but their courses can't cover everything. DataSquads fill this gap.
 
 ],
 [
